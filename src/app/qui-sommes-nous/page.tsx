@@ -4,7 +4,7 @@ import React from 'react';
 import Breadcrumb from '@/components/navigation/Breadcrumb';
 import Footer from '@/components/layout/Footer';
 
-const HomePage = () => {
+const QuiSommesNousPage = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Breadcrumb />
@@ -20,7 +20,7 @@ const HomePage = () => {
             <div className="text-center mb-16">
               <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4 relative inline-block">
                 <span className="bg-gradient-to-r from-[#7CB9E8] to-[#007FFF] bg-clip-text text-transparent">
-                  Bienvenue chez Distritherm
+                  Qui Sommes Nous ?
                 </span>
                 <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-[#7CB9E8] to-[#007FFF] rounded-full"></div>
               </h1>
@@ -33,4 +33,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default QuiSommesNousPage; 
