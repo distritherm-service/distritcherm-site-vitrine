@@ -1,10 +1,21 @@
 "use client";
-import React from 'react';
+import React, { useState } from 'react';
 import { FaPhoneAlt, FaEnvelope, FaUser } from 'react-icons/fa';
 import Link from 'next/link';
 import Image from 'next/image';
+import RappelModal from '../modals/RappelModal';
 
 const Navbar: React.FC = () => {
+  const [isRappelModalOpen, setIsRappelModalOpen] = useState(false);
+
+  const openRappelModal = () => {
+    setIsRappelModalOpen(true);
+  };
+
+  const closeRappelModal = () => {
+    setIsRappelModalOpen(false);
+  };
+
   return (
     <div className="w-full fixed top-0 left-0 z-50">
       {/* Bandeau supérieur */}
@@ -15,7 +26,12 @@ const Navbar: React.FC = () => {
         </div>
         <div className="flex items-center space-x-8">
           <a href="#contact" className="inline-flex items-center gap-2 text-white font-semibold no-underline text-lg transition-transform duration-200 hover:scale-105"><FaUser className="text-blue-400 text-xl" /> Contact</a>
-          <span className="text-[#1abc9c] inline-flex items-center gap-2 cursor-pointer text-lg animate-pulse-glow p-2 rounded-lg"><FaPhoneAlt className="inline text-xl" /> Rappel-moi</span>
+          <span 
+            className="text-[#1abc9c] inline-flex items-center gap-2 cursor-pointer text-lg animate-pulse-glow p-2 rounded-lg hover:bg-[#181e29]/30 transition-all duration-300"
+            onClick={openRappelModal}
+          >
+            <FaPhoneAlt className="inline text-xl" /> Rappel-moi
+          </span>
         </div>
       </div>
 
@@ -83,12 +99,16 @@ const Navbar: React.FC = () => {
 
           {/* Bouton à droite */}
           <div className="flex-shrink-0 flex items-center ml-12" style={{ minWidth: '120px', justifyContent: 'flex-end' }}>
-            <button className="bg-[#38bdf8] hover:bg-[#0ea5e9] text-white font-semibold py-3 px-8 rounded transition-all duration-300 text-lg hover:shadow-2xl hover:scale-105 focus:scale-95 active:scale-95">
-              Obtenir un devis
+            <button className="bg-gradient-to-r from-[#38bdf8] to-[#0ea5e9] text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 text-lg hover:shadow-lg hover:shadow-[#38bdf8]/30 hover:scale-105 focus:scale-95 active:scale-95 relative overflow-hidden group">
+              <span className="relative z-10">Obtenir un devis</span>
+              <span className="absolute inset-0 bg-gradient-to-r from-[#0ea5e9] to-[#0284c7] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
             </button>
           </div>
         </div>
       </nav>
+
+      {/* Modal de rappel */}
+      <RappelModal isOpen={isRappelModalOpen} onClose={closeRappelModal} />
 
       {/* Animations CSS custom */}
       <style jsx global>{`
