@@ -202,7 +202,7 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-blue-50 via-white to-[#7CB9E8]/30">
       {/* Fond global avec motif de grille et effets blob */}
-      <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-[0.2] pointer-events-none" />
+      {/* <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-[0.2] pointer-events-none" /> */}
       <div className="absolute w-96 h-96 -top-48 -left-48 bg-[#7CB9E8] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob" />
       <div className="absolute w-96 h-96 top-1/3 -right-48 bg-[#007FFF] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob-delay-2000" />
       <div className="absolute w-96 h-96 -bottom-48 left-1/3 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob-delay-4000" />

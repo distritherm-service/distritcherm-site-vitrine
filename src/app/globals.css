@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,3 +6,35 @@ nextjs-portal, .nextjs-toast-errors-parent {
     display: none !important;
 }
 /* Vos styles personnalisés peuvent être ajoutés ici */
+
+/* Animations et styles personnalisés */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.9s cubic-bezier(.4,0,.2,1) both;
+}
+
+.animate-fade-in.delay-100 { animation-delay: 0.1s; }
+.animate-fade-in.delay-200 { animation-delay: 0.2s; }
+
+/* Style pour le titre principal */
+.title-underline {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+
+.title-underline::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 3px;
+  background: linear-gradient(to right, #7CB9E8, #007FFF);
+  border-radius: 9999px;
+}
