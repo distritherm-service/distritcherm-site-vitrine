@@ -9,6 +9,7 @@ import { MdSupportAgent, MdEnergySavingsLeaf } from 'react-icons/md';
 import { GiHeatHaze, GiWaterDrop, GiSnowflake1 } from 'react-icons/gi';
 import { TbTemperature } from 'react-icons/tb';
 import Footer from '@/components/layout/Footer';
+import BackButton from '@/components/BackButton';
 
 // Animation variants
 const fadeIn = {
@@ -78,35 +79,61 @@ const IsolationPage = () => {
         {/* Contenu principal */}
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
-            <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeIn}
-              className="max-w-4xl mx-auto mb-16"
-            >
-              <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-800">
-                Vous êtes professionnel du bâtiment à la recherche de solutions d'isolation de qualité ?
-              </h2>
-              <div className="prose prose-lg max-w-none text-gray-700">
-                <p>
-                  Dans un contexte où les normes énergétiques se renforcent et où la performance thermique des bâtiments devient primordiale, choisir les bonnes solutions d'isolation est essentiel pour la réussite de vos chantiers. La qualité des matériaux et la fiabilité de vos fournisseurs sont déterminantes pour garantir des résultats conformes aux attentes de vos clients.
-                </p>
-                <p>
-                  Que vous soyez artisan, entreprise de construction ou spécialiste de la rénovation énergétique, votre expertise mérite d'être soutenue par un partenaire de confiance. DISTRITHERM Services, présent à Taverny et Drancy, s'engage à vos côtés pour tous vos projets d'isolation en Île-de-France, de Franconville à Bobigny, en passant par Argenteuil et Le Blanc-Mesnil, ainsi que dans toute la France.
-                </p>
-              </div>
-            </motion.div>
+            {/* Section 1 : Texte + Image à droite */}
+            <div className="flex flex-col md:flex-row items-stretch gap-12 mb-24">
+              <motion.div 
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeIn}
+                className="flex-1 flex flex-col justify-center"
+              >
+                <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-800">
+                  Vous êtes professionnel du bâtiment à la recherche de solutions d'isolation de qualité ?
+                </h2>
+                <div className="prose prose-lg max-w-none text-gray-700">
+                  <p>
+                    Dans un contexte où les normes énergétiques se renforcent et où la performance thermique des bâtiments devient primordiale, choisir les bonnes solutions d'isolation est essentiel pour la réussite de vos chantiers. La qualité des matériaux et la fiabilité de vos fournisseurs sont déterminantes pour garantir des résultats conformes aux attentes de vos clients.
+                  </p>
+                  <p>
+                    Que vous soyez artisan, entreprise de construction ou spécialiste de la rénovation énergétique, votre expertise mérite d'être soutenue par un partenaire de confiance. DISTRITHERM Services, présent à Taverny et Drancy, s'engage à vos côtés pour tous vos projets d'isolation en Île-de-France, de Franconville à Bobigny, en passant par Argenteuil et Le Blanc-Mesnil, ainsi que dans toute la France.
+                  </p>
+                </div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9, x: 80 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                viewport={{ once: true }}
+                className="flex-1 flex justify-center items-stretch"
+              >
+                <div className="relative w-full h-full min-h-[280px] rounded-3xl overflow-hidden bg-white shadow-xl">
+                  <Image
+                    src="/isolation1.jpeg"
+                    alt="Isolation chantier"
+                    fill
+                    className="object-cover rounded-3xl hover:scale-105 hover:shadow-2xl transition-transform duration-300 max-w-[300px] max-h-[350px] mx-auto my-auto"
+                  />
+                </div>
+              </motion.div>
+            </div>
 
-            {/* Gamme complète */}
-            <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeIn}
-              className="bg-gray-50 rounded-3xl p-8 mb-16 shadow-sm border border-gray-100"
-            >
-              <div className="max-w-4xl mx-auto">
+            {/* Séparateur décoratif */}
+            <div className="w-full flex justify-center mb-16">
+              <svg width="180" height="32" viewBox="0 0 180 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="90" cy="16" rx="90" ry="16" fill="#7CB9E8" fillOpacity="0.12" />
+              </svg>
+            </div>
+
+            {/* Section 2 : Image à gauche + texte */}
+            <div className="flex flex-col md:flex-row-reverse items-stretch gap-12 mb-24">
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeIn}
+                className="flex-1 flex flex-col justify-center"
+              >
                 <h2 className="text-3xl font-bold mb-6 text-gray-800">
                   Une gamme complète de solutions d'isolation en stock
                 </h2>
@@ -129,32 +156,73 @@ const IsolationPage = () => {
                     href="/contact" 
                     className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl shadow-md hover:bg-blue-700 transition-colors duration-300"
                   >
-                    Découvrir nos produits
+                    Demander un devis 
                   </Link>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9, x: -80 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                viewport={{ once: true }}
+                className="flex-1 flex justify-center items-stretch"
+              >
+                <div className="relative w-full h-full min-h-[280px] rounded-3xl overflow-hidden bg-white shadow-xl">
+                  <Image
+                    src="/isolation2.jpeg"
+                    alt="Gamme isolation"
+                    fill
+                    className="object-cover rounded-3xl hover:scale-105 hover:shadow-2xl transition-transform duration-300"
+                  />
+                </div>
+              </motion.div>
+            </div>
 
-            {/* L'expertise DISTRITHERM */}
-            <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeIn}
-              className="max-w-4xl mx-auto mb-16"
-            >
-              <h2 className="text-3xl font-bold mb-8 text-gray-800">
-                L'expertise DISTRITHERM pour vous servir
-              </h2>
-              <div className="prose prose-lg max-w-none text-gray-700">
-                <p>
-                  Professionnels du bâtiment de formation, chez DISTRITHERM Services, nous ne laissons aucune place au hasard. Notre équipe technique maîtrise toutes les spécificités de chaque solution d'isolation proposée en magasin.
-                </p>
-                <p>
-                  Ensemble, nous trouvons les matériaux adaptés à vos projets. Nous vous guidons dans le choix des isolants, l'évaluation des performances thermiques et acoustiques, et la sélection des accessoires nécessaires. De l'étude thermique préliminaire à la mise en œuvre, nous vous accompagnons à chaque étape. Nous analysons avec vous les contraintes spécifiques du bâtiment : type de construction, exposition, réglementation applicable, pour vous recommander la solution idéale.
-                </p>
-              </div>
-            </motion.div>
+            {/* Séparateur décoratif */}
+            <div className="w-full flex justify-center mb-16">
+              <svg width="180" height="32" viewBox="0 0 180 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="90" cy="16" rx="90" ry="16" fill="#007FFF" fillOpacity="0.10" />
+              </svg>
+            </div>
+
+            {/* Section 3 : Texte + Image à droite */}
+            <div className="flex flex-col md:flex-row items-stretch gap-12 mb-24">
+              <motion.div 
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeIn}
+                className="flex-1 flex flex-col justify-center"
+              >
+                <h2 className="text-3xl font-bold mb-8 text-gray-800">
+                  L'expertise DISTRITHERM pour vous servir
+                </h2>
+                <div className="prose prose-lg max-w-none text-gray-700">
+                  <p>
+                    Professionnels du bâtiment de formation, chez DISTRITHERM Services, nous ne laissons aucune place au hasard. Notre équipe technique maîtrise toutes les spécificités de chaque solution d'isolation proposée en magasin.
+                  </p>
+                  <p>
+                    Ensemble, nous trouvons les matériaux adaptés à vos projets. Nous vous guidons dans le choix des isolants, l'évaluation des performances thermiques et acoustiques, et la sélection des accessoires nécessaires. De l'étude thermique préliminaire à la mise en œuvre, nous vous accompagnons à chaque étape. Nous analysons avec vous les contraintes spécifiques du bâtiment : type de construction, exposition, réglementation applicable, pour vous recommander la solution idéale.
+                  </p>
+                </div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9, x: 80 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                viewport={{ once: true }}
+                className="flex-1 flex justify-center items-stretch"
+              >
+                <div className="relative w-full h-full min-h-[280px] rounded-3xl overflow-hidden bg-white shadow-xl">
+                  <Image
+                    src="/isolation3.jpg"
+                    alt="Expertise isolation"
+                    fill
+                    className="object-cover rounded-3xl hover:scale-105 hover:shadow-2xl transition-transform duration-300"
+                  />
+                </div>
+              </motion.div>
+            </div>
 
             {/* Stock complet */}
             <motion.div 
@@ -324,6 +392,7 @@ const IsolationPage = () => {
           </div>
         </section>
       </main>
+      <BackButton />
       <Footer />
     </div>
   );

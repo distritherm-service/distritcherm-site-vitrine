@@ -6,6 +6,10 @@ import HomeSlider from '@/components/acceuil/HomeSlider';
 import ServicesSection from '@/components/acceuil/ServicesSection';
 import GammeSection from '@/components/acceuil/GammeSection';
 import AProposSection from '@/components/acceuil/AProposSection';
+import DevisSection from '@/components/acceuil/DevisSection';
+import OffreCompleteSection from '@/components/acceuil/OffreCompleteSection';
+import ExpertSection from '@/components/acceuil/ExpertSection';
+import ValuePropositionSection from '@/components/acceuil/ValuePropositionSection';
 
 const HomePage = () => {
   return (
@@ -20,6 +24,15 @@ const HomePage = () => {
         
         {/* Section Découvrez notre gamme */}
         <GammeSection />
+        
+        {/* Section Devis */}
+        <DevisSection />
+        {/* offre complete section */}
+        <OffreCompleteSection />
+        {/* Section Expert */}
+        <ExpertSection />
+        {/* Section Valeur Ajoutée */}
+        <ValuePropositionSection />
       </main>
       <Footer />
     </div>

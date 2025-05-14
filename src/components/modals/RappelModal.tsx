@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useRef, useEffect } from 'react';
 import { FaPhoneAlt, FaTimes } from 'react-icons/fa';
+import { rappelService } from '../../services';
 
 interface RappelModalProps {
   isOpen: boolean;
@@ -12,6 +13,7 @@ const RappelModal: React.FC<RappelModalProps> = ({ isOpen, onClose }) => {
   const [telephone, setTelephone] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   
   const modalRef = useRef<HTMLDivElement>(null);
   
@@ -51,23 +53,31 @@ const RappelModal: React.FC<RappelModalProps> = ({ isOpen, onClose }) => {
     if (!nom || !telephone) return;
     
     setIsSubmitting(true);
+    setErrorMessage(null);
     
     try {
-      // Simulation d'envoi de données
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Appel au service de rappel
+      const response = await rappelService.requestCallback({
+        fullName: nom,
+        phoneNumber: telephone
+      });
       
-      console.log('Demande de rappel:', { nom, telephone });
-      setSubmitSuccess(true);
-      
-      // Reset form après 2 secondes
-      setTimeout(() => {
-        setNom('');
-        setTelephone('');
-        setSubmitSuccess(false);
-        onClose();
-      }, 2000);
+      if (response.success) {
+        setSubmitSuccess(true);
+        
+        // Reset form après 2 secondes
+        setTimeout(() => {
+          setNom('');
+          setTelephone('');
+          setSubmitSuccess(false);
+          onClose();
+        }, 2000);
+      } else {
+        setErrorMessage(response.message);
+      }
     } catch (error) {
       console.error('Erreur lors de la soumission:', error);
+      setErrorMessage('Une erreur est survenue lors de la demande de rappel');
     } finally {
       setIsSubmitting(false);
     }
@@ -112,6 +122,12 @@ const RappelModal: React.FC<RappelModalProps> = ({ isOpen, onClose }) => {
                 Laissez-nous vos coordonnées et nous vous rappellerons dans les plus brefs délais.
               </p>
               
+              {errorMessage && (
+                <div className="bg-red-50 border-l-4 border-red-500 p-4 mb-6">
+                  <p className="text-red-700 text-sm">{errorMessage}</p>
+                </div>
+              )}
+              
               <div className="mb-4">
                 <label htmlFor="nom" className="block text-sm font-medium text-gray-700 mb-1">
                   Nom
@@ -122,6 +138,7 @@ const RappelModal: React.FC<RappelModalProps> = ({ isOpen, onClose }) => {
                   value={nom}
                   onChange={(e) => setNom(e.target.value)}
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#0ea5e9] focus:border-transparent outline-none transition-all"
+                  placeholder='jeau'
                   required
                 />
               </div>

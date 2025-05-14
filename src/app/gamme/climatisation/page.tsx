@@ -8,7 +8,7 @@ import { FaLeaf, FaShieldAlt, FaTruck, FaTools, FaRegLightbulb, FaRegClock } fro
 import { GiSnowflake1, GiHeatHaze } from 'react-icons/gi';
 import { MdSupportAgent, MdEngineering } from 'react-icons/md';
 import { BsThermometerHalf } from 'react-icons/bs';
-import Breadcrumb from '@/components/navigation/Breadcrumb';
+//import Breadcrumb from '@/components/navigation/Breadcrumb';
 import Footer from '@/components/layout/Footer';
 
 // Animation variants
@@ -100,14 +100,14 @@ const ClimatisationPage = () => {
             </motion.div>
 
             {/* Solutions de climatisation */}
-            <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeIn}
-              className="bg-gray-50 rounded-3xl p-8 mb-16 shadow-sm border border-gray-100"
-            >
-              <div className="max-w-4xl mx-auto">
+            <div className="flex flex-col md:flex-row items-stretch gap-12 mb-24">
+              <motion.div 
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeIn}
+                className="flex-1 flex flex-col justify-center"
+              >
                 <h2 className="text-3xl font-bold mb-6 text-gray-800">
                   Des solutions de climatisation de grande qualité
                 </h2>
@@ -138,56 +138,85 @@ const ClimatisationPage = () => {
                     href="/contact" 
                     className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl shadow-md hover:bg-blue-700 transition-colors duration-300"
                   >
-                    Découvrir nos produits
+                    Demande un devis
                   </Link>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9, x: 80 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                viewport={{ once: true }}
+                className="flex-1 flex justify-center items-stretch"
+              >
+                <div className="relative w-full h-full min-h-[280px] rounded-3xl overflow-hidden bg-white shadow-xl">
+                  <Image
+                    src="/climatisation1.png"
+                    alt="Climatisation chantier"
+                    fill
+                    className="object-cover rounded-3xl hover:scale-105 hover:shadow-2xl transition-transform duration-300 max-w-[300px] max-h-[350px] mx-auto my-auto"
+                  />
+                </div>
+              </motion.div>
+            </div>
 
             {/* Expertise et conseil */}
-            <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeIn}
-              className="max-w-4xl mx-auto mb-16"
-            >
-              <h2 className="text-3xl font-bold mb-8 text-gray-800">
-                Une expertise à votre service
-              </h2>
-              <div className="prose prose-lg max-w-none text-gray-700">
-                <p>
-                  Caractéristiques, performance, prix, ... Que choisir ? On peut vite se perdre dans cette ère où tout évolue vitesse grand V. Nos relations de qualité avec nos fournisseurs nous permettent d'être à la pointe et de vous proposer un service et des conseils personnalisés pour vous faire gagner du temps et de l'énergie.
-                </p>
-                <p>
-                  Vous pouvez demander à nos équipes de l'aide pour :
-                </p>
-                <ul>
-                  <li>l'installation d'une pompe à chaleur air/air ou air/eau,</li>
-                  <li>la mise en place d'un monobloc ou multi-split, constitué d'une unité extérieure raccordée à une ou plusieurs unités intérieures en fonction de vos besoins et exigences.</li>
-                  <li>trouver la pompe à chaleur réversible employée à la fois pour le chauffage et pour le rafraîchissement.</li>
-                </ul>
-                <p>
-                  Afin d'accompagner votre installation de climatisation, retrouvez les pompes à condensats, les goulottes en stock dans notre magasin et notre gamme accessoires complémentaire comme les cuivres frigorifiques, les supports anti-vibrations, les chaises de supportage, les gaines galvanisées.
-                </p>
-              </div>
-            </motion.div>
+            <div className="flex flex-col md:flex-row-reverse items-stretch gap-12 mb-24">
+              <motion.div 
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeIn}
+                className="flex-1 flex flex-col justify-center"
+              >
+                <h2 className="text-3xl font-bold mb-8 text-gray-800">
+                  Une expertise à votre service
+                </h2>
+                <div className="prose prose-lg max-w-none text-gray-700">
+                  <p>
+                    Caractéristiques, performance, prix, ... Que choisir ? On peut vite se perdre dans cette ère où tout évolue vitesse grand V. Nos relations de qualité avec nos fournisseurs nous permettent d'être à la pointe et de vous proposer un service et des conseils personnalisés pour vous faire gagner du temps et de l'énergie.
+                  </p>
+                  <p>
+                    Vous pouvez demander à nos équipes de l'aide pour :
+                  </p>
+                  <ul>
+                    <li>l'installation d'une pompe à chaleur air/air ou air/eau,</li>
+                    <li>la mise en place d'un monobloc ou multi-split, constitué d'une unité extérieure raccordée à une ou plusieurs unités intérieures en fonction de vos besoins et exigences.</li>
+                    <li>trouver la pompe à chaleur réversible employée à la fois pour le chauffage et pour le rafraîchissement.</li>
+                  </ul>
+                  <p>
+                    Afin d'accompagner votre installation de climatisation, retrouvez les pompes à condensats, les goulottes en stock dans notre magasin et notre gamme accessoires complémentaire comme les cuivres frigorifiques, les supports anti-vibrations, les chaises de supportage, les gaines galvanisées.
+                  </p>
+                </div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9, x: -80 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                viewport={{ once: true }}
+                className="flex-1 flex justify-center items-stretch"
+              >
+                <div className="relative w-full h-full min-h-[280px] rounded-3xl overflow-hidden bg-white shadow-xl">
+                  <Image
+                    src="/climatisation2.png"
+                    alt="Gamme climatisation"
+                    fill
+                    className="object-cover rounded-3xl hover:scale-105 hover:shadow-2xl transition-transform duration-300 max-w-[400px] max-h-[370px] mx-auto my-auto"
+                  />
+                </div>
+              </motion.div>
+            </div>
 
             {/* Solutions VRV/VRF */}
-            <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeIn}
-              className="bg-gradient-to-r from-blue-50 to-blue-100 rounded-3xl p-8 mb-16 shadow-sm border border-blue-200"
-            >
-              <div className="max-w-4xl mx-auto">
-                <div className="flex items-center justify-center mb-6">
-                  <div className="bg-blue-600 p-4 rounded-full">
-                    <GiSnowflake1 className="text-white w-8 h-8" />
-                  </div>
-                </div>
-                <h2 className="text-3xl font-bold mb-6 text-gray-800 text-center">
+            <div className="flex flex-col md:flex-row items-stretch gap-12 mb-24">
+              <motion.div 
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeIn}
+                className="flex-1 flex flex-col justify-center"
+              >
+                <h2 className="text-3xl font-bold mb-6 text-gray-800">
                   Solutions VRV/VRF pour projets d'envergure
                 </h2>
                 <div className="prose prose-lg max-w-none text-gray-700">
@@ -201,8 +230,24 @@ const ClimatisationPage = () => {
                     Ces technologies de pointe permettent de gérer individuellement la température de chaque zone tout en optimisant la consommation énergétique. Nos conseillers techniques spécialisés vous accompagnent dans le dimensionnement de la machine et dans la sélection des équipements pour chaque chantier sur lequel vous intervenez. Etudier votre dossier, évaluer la puissance nécessaire, sensibiliser le client sur la technicité et l'efficacité du produit requis fait partie de notre travail.
                   </p>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9, x: 80 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                viewport={{ once: true }}
+                className="flex-1 flex justify-center items-stretch"
+              >
+                <div className="relative w-full h-full min-h-[280px] rounded-3xl overflow-hidden bg-white shadow-xl">
+                  <Image
+                    src="/climatisation3.png"
+                    alt="Expertise climatisation"
+                    fill
+                    className="object-cover rounded-3xl hover:scale-105 hover:shadow-2xl transition-transform duration-300 max-w-[400px] max-h-250px] mx-auto my-auto"
+                  />
+                </div>
+              </motion.div>
+            </div>
 
             {/* Nos conseils */}
             <motion.div 
@@ -322,14 +367,14 @@ const ClimatisationPage = () => {
                     Prix et conditions sur demande via l'espace contact ou par téléphone.
                   </p>
                 </div>
-                <div className="mt-8">
+                {/* <div className="mt-8">
                   <Link 
                     href="/contact" 
                     className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl shadow-md hover:bg-blue-700 transition-colors duration-300"
                   >
                     Nous contacter
                   </Link>
-                </div>
+                </div> */}
               </div>
             </motion.div>
 

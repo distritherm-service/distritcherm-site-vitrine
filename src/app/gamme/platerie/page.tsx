@@ -10,6 +10,7 @@ import { MdSupportAgent, MdConstruction } from 'react-icons/md';
 import { BsFillHouseFill } from 'react-icons/bs';
 import Breadcrumb from '@/components/navigation/Breadcrumb';
 import Footer from '@/components/layout/Footer';
+import BackButton from '@/components/BackButton';
 
 // Animation variants
 const fadeIn = {
@@ -79,28 +80,180 @@ const PlateriePage = () => {
         {/* Contenu principal */}
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
-            <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeIn}
-              className="max-w-4xl mx-auto mb-16"
-            >
-              <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-800">
-                Artisan spécialiste du second œuvre, à la recherche de produits de qualité pour vos chantiers ?
-              </h2>
-              <div className="prose prose-lg max-w-none text-gray-700">
-                <p>
-                  Distritherm Services comprend l'importance de disposer des bons produits à tout moment. C'est pourquoi nous vous proposons une large gamme de plaques de plâtre stockée en permanence pour parfaire vos chantiers.
-                </p>
-                <p>
-                  Aménagement, isolation, décoration des espaces intérieurs... De la préparation des plafonds, des murs et des cloisons en neuf ou en rénovation, vous recherchez une isolation thermique et acoustique performante tout en respectant la réglementation. Notre équipe Distritherm Services vous propose de nombreuses références produits pour réussir vos projets.
-                </p>
-                <p>
-                  Pour compléter votre approvisionnement en plaques, vous trouverez des enduits de plâtre lisses et décoratifs manuellement ou mécaniquement et les accessoires appropriés comme le mélangeur, les spatules, les couteaux à mastic, les bandes à joint....pour travailler dans les meilleures conditions.
-                </p>
-              </div>
-            </motion.div>
+            {/* Section 1 : Texte + Image à droite */}
+            <div className="flex flex-col md:flex-row items-stretch gap-12 mb-24">
+              <motion.div 
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeIn}
+                className="flex-1 flex flex-col justify-center"
+              >
+                <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-800">
+                  Artisan spécialiste du second œuvre, à la recherche de produits de qualité pour vos chantiers ?
+                </h2>
+                <div className="prose prose-lg max-w-none text-gray-700">
+                  <p>
+                    Distritherm Services comprend l'importance de disposer des bons produits à tout moment. C'est pourquoi nous vous proposons une large gamme de plaques de plâtre stockée en permanence pour parfaire vos chantiers.
+                  </p>
+                  <p>
+                    Aménagement, isolation, décoration des espaces intérieurs... De la préparation des plafonds, des murs et des cloisons en neuf ou en rénovation, vous recherchez une isolation thermique et acoustique performante tout en respectant la réglementation. Notre équipe Distritherm Services vous propose de nombreuses références produits pour réussir vos projets.
+                  </p>
+                  <p>
+                    Pour compléter votre approvisionnement en plaques, vous trouverez des enduits de plâtre lisses et décoratifs manuellement ou mécaniquement et les accessoires appropriés comme le mélangeur, les spatules, les couteaux à mastic, les bandes à joint....pour travailler dans les meilleures conditions.
+                  </p>
+                </div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9, x: 80 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                viewport={{ once: true }}
+                className="flex-1 flex justify-center items-stretch"
+              >
+                <div className="relative w-full h-full min-h-[280px] rounded-3xl overflow-hidden bg-white shadow-xl">
+                  <Image
+                    src="/platerie1.jpeg"
+                    alt="Plâtrerie chantier"
+                    fill
+                    className="object-cover rounded-3xl hover:scale-105 hover:shadow-2xl transition-transform duration-300"
+                  />
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Séparateur décoratif */}
+            <div className="w-full flex justify-center mb-16">
+              <svg width="180" height="32" viewBox="0 0 180 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="90" cy="16" rx="90" ry="16" fill="#7CB9E8" fillOpacity="0.12" />
+              </svg>
+            </div>
+
+            {/* Section 2 : Image à gauche + texte */}
+            <div className="flex flex-col md:flex-row-reverse items-stretch gap-12 mb-24">
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeIn}
+                className="flex-1 flex flex-col justify-center"
+              >
+                <h2 className="text-3xl font-bold mb-6 text-gray-800">
+                  Une gamme complète et des solutions adaptées à chaque configuration
+                </h2>
+                <div className="prose prose-lg max-w-none text-gray-700">
+                  <p>
+                    Matériau incontournable sur les chantiers, composé d'un cœur en plâtre compressé entre deux feuilles de carton, la plaque de plâtre offre de nombreux avantages. Léger et facile à manipuler, elle permet un montage rapide des cloisons et des plafonds. Sa surface lisse est idéale pour recevoir peinture, papier peint ou carrelage. Elle présente d'excellentes propriétés d'isolation thermique et acoustique, contribuant ainsi au confort de vie et à la qualité de l'air au sein des bâtiments.
+                  </p>
+                  <p>
+                    Pour répondre à la diversité des besoins de nos clients artisans, plâtriers, plaquiste et autres professionnels, nous proposons chez DISTRITHERM Services une large sélection de plaques :
+                  </p>
+                  <ul>
+                    <li>Vous trouverez ainsi des plaques standards, parfaites pour les cloisons et doublages courants.</li>
+                    <li>Pour les pièces humides comme les salles de bain, optez pour les plaques hydrofuges type Diamant BA13 Cleaneo résistantes à l'humidité.</li>
+                    <li>Une gamme plaques coupe-feu offrant une protection renforcée contre les incendies.</li>
+                    <li>Des plaques haute dureté pour une résistance aux chocs ou aux charges lourdes.</li>
+                    <li>Et pour une performance thermique et phonique optimale, choisissez nos plaques de plâtre phonique avec isolant intégré.</li>
+                  </ul>
+                  <p>
+                    Dimensions disponibles :
+                  </p>
+                  <ul>
+                    <li>2 largeurs : 1200 mm, 600 mm</li>
+                    <li>5 longueurs : 2500 mm / 2600 mm / 2700 mm / 2800 mm / 3000 mm</li>
+                    <li>Épaisseur : 13 mm, 15 mm, 18 mm, 25 mm</li>
+                  </ul>
+                  <p>
+                    Car chaque chantier est différent et nous le savons, nous sommes en mesure de vous fournir des panneaux spécifiques pour la protection contre les rayons X notamment utilisés dans les hôpitaux, des plaques anti-effraction pour les cloisons séparatives, ainsi que des cloisons résistantes aux balles, destinées aux institutions requérant une sécurité maximale ou à des centres d'entraînement de tir par exemple.
+                  </p>
+                </div>
+                <div className="mt-8 flex flex-wrap gap-4">
+                  <Link 
+                    href="/contact" 
+                    className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl shadow-md hover:bg-blue-700 transition-colors duration-300"
+                  >
+                    Voir tous nos produits
+                  </Link>
+                  <Link 
+                    href="/contact" 
+                    className="inline-flex items-center px-6 py-3 bg-gray-200 text-gray-800 font-semibold rounded-xl shadow-md hover:bg-gray-300 transition-colors duration-300"
+                  >
+                    Demander un devis
+                  </Link>
+                </div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9, x: -80 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                viewport={{ once: true }}
+                className="flex-1 flex justify-center items-stretch"
+              >
+                <div className="relative w-full h-full min-h-[280px] rounded-3xl overflow-hidden bg-white shadow-xl">
+                  <Image
+                    src="/platerie2.png"
+                    alt="Plaques de plâtre"
+                    fill
+                    className="object-cover rounded-3xl hover:scale-105 hover:shadow-2xl transition-transform duration-300 bg-white"
+                  />
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Séparateur décoratif */}
+            <div className="w-full flex justify-center mb-16">
+              <svg width="180" height="32" viewBox="0 0 180 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="90" cy="16" rx="90" ry="16" fill="#007FFF" fillOpacity="0.10" />
+              </svg>
+            </div>
+
+            {/* Section 3 : Texte + Image à droite */}
+            <div className="flex flex-col md:flex-row items-stretch gap-12 mb-24">
+              <motion.div 
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeIn}
+                className="flex-1 flex flex-col justify-center"
+              >
+                <h2 className="text-3xl font-bold mb-8 text-gray-800">
+                  Solutions pour plafonds
+                </h2>
+                <div className="prose prose-lg max-w-none text-gray-700">
+                  <p>
+                    Vous envisagez la conception ou la rénovation d'un plafond? Avec notre sélection de faux plafonds et nos plaques de plâtre Knauf, rien de plus simple.
+                  </p>
+                  <p>
+                    Vous trouverez des dalles standard en blanc ou encore en couleur pour une personnalisation accrue afin d'illuminer votre espace.
+                  </p>
+                  <p>
+                    Des plafonds suspendus équipés de dalles acoustiques permettent une isolation phonique optimale de la pièce. Ceci est particulièrement utile dans les grands espaces tels que les bureaux en open-office ou les lieux bruyants comme les cantines et restaurants scolaires ou amphithéâtres.
+                  </p>
+                  <p>
+                    Une gamme standard stockée vous offre la possibilité de répondre et traiter vos demandes les plus habituelles avec des carreaux de 600 x 600 mm par exemple, ou dans d'autres dimensions comme le 600 x 1500 mm ou 800 x 800 mm.
+                  </p>
+                  <p>
+                    À la demande, vous découvrirez une solution personnalisée Distritherm Services pour un plafond répondant aux critères les plus stricts de vos clients.
+                  </p>
+                </div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9, x: 80 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                viewport={{ once: true }}
+                className="flex-1 flex justify-center items-stretch"
+              >
+                <div className="relative w-full h-full min-h-[280px] rounded-3xl overflow-hidden bg-white shadow-xl">
+                  <Image
+                    src="/platerie3.png"
+                    alt="Plafonds plâtrerie"
+                    fill
+                    className="object-cover rounded-3xl hover:scale-105 hover:shadow-2xl transition-transform duration-300 bg-white"
+                  />
+                </div>
+              </motion.div>
+            </div>
 
             {/* Gamme complète */}
             <motion.div 
@@ -365,6 +518,7 @@ const PlateriePage = () => {
           </div>
         </section>
       </main>
+      <BackButton />
       <Footer />
     </div>
   );

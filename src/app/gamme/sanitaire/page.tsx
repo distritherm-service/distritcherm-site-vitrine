@@ -79,38 +79,56 @@ const SanitairePage = () => {
         {/* Contenu principal */}
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
-            <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeIn}
-              className="max-w-4xl mx-auto mb-16"
-            >
-              <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-800">
-                Une gamme complète d'équipements sanitaires
-              </h2>
-              <div className="prose prose-lg max-w-none text-gray-700">
-                <p>
-                  Découvrez notre gamme et tous nos articles pour concevoir une offre exhaustive pour la salle de bain ou pour des espaces sanitaires public.
-                </p>
-                <p>
-                  Avec nos deux établissements judicieusement situés à Taverny et Drancy, nous assurons un service efficace non seulement pour les villes de Franconville, Saint-Leu-la-Forêt, Argenteuil, Bobigny, mais aussi pour l'ensemble du territoire français.
-                </p>
-                <p>
-                  Nos produits de marque italienne, ont été choisis pour leur longévité, qualité, fonctionnalité et coût. Vous aurez donc accès à des produits haut de gamme pour la mise en œuvre de vos projets qu'ils soient neufs ou de rénovation.
-                </p>
-              </div>
-            </motion.div>
+            <div className="flex flex-col md:flex-row items-stretch gap-12 mb-24">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9, x: -80 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                viewport={{ once: true }}
+                className="flex-1 flex justify-center items-stretch"
+              >
+                <div className="relative w-full h-full min-h-[280px] rounded-3xl overflow-hidden bg-white shadow-xl">
+                  <Image
+                    src="/sanitaire3.png"
+                    alt="Gamme complète sanitaire"
+                    fill
+                    className="object-cover rounded-3xl hover:scale-105 hover:shadow-2xl transition-transform duration-300 max-w-[400px] max-h-[350px] mx-auto my-auto"
+                  />
+                </div>
+              </motion.div>
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeIn}
+                className="flex-1 flex flex-col justify-center"
+              >
+                <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-800">
+                  Une gamme complète d'équipements sanitaires
+                </h2>
+                <div className="prose prose-lg max-w-none text-gray-700">
+                  <p>
+                    Découvrez notre gamme et tous nos articles pour concevoir une offre exhaustive pour la salle de bain ou pour des espaces sanitaires public.
+                  </p>
+                  <p>
+                    Avec nos deux établissements judicieusement situés à Taverny et Drancy, nous assurons un service efficace non seulement pour les villes de Franconville, Saint-Leu-la-Forêt, Argenteuil, Bobigny, mais aussi pour l'ensemble du territoire français.
+                  </p>
+                  <p>
+                    Nos produits de marque italienne, ont été choisis pour leur longévité, qualité, fonctionnalité et coût. Vous aurez donc accès à des produits haut de gamme pour la mise en œuvre de vos projets qu'ils soient neufs ou de rénovation.
+                  </p>
+                </div>
+              </motion.div>
+            </div>
 
             {/* Produits disponibles */}
-            <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeIn}
-              className="bg-gray-50 rounded-3xl p-8 mb-16 shadow-sm border border-gray-100"
-            >
-              <div className="max-w-4xl mx-auto">
+            <div className="flex flex-col md:flex-row items-stretch gap-12 mb-24">
+              <motion.div 
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeIn}
+                className="flex-1 flex flex-col justify-center"
+              >
                 <h2 className="text-3xl font-bold mb-6 text-gray-800">
                   Espace sanitaire au magasin de Taverny et Drancy
                 </h2>
@@ -134,35 +152,69 @@ const SanitairePage = () => {
                     Découvrir nos produits
                   </Link>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9, x: 80 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                viewport={{ once: true }}
+                className="flex-1 flex justify-center items-stretch"
+              >
+                <div className="relative w-full h-full min-h-[280px] rounded-3xl overflow-hidden bg-white shadow-xl">
+                  <Image
+                    src="/sanitaire1.png"
+                    alt="Sanitaire chantier"
+                    fill
+                    className="object-cover rounded-3xl hover:scale-105 hover:shadow-2xl transition-transform duration-300 max-w-[300px] max-h-[350px] mx-auto my-auto"
+                  />
+                </div>
+              </motion.div>
+            </div>
 
             {/* Sur-mesure */}
-            <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeIn}
-              className="max-w-4xl mx-auto mb-16"
-            >
-              <h2 className="text-3xl font-bold mb-8 text-gray-800">
-                Du sur-mesure pour personnaliser vos chantiers
-              </h2>
-              <div className="prose prose-lg max-w-none text-gray-700">
-                <p>
-                  Notre gamme de toilettes et bâtis-supports intègre les technologies les plus récentes en matière d'économie d'eau et de propreté.
-                </p>
-                <p>
-                  Notre sélection de robinetterie quant à elle répond à tous les besoins, allant des mitigeurs traditionnels aux dispositifs électroniques destinés aux espaces publics.
-                </p>
-                <p>
-                  Nous offrons aussi des solutions intégrales de gestion de l'eau et une vaste sélection de chauffe-eaux adaptés à diverses configurations y compris le chauffe-eau combiné solaire pour répondre aux exigences croissantes d'économie d'énergie.
-                </p>
-                <p>
-                  Qu'il s'agisse de meuble vasque, du meuble standard, de paroi de douche ou de miroirs, nous vous proposons l'option de personnaliser chaque élément à dimension et ainsi créer une offre unique pour vos clients.
-                </p>
-              </div>
-            </motion.div>
+            <div className="flex flex-col md:flex-row items-stretch gap-12 mb-24">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9, x: -80 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                viewport={{ once: true }}
+                className="flex-1 flex justify-center items-stretch"
+              >
+                <div className="relative w-full h-full min-h-[280px] rounded-3xl overflow-hidden bg-white shadow-xl">
+                  <Image
+                    src="/sanitaire2.png"
+                    alt="Sur-mesure sanitaire"
+                    fill
+                    className="object-cover rounded-3xl hover:scale-105 hover:shadow-2xl transition-transform duration-300 max-w-[400px] max-h-250px] mx-auto my-auto"
+                  />
+                </div>
+              </motion.div>
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeIn}
+                className="flex-1 flex flex-col justify-center"
+              >
+                <h2 className="text-3xl font-bold mb-8 text-gray-800">
+                  Du sur-mesure pour personnaliser vos chantiers
+                </h2>
+                <div className="prose prose-lg max-w-none text-gray-700">
+                  <p>
+                    Notre gamme de toilettes et bâtis-supports intègre les technologies les plus récentes en matière d'économie d'eau et de propreté.
+                  </p>
+                  <p>
+                    Notre sélection de robinetterie quant à elle répond à tous les besoins, allant des mitigeurs traditionnels aux dispositifs électroniques destinés aux espaces publics.
+                  </p>
+                  <p>
+                    Nous offrons aussi des solutions intégrales de gestion de l'eau et une vaste sélection de chauffe-eaux adaptés à diverses configurations y compris le chauffe-eau combiné solaire pour répondre aux exigences croissantes d'économie d'énergie.
+                  </p>
+                  <p>
+                    Qu'il s'agisse de meuble vasque, du meuble standard, de paroi de douche ou de miroirs, nous vous proposons l'option de personnaliser chaque élément à dimension et ainsi créer une offre unique pour vos clients.
+                  </p>
+                </div>
+              </motion.div>
+            </div>
 
             {/* Solutions PMR */}
             <motion.div 

@@ -25,7 +25,9 @@ const Navbar: React.FC = () => {
           <span className="inline-flex items-center gap-2 text-lg transition-transform duration-200 hover:scale-110"><FaEnvelope className="inline text-xl" /> info@distritherm.fr</span>
         </div>
         <div className="flex items-center space-x-8">
-          <a href="#contact" className="inline-flex items-center gap-2 text-white font-semibold no-underline text-lg transition-transform duration-200 hover:scale-105"><FaUser className="text-blue-400 text-xl" /> Contact</a>
+          <Link href="/contact" className="inline-flex items-center gap-2 text-white font-semibold no-underline text-lg transition-transform duration-200 hover:scale-105">
+            <FaUser className="text-blue-400 text-xl" /> Contact
+          </Link>
           <span 
             className="text-[#1abc9c] inline-flex items-center gap-2 cursor-pointer text-lg animate-pulse-glow p-2 rounded-lg hover:bg-[#181e29]/30 transition-all duration-300"
             onClick={openRappelModal}
