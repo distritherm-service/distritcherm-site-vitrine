@@ -8,7 +8,9 @@ import { FaLeaf, FaShieldAlt, FaTruck, FaTools, FaRegLightbulb, FaRegClock, FaWr
 import { MdSupportAgent, MdConstruction } from 'react-icons/md';
 import { GiDrill, GiSawedOffShotgun } from 'react-icons/gi';
 import { TbTool } from 'react-icons/tb';
+import Breadcrumb from '@/components/navigation/Breadcrumb';
 import Footer from '@/components/layout/Footer';
+import BackButton from '@/components/BackButton';
 
 // Animation variants
 const fadeIn = {
@@ -57,10 +59,10 @@ const OutillagePage = () => {
               className="max-w-3xl"
             >
               <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
-                L'outillage professionnel indispensable
+                L'outillage est tout un art
               </h1>
               <p className="text-xl text-gray-100 mb-8 max-w-2xl">
-                Distritherm Services vous offre une gamme complète d'outillage pour la réalisation de travaux et chantiers réussis.
+                Pour l'excellence de vos chantiers, DISTRITHERM Services est là pour vous.
               </p>
               <Link 
                 href="#contact" 
@@ -78,88 +80,174 @@ const OutillagePage = () => {
         {/* Contenu principal */}
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
-            <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeIn}
-              className="max-w-4xl mx-auto mb-16"
-            >
-              <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-800">
-                Partenaire indispensable pour les professionnels
-              </h2>
-              <div className="prose prose-lg max-w-none text-gray-700">
-                <p>
-                  Partenaire indispensable pour les plombiers, électriciens, plaquistes et autres entreprises tous corps de métier, Distritherm votre allié de confiance.
-                </p>
-                <p>
-                  L'acquisition d'outils constitue une dépense significative à considérer dans votre profession. Nous saisissons bien l'importance de disposer d'outils de qualité sans pour autant faire exploser votre budget. Voilà pourquoi nous déployons tous nos efforts pour vous garantir la satisfaction de découvrir des outils fiables, robustes, faciles à manipuler et pratiques pour un gain de temps lors de vos installations.
-                </p>
-              </div>
-            </motion.div>
+            {/* Section 1 : Texte + Image à droite */}
+            <div className="flex flex-col md:flex-row items-stretch gap-12 mb-24">
+              <motion.div 
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeIn}
+                className="flex-1 flex flex-col justify-center"
+              >
+                <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-800">
+                  Artisan spécialiste, à la recherche d'outillage de qualité pour vos chantiers ?
+                </h2>
+                <div className="prose prose-lg max-w-none text-gray-700">
+                  <p>
+                    Distritherm Services comprend l'importance de disposer des bons outils à tout moment. C'est pourquoi nous vous proposons une large gamme d'outillage professionnel stockée en permanence pour parfaire vos chantiers.
+                  </p>
+                  <p>
+                    Installation, rénovation, maintenance... De la préparation des chantiers à la finition, vous recherchez des solutions performantes tout en respectant la réglementation. Notre équipe Distritherm Services vous propose de nombreuses références produits pour réussir vos projets.
+                  </p>
+                  <p>
+                    Pour compléter votre approvisionnement en outillage, vous trouverez des outils électroportatifs, des outils à main, des accessoires et les équipements appropriés pour travailler dans les meilleures conditions.
+                  </p>
+                </div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9, x: 80 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                viewport={{ once: true }}
+                className="flex-1 flex justify-center items-stretch"
+              >
+                <div className="relative w-full h-full min-h-[280px] rounded-3xl overflow-hidden bg-white shadow-xl">
+                  <Image
+                    src="/outillage2.jpg"
+                    alt="Outillage chantier"
+                    fill
+                    className="object-cover rounded-3xl hover:scale-105 hover:shadow-2xl transition-transform duration-300 max-w-[500px] max-h-[400px] mx-auto my-auto"
+                  />
+                </div>
+              </motion.div>
+            </div>
 
-            {/* Gamme complète */}
-            <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeIn}
-              className="bg-gray-50 rounded-3xl p-8 mb-16 shadow-sm border border-gray-100"
-            >
-              <div className="max-w-4xl mx-auto">
+            {/* Séparateur décoratif */}
+            <div className="w-full flex justify-center mb-16">
+              <svg width="180" height="32" viewBox="0 0 180 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="90" cy="16" rx="90" ry="16" fill="#7CB9E8" fillOpacity="0.12" />
+              </svg>
+            </div>
+
+            {/* Section 2 : Image à gauche + texte */}
+            <div className="flex flex-col md:flex-row-reverse items-stretch gap-12 mb-24">
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeIn}
+                className="flex-1 flex flex-col justify-center"
+              >
                 <h2 className="text-3xl font-bold mb-6 text-gray-800">
                   Une gamme complète et des solutions adaptées à chaque configuration
                 </h2>
                 <div className="prose prose-lg max-w-none text-gray-700">
                   <p>
-                    Des outils de coupe, perçage et ponçage aux instruments de mesure et de diagnostic en passant par l'outillage à main, électroportatifs et pneumatiques, vous disposerez de tout ce dont vous avez besoin pour un travail efficace.
+                    Matériau incontournable sur les chantiers, l'outillage moderne offre de nombreux avantages. Facile à utiliser et à maintenir, il permet une mise en œuvre rapide des travaux. Sa fiabilité et sa sécurité en font un choix idéal pour les professionnels. Il présente d'excellentes propriétés de performance et de durabilité, contribuant ainsi à la qualité et à la sécurité des installations.
                   </p>
                   <p>
-                    Pour vous assurer un outillage de qualité supérieure, nous faisons appel aux plus grandes marques, reconnues pour leur fiabilité et leurs performances.
+                    Pour répondre à la diversité des besoins de nos clients artisans et professionnels, nous proposons chez DISTRITHERM Services une large sélection de produits :
                   </p>
+                  <ul>
+                    <li>Des outils électroportatifs pour les travaux intensifs</li>
+                    <li>Des outils à main pour la précision</li>
+                    <li>Des équipements de sécurité pour la protection</li>
+                    <li>Des accessoires et consommables pour le confort</li>
+                    <li>Une gamme complète d'outillage spécialisé</li>
+                  </ul>
                   <p>
-                    Ainsi, notre offre inclut notamment l'ensemble des outils portatifs Bosch Pro et Makita, plébiscitées par les professionnels pour leur solidité et de leur ergonomie. Les marques EDMA et Taliaplast assurent des outils de qualité durable et précise pour l'outillage à main.
-                  </p>
-                  <p>
-                    Enfin, notre sélection d'accessoires techniques comprend une vaste gamme de forets, trépans et disques compatibles avec toutes les marques populaires.
-                  </p>
-                  <p>
-                    Les frigoristes pourront également trouver chez nous les outils requis pour leurs interventions.
+                    Car chaque chantier est différent et nous le savons, nous sommes en mesure de vous fournir des solutions spécifiques pour répondre à vos besoins particuliers, que ce soit pour des installations, des rénovations ou des maintenances.
                   </p>
                 </div>
-                <div className="mt-8">
+                <div className="mt-8 flex flex-wrap gap-4">
                   <Link 
                     href="/contact" 
                     className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl shadow-md hover:bg-blue-700 transition-colors duration-300"
                   >
-                    Découvrir nos produits
+                    Voir tous nos produits
+                  </Link>
+                  <Link 
+                    href="/contact" 
+                    className="inline-flex items-center px-6 py-3 bg-gray-200 text-gray-800 font-semibold rounded-xl shadow-md hover:bg-gray-300 transition-colors duration-300"
+                  >
+                    Demander un devis
                   </Link>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9, x: -80 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                viewport={{ once: true }}
+                className="flex-1 flex justify-center items-stretch"
+              >
+                <div className="relative w-full h-full min-h-[280px] rounded-3xl overflow-hidden bg-white shadow-xl">
+                  <Image
+                    src="/outillage3.jpg"
+                    alt="Matériel d'outillage"
+                    fill
+                    className="object-cover rounded-3xl hover:scale-105 hover:shadow-2xl transition-transform duration-300 max-w-[500px] max-h-[500px] mx-auto my-auto"
+                  />
+                </div>
+              </motion.div>
+            </div>
 
-            {/* L'expertise DISTRITHERM */}
-            <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeIn}
-              className="max-w-4xl mx-auto mb-16"
-            >
-              <h2 className="text-3xl font-bold mb-8 text-gray-800">
-                L'expertise DISTRITHERM pour vous servir
-              </h2>
-              <div className="prose prose-lg max-w-none text-gray-700">
-                <p>
-                  Chez DISTRITHERM Services, nous plaçons la satisfaction de nos clients au cœur de nos priorités. Notre équipe est formée pour vous fournir un service d'excellence et de qualité à chaque étape de votre achat, depuis l'assistance jusqu'à la livraison de votre matériel à Taverny, Drancy ou ailleurs en France. Nous nous ajustons à vos contraintes et mettons en place des solutions personnalisées pour satisfaire vos attentes.
-                </p>
-                <p>
-                  Avec DISTRITHERM Services, vous avez à vos côtés un partenaire authentique qui s'engage à la réussite de vos projets. Grâce à notre connaissance approfondie dans le domaine de l'outillage professionnel, nous sommes le partenaire de confiance des sociétés du secteur du bâtiment.
-                </p>
-              </div>
-            </motion.div>
+            {/* Séparateur décoratif */}
+            <div className="w-full flex justify-center mb-16">
+              <svg width="180" height="32" viewBox="0 0 180 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="90" cy="16" rx="90" ry="16" fill="#007FFF" fillOpacity="0.10" />
+              </svg>
+            </div>
 
-            {/* Stock complet */}
+            {/* Section 3 : Texte + Image à droite */}
+            <div className="flex flex-col md:flex-row items-stretch gap-12 mb-24">
+              <motion.div 
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeIn}
+                className="flex-1 flex flex-col justify-center"
+              >
+                <h2 className="text-3xl font-bold mb-8 text-gray-800">
+                  Solutions pour professionnels
+                </h2>
+                <div className="prose prose-lg max-w-none text-gray-700">
+                  <p>
+                    Vous envisagez la conception ou la rénovation d'un chantier? Avec notre sélection d'outillage professionnel, rien de plus simple.
+                  </p>
+                  <p>
+                    Vous trouverez des solutions adaptées pour tous vos besoins, des petits travaux aux grands chantiers.
+                  </p>
+                  <p>
+                    Des systèmes d'outillage équipés d'accessoires de sécurité permettent un contrôle optimal des opérations. Ceci est particulièrement utile dans les grands chantiers ou les installations complexes nécessitant une gestion précise des travaux.
+                  </p>
+                  <p>
+                    Une gamme standard stockée vous offre la possibilité de répondre et traiter vos demandes les plus habituelles avec des outils courants, ou dans des dimensions spécifiques selon vos besoins.
+                  </p>
+                  <p>
+                    À la demande, vous découvrirez une solution personnalisée Distritherm Services pour un chantier répondant aux critères les plus stricts de vos clients.
+                  </p>
+                </div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9, x: 80 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                viewport={{ once: true }}
+                className="flex-1 flex justify-center items-stretch"
+              >
+                <div className="relative w-full h-full min-h-[280px] rounded-3xl overflow-hidden bg-white shadow-xl">
+                  <Image
+                    src="/outillage1.jpg"
+                    alt="Installations professionnelles"
+                    fill
+                    className="object-cover rounded-3xl hover:scale-105 hover:shadow-2xl transition-transform duration-300 max-w-[400px] max-h-[400px] mx-auto my-auto"
+                  />
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Accessoires */}
             <motion.div 
               initial="hidden"
               whileInView="visible"
@@ -170,35 +258,40 @@ const OutillagePage = () => {
               <div className="max-w-4xl mx-auto">
                 <div className="flex items-center justify-center mb-6">
                   <div className="bg-blue-600 p-4 rounded-full">
-                    <FaTruck className="text-white w-8 h-8" />
+                    <FaTools className="text-white w-8 h-8" />
                   </div>
                 </div>
                 <h2 className="text-3xl font-bold mb-6 text-gray-800 text-center">
-                  Un service location
+                  Pour la pérennité de vos installations
                 </h2>
                 <div className="prose prose-lg max-w-none text-gray-700">
-                  <div className="bg-blue-50 p-6 rounded-xl border border-blue-200 mb-6">
-                    <p className="font-medium">
-                      Chez DISTRITHERM Services, nous proposons également à nos clients professionnels des possibilités de louer les appareils pour lesquels on ne veut pas forcément investir : sertisseuse, carotteuse, machine à souffler...
-                    </p>
-                    <p className="mb-0">
-                      N'hésitez pas à nous contacter pour en savoir plus.
-                    </p>
-                  </div>
                   <p>
-                    Notre équipe de professionnels chevronnés est à votre écoute pour vous orienter dans le choix de vos outils de frigoristes ou en tant que chauffagiste, plaquiste ou autre métier. Que vous ayez besoin de conseils techniques, d'informations sur les dernières innovations ou de solutions adaptées à vos problématiques, nous mettons notre savoir-faire à votre service.
+                    Afin de parfaire votre outillage, nous offrons les équipements essentiels pour garantir le bon déroulement de vos travaux :
                   </p>
+                  <ul>
+                    <li>Outillage spécialisé : perceuses, visseuses, scies...</li>
+                    <li>Accessoires de fixation et de raccordement</li>
+                    <li>Matériel de mesure et de contrôle</li>
+                    <li>Tous les accessoires adaptés : forets, lames, embouts...</li>
+                  </ul>
                   <p>
-                    Nous prenons le temps de comprendre vos besoins et de vous proposer l'outillage le mieux adapté pour optimiser votre performance sur le terrain.
+                    Nous proposons diverses solutions en matériel :
                   </p>
+                  <ul>
+                    <li>Des outils électroportatifs de toutes marques</li>
+                    <li>Des outils à main de qualité</li>
+                    <li>Des accessoires de fixation et de raccordement</li>
+                    <li>Des outils professionnels</li>
+                    <li>Des pièces de rechange</li>
+                  </ul>
                   <p>
-                    Vous ne trouvez pas quelque chose en particulier? D'une grande réactivité et à l'écoute des besoins, nous vous souhaitons que vos chantiers se déroulent sans accroc.
+                    Nous saurons trouver le produit qu'il vous faut.
                   </p>
                 </div>
               </div>
             </motion.div>
 
-            {/* Service client */}
+            {/* Disponibilité */}
             <motion.div 
               initial="hidden"
               whileInView="visible"
@@ -207,21 +300,64 @@ const OutillagePage = () => {
               className="max-w-4xl mx-auto mb-16"
             >
               <h2 className="text-3xl font-bold mb-10 text-gray-800 text-center">
-                Un service client professionnel à votre écoute
+                Disponibilité produit immédiate
               </h2>
-              <p className="text-lg text-gray-700 mb-8 text-center">
-                DISTRITHERM Services se démarque par des services pensés pour les professionnels.
-              </p>
+              <div className="prose prose-lg max-w-none text-gray-700">
+                <p>
+                  Chez DISTRITHERM Services, nous savons que les délais sont souvent serrés sur les chantiers. C'est pourquoi nous maintenons en permanence un stock important de matériel standard dans nos entrepôts de Taverny et Drancy. Vous pouvez commander vos produits et choisir la livraison express sous 48 heures ou le retrait en magasin. Quel que soit votre choix, vous êtes assuré d'obtenir rapidement les matériaux dont vous avez besoin.
+                </p>
+                <p>
+                  Avec notre stock permanent, notre équipe commerciale, nos services de livraison et retrait express, nous sommes le partenaire idéal pour tous vos projets dans le bâtiment. Professionnels de Taverny, de Drancy et leurs environs, n'hésitez pas à nous contacter.
+                </p>
+              </div>
+              <div className="mt-8 text-center">
+                <Link 
+                  href="/contact" 
+                  className="inline-flex items-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-xl shadow-md hover:bg-blue-700 transition-colors duration-300"
+                >
+                  Nous contacter
+                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </Link>
+              </div>
+            </motion.div>
+
+            {/* Avantages */}
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+              className="max-w-4xl mx-auto mb-16"
+            >
+              <h2 className="text-3xl font-bold mb-10 text-gray-800 text-center">
+                Les avantages de nos produits
+              </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <motion.div variants={fadeIn} className="bg-white p-6 rounded-xl shadow-md border border-gray-100">
                   <div className="flex items-start mb-4">
                     <div className="bg-blue-100 p-3 rounded-full mr-4">
-                      <FaRegClock className="text-blue-600 w-6 h-6" />
+                      <FaRegLightbulb className="text-blue-600 w-6 h-6" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-xl mb-2">Horaires adaptés</h3>
+                      <h3 className="font-semibold text-xl mb-2">Qualité professionnelle</h3>
                       <p className="text-gray-700">
-                        Notre magasin d'outillage professionnel vous ouvre ses portes de 6h30 à 17h dans le but de vous soutenir chaque jour.
+                        Tous nos produits sont sélectionnés pour leur qualité et leur conformité aux normes en vigueur dans le bâtiment.
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+                
+                <motion.div variants={fadeIn} className="bg-white p-6 rounded-xl shadow-md border border-gray-100">
+                  <div className="flex items-start mb-4">
+                    <div className="bg-blue-100 p-3 rounded-full mr-4">
+                      <FaShieldAlt className="text-blue-600 w-6 h-6" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-xl mb-2">Performances techniques</h3>
+                      <p className="text-gray-700">
+                        Sécurité, fiabilité, résistance : nos produits répondent à toutes les exigences techniques.
                       </p>
                     </div>
                   </div>
@@ -233,9 +369,9 @@ const OutillagePage = () => {
                       <FaTruck className="text-blue-600 w-6 h-6" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-xl mb-2">Livraison express</h3>
+                      <h3 className="font-semibold text-xl mb-2">Disponibilité immédiate</h3>
                       <p className="text-gray-700">
-                        Un service de livraison express 24-48 heures sur toute l'Île-de-France et au-delà.
+                        Notre stock permanent vous garantit l'accès aux produits dont vous avez besoin, quand vous en avez besoin.
                       </p>
                     </div>
                   </div>
@@ -247,53 +383,13 @@ const OutillagePage = () => {
                       <MdSupportAgent className="text-blue-600 w-6 h-6" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-xl mb-2">Conseil technique</h3>
+                      <h3 className="font-semibold text-xl mb-2">Conseil personnalisé</h3>
                       <p className="text-gray-700">
-                        Des conseils personnalisés pour choisir l'outillage adapté à vos besoins spécifiques.
+                        Notre équipe d'experts vous accompagne dans le choix des produits adaptés à chaque projet spécifique.
                       </p>
                     </div>
                   </div>
                 </motion.div>
-                
-                <motion.div variants={fadeIn} className="bg-white p-6 rounded-xl shadow-md border border-gray-100">
-                  <div className="flex items-start mb-4">
-                    <div className="bg-blue-100 p-3 rounded-full mr-4">
-                      <FaWrench className="text-blue-600 w-6 h-6" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-xl mb-2">Service après-vente</h3>
-                      <p className="text-gray-700">
-                        Un service après-vente réactif pour la maintenance et la réparation de votre outillage.
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-              </div>
-            </motion.div>
-
-            {/* DISTRITHERM Services, l'assurance d'un partenariat durable */}
-            <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeIn}
-              className="max-w-4xl mx-auto mb-16"
-            >
-              <h2 className="text-3xl font-bold mb-8 text-gray-800">
-                Pour une gestion plus sereine de votre temps
-              </h2>
-              <div className="prose prose-lg max-w-none text-gray-700">
-                <p>
-                  Afin d'éviter les contretemps une fois sur le chantier, d'éviter d'éventuels retards, pensez à passer des commandes de stock pour plus de sérénité et de facilité à travailler sur vos projets. Nous sommes en mesure de préparer votre commande en moins de 24h !
-                </p>
-                {/* <div className="mt-4">
-                  <Link 
-                    href="/contact" 
-                    className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl shadow-md hover:bg-blue-700 transition-colors duration-300"
-                  >
-                    Contactez-nous
-                  </Link>
-                </div> */}
               </div>
             </motion.div>
 
@@ -309,7 +405,7 @@ const OutillagePage = () => {
                 Faites confiance à DISTRITHERM Services pour tous vos besoins en outillage
               </h2>
               <p className="text-white text-xl mb-8 max-w-3xl mx-auto">
-                En optant pour DISTRITHERM Services pour vos besoins en outillage, vous choisissez la qualité, la disponibilité et le service.
+                Avec nos deux points de vente à Taverny et à Drancy, et notre expertise technique reconnue, nous sommes le partenaire idéal pour la réussite de vos projets.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Link 
@@ -329,6 +425,7 @@ const OutillagePage = () => {
           </div>
         </section>
       </main>
+      <BackButton />
       <Footer />
     </div>
   );

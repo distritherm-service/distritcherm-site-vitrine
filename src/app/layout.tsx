@@ -1,8 +1,10 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from '../components/Navbar/Navbar';
 import ScrollToTopButton from '@/components/ScrollToTopButton';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,6 +36,7 @@ export default function RootLayout({
           {children}
         </div>
         <ScrollToTopButton />
+        <ToastContainer position="top-center" autoClose={5000} />
       </body>
     </html>
   );

@@ -10,6 +10,7 @@ import { MdSupportAgent, MdPlumbing } from 'react-icons/md';
 import { BsDroplet } from 'react-icons/bs';
 import Breadcrumb from '@/components/navigation/Breadcrumb';
 import Footer from '@/components/layout/Footer';
+import BackButton from '@/components/BackButton';
 
 // Animation variants
 const fadeIn = {
@@ -58,10 +59,10 @@ const PlomberiePage = () => {
               className="max-w-3xl"
             >
               <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
-                Le matériel de plomberie chez Distritherm Services
+                La plomberie est tout un art
               </h1>
               <p className="text-xl text-gray-100 mb-8 max-w-2xl">
-                Vous cherchez du matériel de plomberie? Ne cherchez plus, c'est ici que vous trouverez ce dont vous avez besoin !
+                Pour l'excellence de vos chantiers, DISTRITHERM Services est là pour vous.
               </p>
               <Link 
                 href="#contact" 
@@ -79,61 +80,83 @@ const PlomberiePage = () => {
         {/* Contenu principal */}
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
-            <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeIn}
-              className="max-w-4xl mx-auto mb-16"
-            >
-              <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-800">
-                Tout le matériel de plomberie pour vos chantiers
-              </h2>
-              <div className="prose prose-lg max-w-none text-gray-700">
-                <p>
-                  L'essentiel du matériel de plomberie des fabricants de raccords en laiton, en cuivre, de raccords PVC, de tubes multicouches, de tubes capillaires, de collecteurs sanitaires ou plancher chauffant, tuyaux d'évacuation PVC, des tuyaux en cuivre, parfaits pour l'eau chaude et le chauffage, en passant par les tuyaux en PER pour les installations sanitaires, notre gamme couvre tous vos besoins.
-                </p>
-                <p>
-                  Notre sélection de tubes multicouches offre quant à elle une alternative moderne et polyvalente, particulièrement adaptée aux installations complexes. Nous proposons également une large sélection de raccords, vannes boisseau sphériques, robinets et accessoires pour réaliser des installations fiables et durables, sans oublier les joints, les tubes flexibles jusqu'à l'outillage et la quincaillerie pour vous équiper correctement avec la sertisseuse, le coupe-tubes, l'ébavureur, la cintreuse...se trouve chez Distritherm Services à Taverny (95) et à Drancy (93).
-                </p>
-                <p>
-                  Nos différents partenaires nous permettent de vous proposer des fournitures pour vos travaux de plomberie de qualité et au bon prix marché.
-                </p>
-                <p>
-                  Vous êtes professionnel du bâtiment et souhaitez ouvrir un compte ? Obtenir un devis ? Avoir des renseignements sur les produits référencés, contactez nous sans attendre par téléphone ou par le formulaire contact, on vous explique tout.
-                </p>
-              </div>
-              <div className="mt-8">
-                <Link 
-                  href="/contact" 
-                  className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl shadow-md hover:bg-blue-700 transition-colors duration-300"
-                >
-                  Nous contacter
-                </Link>
-              </div>
-            </motion.div>
-
-            {/* Solutions techniques */}
-            <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeIn}
-              className="bg-gray-50 rounded-3xl p-8 mb-16 shadow-sm border border-gray-100"
-            >
-              <div className="max-w-4xl mx-auto">
-                <h2 className="text-3xl font-bold mb-6 text-gray-800">
-                  Des solutions techniques adaptées pour chaque projet
+            {/* Section 1 : Texte + Image à droite */}
+            <div className="flex flex-col md:flex-row items-stretch gap-12 mb-24">
+              <motion.div 
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeIn}
+                className="flex-1 flex flex-col justify-center"
+              >
+                <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-800">
+                  Artisan spécialiste de la plomberie, à la recherche de produits de qualité pour vos chantiers ?
                 </h2>
                 <div className="prose prose-lg max-w-none text-gray-700">
                   <p>
-                    Dans le milieu de la rénovation qu'il s'agisse de réparer une fuite d'eau, de la réparation ou le remplacement d'un chauffe-eau ... ou bien dans la construction neuve afin de réaliser une installation sanitaire de A à Z, à la recherche de ballons thermo-dynamique performant, d'un système de traitement de l'eau, Distritherm Services peut vous conseiller et vous fournir une large gamme produit disponible immédiatement ou bien sur commande avec des délais rapides.
+                    Distritherm Services comprend l'importance de disposer des bons produits à tout moment. C'est pourquoi nous vous proposons une large gamme de matériel de plomberie stockée en permanence pour parfaire vos chantiers.
                   </p>
                   <p>
-                    Pour assurer la maintenance de vos installations, retrouvez les pièces et équipements nécessaires à la réparation ou l'entretien des équipements en chauffage, climatisation, en eau chaude et sanitaire.
+                    Installation, rénovation, maintenance des réseaux d'eau... De la préparation des canalisations, des raccordements et des installations sanitaires en neuf ou en rénovation, vous recherchez des solutions performantes tout en respectant la réglementation. Notre équipe Distritherm Services vous propose de nombreuses références produits pour réussir vos projets.
                   </p>
                   <p>
-                    Car votre activité nécessite de la précision et une grande connaissance technique tout en respectant les normes de sécurité, nous vous accompagnons dans votre choix de produits pour trouver la solution adaptée à vos chantiers.
+                    Pour compléter votre approvisionnement en matériel de plomberie, vous trouverez des raccords, des vannes, des robinets et les accessoires appropriés comme les outils de sertissage, les coupe-tubes, les ébavureurs, les cintreuses... pour travailler dans les meilleures conditions.
+                  </p>
+                </div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9, x: 80 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                viewport={{ once: true }}
+                className="flex-1 flex justify-center items-stretch"
+              >
+                <div className="relative w-full h-full min-h-[280px] rounded-3xl overflow-hidden bg-white shadow-xl">
+                  <Image
+                    src="/plomberie2.jpg"
+                    alt="Plomberie chantier"
+                    fill
+                    className="object-cover rounded-3xl hover:scale-105 hover:shadow-2xl transition-transform duration-300 max-w-[400px] max-h-[350px] mx-auto my-auto"
+                  />
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Séparateur décoratif */}
+            <div className="w-full flex justify-center mb-16">
+              <svg width="180" height="32" viewBox="0 0 180 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="90" cy="16" rx="90" ry="16" fill="#7CB9E8" fillOpacity="0.12" />
+              </svg>
+            </div>
+
+            {/* Section 2 : Image à gauche + texte */}
+            <div className="flex flex-col md:flex-row-reverse items-stretch gap-12 mb-24">
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeIn}
+                className="flex-1 flex flex-col justify-center"
+              >
+                <h2 className="text-3xl font-bold mb-6 text-gray-800">
+                  Une gamme complète et des solutions adaptées à chaque configuration
+                </h2>
+                <div className="prose prose-lg max-w-none text-gray-700">
+                  <p>
+                    Matériau incontournable sur les chantiers, la plomberie moderne offre de nombreux avantages. Facile à installer et à maintenir, elle permet une mise en œuvre rapide des réseaux d'eau. Sa durabilité et sa fiabilité en font un choix idéal pour les installations sanitaires et de chauffage. Elle présente d'excellentes propriétés de résistance et d'étanchéité, contribuant ainsi à la qualité et à la sécurité des installations.
+                  </p>
+                  <p>
+                    Pour répondre à la diversité des besoins de nos clients artisans, plombiers et autres professionnels, nous proposons chez DISTRITHERM Services une large sélection de produits :
+                  </p>
+                  <ul>
+                    <li>Des tubes et raccords en cuivre pour les installations traditionnelles</li>
+                    <li>Des tubes multicouches pour une installation rapide et fiable</li>
+                    <li>Des tubes PER pour les installations sanitaires et de chauffage</li>
+                    <li>Des collecteurs pour une distribution optimale</li>
+                    <li>Une gamme complète d'accessoires et d'outillage</li>
+                  </ul>
+                  <p>
+                    Car chaque chantier est différent et nous le savons, nous sommes en mesure de vous fournir des solutions spécifiques pour répondre à vos besoins particuliers, que ce soit pour des installations sanitaires, de chauffage ou de traitement d'eau.
                   </p>
                 </div>
                 <div className="mt-8 flex flex-wrap gap-4">
@@ -141,42 +164,90 @@ const PlomberiePage = () => {
                     href="/contact" 
                     className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl shadow-md hover:bg-blue-700 transition-colors duration-300"
                   >
-                    En savoir plus
+                    Voir tous nos produits
+                  </Link>
+                  <Link 
+                    href="/contact" 
+                    className="inline-flex items-center px-6 py-3 bg-gray-200 text-gray-800 font-semibold rounded-xl shadow-md hover:bg-gray-300 transition-colors duration-300"
+                  >
+                    Demander un devis
                   </Link>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9, x: -80 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                viewport={{ once: true }}
+                className="flex-1 flex justify-center items-stretch"
+              >
+                <div className="relative w-full h-full min-h-[280px] rounded-3xl overflow-hidden bg-white shadow-xl">
+                  <Image
+                    src="/plomberie3.jpg"
+                    alt="Matériel de plomberie"
+                    fill
+                    className="object-cover rounded-3xl hover:scale-105 hover:shadow-2xl transition-transform duration-300 max-w-[400px] max-h-[350px] mx-auto my-auto"
+                  />
+                </div>
+              </motion.div>
+            </div>
 
-            {/* Gamme sanitaire */}
-            <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeIn}
-              className="max-w-4xl mx-auto mb-16"
-            >
-              <h2 className="text-3xl font-bold mb-8 text-gray-800">
-                Une gamme sanitaire complète
-              </h2>
-              <div className="prose prose-lg max-w-none text-gray-700">
-                <p>
-                  Pour compléter notre gamme plomberie, n'hésitez pas à vous renseigner sur notre gamme sanitaire ou en vous rendant dans l'un de nos magasins à Taverny ou Drancy.
-                </p>
-                <p>
-                  Meubles sur mesure, miroirs, robinetterie, WC, receveurs de douche ...que ce soit pour équiper les salles de bain des particuliers, mais aussi pour les espaces sanitaires publics dans les bâtiments collectifs, bureaux, vestiaires dans les entreprises industrielles ....
-                </p>
-              </div>
-              <div className="mt-8">
-                <Link 
-                  href="/contact" 
-                  className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl shadow-md hover:bg-blue-700 transition-colors duration-300"
-                >
-                  Je veux en savoir plus
-                </Link>
-              </div>
-            </motion.div>
+            {/* Séparateur décoratif */}
+            <div className="w-full flex justify-center mb-16">
+              <svg width="180" height="32" viewBox="0 0 180 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="90" cy="16" rx="90" ry="16" fill="#007FFF" fillOpacity="0.10" />
+              </svg>
+            </div>
 
-            {/* Expertise */}
+            {/* Section 3 : Texte + Image à droite */}
+            <div className="flex flex-col md:flex-row items-stretch gap-12 mb-24">
+              <motion.div 
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeIn}
+                className="flex-1 flex flex-col justify-center"
+              >
+                <h2 className="text-3xl font-bold mb-8 text-gray-800">
+                  Solutions pour installations sanitaires
+                </h2>
+                <div className="prose prose-lg max-w-none text-gray-700">
+                  <p>
+                    Vous envisagez la conception ou la rénovation d'une installation sanitaire? Avec notre sélection de matériel de plomberie, rien de plus simple.
+                  </p>
+                  <p>
+                    Vous trouverez des solutions adaptées pour tous vos besoins, des installations résidentielles aux projets industriels.
+                  </p>
+                  <p>
+                    Des systèmes de distribution d'eau équipés de vannes de régulation permettent un contrôle optimal du débit. Ceci est particulièrement utile dans les grands bâtiments ou les installations complexes nécessitant une gestion précise de la pression.
+                  </p>
+                  <p>
+                    Une gamme standard stockée vous offre la possibilité de répondre et traiter vos demandes les plus habituelles avec des diamètres courants, ou dans des dimensions spécifiques selon vos besoins.
+                  </p>
+                  <p>
+                    À la demande, vous découvrirez une solution personnalisée Distritherm Services pour une installation répondant aux critères les plus stricts de vos clients.
+                  </p>
+                </div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9, x: 80 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                viewport={{ once: true }}
+                className="flex-1 flex justify-center items-stretch"
+              >
+                <div className="relative w-full h-full min-h-[280px] rounded-3xl overflow-hidden bg-white shadow-xl">
+                  <Image
+                    src="/plomberie1.jpg"
+                    alt="Installations sanitaires"
+                    fill
+                    className="object-cover rounded-3xl hover:scale-105 hover:shadow-2xl transition-transform duration-300 max-w-[400px] max-h-[350px] mx-auto my-auto"
+                  />
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Accessoires */}
             <motion.div 
               initial="hidden"
               whileInView="visible"
@@ -191,21 +262,64 @@ const PlomberiePage = () => {
                   </div>
                 </div>
                 <h2 className="text-3xl font-bold mb-6 text-gray-800 text-center">
-                  Car vous travaillez souvent dans l'urgence
+                  Pour la pérennité de vos installations
                 </h2>
                 <div className="prose prose-lg max-w-none text-gray-700">
                   <p>
-                    Nous savons que chaque projet est unique et nécessite des solutions adaptées. C'est pourquoi nos experts sont à votre écoute pour vous conseiller sur les meilleurs matériaux et équipements en fonction de vos besoins spécifiques. Que vous souhaitiez installer un réseau de distribution d'eau dans un immeuble à Montigny-lès-Cormeilles, rénover une salle de bain au Blanc-Mesnil, ou mettre en place un système de chauffage à Argenteuil, nos spécialistes vous orienteront vers les produits les mieux adaptés. Ils prendront en compte les contraintes techniques, les normes en vigueur et votre budget pour vous proposer des solutions optimales.
+                    Afin de parfaire votre installation en plomberie, nous offrons les équipements essentiels pour garantir le bon déroulement de vos travaux :
                   </p>
-                  <div className="bg-white p-5 rounded-xl border border-blue-200 my-6">
-                    <p className="font-medium">
-                      <strong>À noter :</strong> Nos experts sont formés sur les dernières innovations en matière de plomberie et peuvent vous former à l'utilisation des nouvelles technologies en matière de raccordement, d'hygiène et d'économie.
-                    </p>
-                  </div>
+                  <ul>
+                    <li>Outillage spécialisé : sertisseuse, coupe-tubes, ébavureur, cintreuse</li>
+                    <li>Accessoires de fixation et de raccordement</li>
+                    <li>Matériel de mesure et de contrôle</li>
+                    <li>Tous les accessoires de plomberie adaptés : joints, vannes, robinets...</li>
+                  </ul>
                   <p>
-                    Par ailleurs, nous comprenons l'importance de respecter les délais sur vos chantiers. C'est pourquoi nous veillons à avoir en stock 90 % des marchandises que nous vendons. Nos magasins ouvrent dès 6h30 pour les retraits matinaux, notre service commercial est prêt à vous servir tous les jours du lundi au vendredi jusqu'à 17h. Nous proposons la livraison en 48 heures sur toute la région parisienne et partout en France, garantissant un début de chantier dans les temps. Pour les commandes urgentes, notre service de « livraison et retrait express » permet une fourniture de vos équipements de plomberie dans les plus brefs délais.
+                    Nous proposons diverses solutions en matériel :
+                  </p>
+                  <ul>
+                    <li>Des tubes et raccords de toutes dimensions</li>
+                    <li>Des vannes et robinets de qualité</li>
+                    <li>Des accessoires de fixation et de raccordement</li>
+                    <li>Des outils professionnels</li>
+                    <li>Des pièces de rechange</li>
+                  </ul>
+                  <p>
+                    Nous saurons trouver le produit qu'il vous faut.
                   </p>
                 </div>
+              </div>
+            </motion.div>
+
+            {/* Disponibilité */}
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+              className="max-w-4xl mx-auto mb-16"
+            >
+              <h2 className="text-3xl font-bold mb-10 text-gray-800 text-center">
+                Disponibilité produit immédiate
+              </h2>
+              <div className="prose prose-lg max-w-none text-gray-700">
+                <p>
+                  Chez DISTRITHERM Services, nous savons que les délais sont souvent serrés sur les chantiers. C'est pourquoi nous maintenons en permanence un stock important de matériel standard dans nos entrepôts de Taverny et Drancy. Vous pouvez commander vos produits et choisir la livraison express sous 48 heures ou le retrait en magasin. Quel que soit votre choix, vous êtes assuré d'obtenir rapidement les matériaux dont vous avez besoin.
+                </p>
+                <p>
+                  Avec notre stock permanent, notre équipe commerciale, nos services de livraison et retrait express, nous sommes le partenaire idéal pour tous vos projets dans le bâtiment. Professionnels de Taverny, de Drancy et leurs environs, n'hésitez pas à nous contacter.
+                </p>
+              </div>
+              <div className="mt-8 text-center">
+                <Link 
+                  href="/contact" 
+                  className="inline-flex items-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-xl shadow-md hover:bg-blue-700 transition-colors duration-300"
+                >
+                  Nous contacter
+                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </Link>
               </div>
             </motion.div>
 
@@ -218,7 +332,7 @@ const PlomberiePage = () => {
               className="max-w-4xl mx-auto mb-16"
             >
               <h2 className="text-3xl font-bold mb-10 text-gray-800 text-center">
-                Pourquoi choisir DISTRITHERM Services ?
+                Les avantages de nos produits
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <motion.div variants={fadeIn} className="bg-white p-6 rounded-xl shadow-md border border-gray-100">
@@ -227,9 +341,9 @@ const PlomberiePage = () => {
                       <FaRegLightbulb className="text-blue-600 w-6 h-6" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-xl mb-2">Expertise technique</h3>
+                      <h3 className="font-semibold text-xl mb-2">Qualité professionnelle</h3>
                       <p className="text-gray-700">
-                        Plus de 15 ans d'expérience dans le domaine de la plomberie pour vous conseiller au mieux sur vos projets.
+                        Tous nos produits sont sélectionnés pour leur qualité et leur conformité aux normes en vigueur dans le bâtiment.
                       </p>
                     </div>
                   </div>
@@ -238,12 +352,12 @@ const PlomberiePage = () => {
                 <motion.div variants={fadeIn} className="bg-white p-6 rounded-xl shadow-md border border-gray-100">
                   <div className="flex items-start mb-4">
                     <div className="bg-blue-100 p-3 rounded-full mr-4">
-                      <GiPipes className="text-blue-600 w-6 h-6" />
+                      <FaShieldAlt className="text-blue-600 w-6 h-6" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-xl mb-2">Gamme complète</h3>
+                      <h3 className="font-semibold text-xl mb-2">Performances techniques</h3>
                       <p className="text-gray-700">
-                        Une large sélection de produits de plomberie pour répondre à tous vos besoins, des plus courants aux plus spécifiques.
+                        Durabilité, étanchéité, résistance à la pression : nos produits répondent à toutes les exigences techniques.
                       </p>
                     </div>
                   </div>
@@ -257,7 +371,7 @@ const PlomberiePage = () => {
                     <div>
                       <h3 className="font-semibold text-xl mb-2">Disponibilité immédiate</h3>
                       <p className="text-gray-700">
-                        90% de nos produits sont disponibles immédiatement en stock, avec un service de livraison express en 48h.
+                        Notre stock permanent vous garantit l'accès aux produits dont vous avez besoin, quand vous en avez besoin.
                       </p>
                     </div>
                   </div>
@@ -269,28 +383,13 @@ const PlomberiePage = () => {
                       <MdSupportAgent className="text-blue-600 w-6 h-6" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-xl mb-2">Service personnalisé</h3>
+                      <h3 className="font-semibold text-xl mb-2">Conseil personnalisé</h3>
                       <p className="text-gray-700">
-                        Un interlocuteur unique qui comprend vos enjeux et vous accompagne dans la réussite de vos projets.
+                        Notre équipe d'experts vous accompagne dans le choix des produits adaptés à chaque projet spécifique.
                       </p>
                     </div>
                   </div>
                 </motion.div>
-              </div>
-            </motion.div>
-
-            {/* Conclusion */}
-            <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeIn}
-              className="max-w-4xl mx-auto mb-16"
-            >
-              <div className="prose prose-lg max-w-none text-gray-700">
-                <p>
-                  En choisissant DISTRITHERM Services comme partenaire pour vos achats de matériel de plomberie, vous bénéficiez d'un interlocuteur unique qui comprend vos enjeux. Notre équipe est à votre service pour vous conseiller, répondre à vos questions et vous accompagner dans la réussite de vos projets. Avec notre large gamme de produits, notre expertise technique de plus de 15 ans, notre réactivité, vous avez tous les atouts en main pour réaliser des installations de plomberie de qualité. N'hésitez pas à nous contacter ou à passer commande. Chez DISTRITHERM Services, votre satisfaction est notre priorité.
-                </p>
               </div>
             </motion.div>
 
@@ -326,6 +425,7 @@ const PlomberiePage = () => {
           </div>
         </section>
       </main>
+      <BackButton />
       <Footer />
     </div>
   );

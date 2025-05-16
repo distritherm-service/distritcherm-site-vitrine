@@ -1,2 +1,4 @@
 export * from './axios';
-export { rappelService } from './rappelService'; 
+export * from './contactService';
+export * from './rappelService';
+export * from './recruitmentService'; 
