@@ -4,9 +4,10 @@ import React, { useState, useEffect } from 'react';
 import { FaUsers, FaGraduationCap, FaHandshake, FaChartLine, FaFileUpload, FaSpinner, FaCheckCircle, FaExclamationTriangle } from 'react-icons/fa';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import recruitmentService, { RecruitmentFormData } from '@/services/recruitmentService';
+import { recruitmentService, RecruitmentFormData } from '@/services/recruitementService';
 import Footer from '@/components/layout/Footer';
 import Breadcrumb from '@/components/navigation/Breadcrumb';
+import Image from 'next/image';
 
 interface FormData {
   desired_position: string;
@@ -356,13 +357,36 @@ const EspaceRecrutement = () => {
         closeOnClick 
         pauseOnHover 
       />
-      <div className="absolute w-96 h-96 -top-48 -left-48 bg-[#7CB9E8] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob" />
-      <div className="absolute w-96 h-96 -bottom-48 -right-48 bg-[#007FFF] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob" />
-      {/* Breadcrumb */}
-      <div className="relative z-10">
-        <Breadcrumb />
-      </div>
+      
       <main className="flex-grow relative z-10">
+        {/* Hero compact */}
+        <section className="relative h-56 md:h-64 w-full overflow-hidden shadow-sm">
+          {/* Image d'arrière-plan */}
+          <div className="absolute inset-0">
+            <Image
+              src="/image-recrutement.png"
+              alt="Recrutement Distritherm Services"
+              fill
+              priority
+              className="object-cover object-center"
+            />
+            {/* Voile bleu pour lisibilité */}
+            <div className="absolute inset-0 bg-white/30 backdrop-blur-sm" />
+          </div>
+
+          {/* Contenu : Titre + Breadcrumb */}
+          <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">Carrière</h1>
+            <Breadcrumb />
+          </div>
+
+          {/* Ombre courbée en bas */}
+          <div className="absolute bottom-0 left-1/2 w-full max-w-none -translate-x-1/2">
+            <svg viewBox="0 0 1600 100" className="w-full h-6 md:h-8" preserveAspectRatio="none">
+              <path d="M0,0 C600,100 1000,100 1600,0 L1600,100 L0,100 Z" fill="#f8f9ff"/>
+            </svg>
+          </div>
+        </section>
         <section className="relative py-20 overflow-hidden">
           <div className="container relative mx-auto px-4">
             {/* En-tête de la page */}

@@ -4,10 +4,11 @@ import { FaPhone, FaEnvelope, FaClock, FaBuilding, FaSpinner, FaCheckCircle, FaE
 import Breadcrumb from '@/components/navigation/Breadcrumb';
 import Footer from '@/components/layout/Footer';
 import { contactService, ContactFormData as ApiContactFormData, Agency } from '@/services/contactService';
+import Image from 'next/image';
 
 // Interface pour le formulaire de contact
 interface ContactFormData {
-  civility: string;
+  civility: string;  // Type plus strict pour la civilité
   first_name: string;
   last_name: string;
   email: string;
@@ -29,9 +30,9 @@ const Contact: React.FC = () => {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
 
-  // État pour le formulaire
+  // État pour le formulaire avec une valeur initiale pour la civilité
   const [formData, setFormData] = useState<ContactFormData>({
-    civility: '',
+    civility: 'Non précisé',  // Valeur par défaut valide
     first_name: '',
     last_name: '',
     email: '',
@@ -87,10 +88,10 @@ const Contact: React.FC = () => {
 
   // Gérer les changements de civilité (radio buttons)
   const handleCivilityChange = (civility: string) => {
-    setFormData({
-      ...formData,
+    setFormData(prev => ({
+      ...prev,
       civility
-    });
+    }));
   };
 
   // Gérer les changements d'agence
@@ -141,6 +142,11 @@ const Contact: React.FC = () => {
       return;
     }
 
+    if (!formData.civility || !['M.', 'Mme', 'Non précisé'].includes(formData.civility)) {
+      setError('Veuillez sélectionner une civilité valide.');
+      return;
+    }
+
     try {
       setFormLoading(true);
       
@@ -169,7 +175,7 @@ const Contact: React.FC = () => {
         
         // Réinitialiser le formulaire
         setFormData({
-          civility: '',
+          civility: formData.civility,  // Conserver la dernière civilité choisie
           first_name: '',
           last_name: '',
           email: '',
@@ -205,32 +211,35 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-blue-50 via-white to-[#7CB9E8]/30">
-      <div className="absolute w-96 h-96 -top-48 -left-48 bg-[#7CB9E8] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob" />
-      <div className="absolute w-96 h-96 -bottom-48 -right-48 bg-[#007FFF] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob" />
-      {/* Breadcrumb */}
-      <div className="relative z-10">
-        <Breadcrumb />
-      </div>
+    <div className="min-h-screen flex flex-col bg-[#EEF7FF]">
+      {/* Hero compact */}
+      <section className="relative h-56 md:h-64 w-full overflow-hidden shadow-sm">
+        {/* Image d'arrière-plan */}
+        <div className="absolute inset-0">
+          <Image
+            src="/image-contact.png"
+            alt="Contact Distritherm Services"
+            fill
+            priority
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-white/30 backdrop-blur-sm" />
+        </div>
+        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
+          <h1 className="text-4xl md:text-4xl font-bold text-gray-800 mb-2">Contact</h1>
+          <Breadcrumb />
+        </div>
+
+        <div className="absolute bottom-0 left-1/2 w-full max-w-none -translate-x-1/2">
+          <svg viewBox="0 0 1600 100" className="w-full h-6 md:h-8" preserveAspectRatio="none">
+            <path d="M0,0 C600,100 1000,100 1600,0 L1600,100 L0,100 Z" fill="#EEF7FF" />
+          </svg>
+        </div>
+      </section>
+
       <main className="flex-grow relative z-10">
-        <section className="relative py-20 overflow-hidden">
-          {/* Arrière-plan décoratif */}
-         
-
+        <section className="relative py-20 overflow-hidden bg-[#EEF7FF]">
           <div className="container relative mx-auto px-4">
-            {/* En-tête de la page */}
-            <div className="text-center mb-16">
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4 relative inline-block">
-                <span className="bg-gradient-to-r from-[#7CB9E8] to-[#007FFF] bg-clip-text text-transparent">
-                  Contacter votre agence
-                </span>
-                <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-[#7CB9E8] to-[#007FFF] rounded-full"></div>
-              </h1>
-              <p className="text-gray-600 max-w-2xl mx-auto mt-8">
-                Notre équipe est à votre disposition pour répondre à toutes vos questions
-              </p>
-            </div>
-
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
               {/* Informations de contact */}
               <div className="lg:col-span-1">
@@ -351,6 +360,7 @@ const Contact: React.FC = () => {
                           <label className="flex items-center">
                             <input
                               type="radio"
+                              name="civility"
                               value="M."
                               checked={formData.civility === 'M.'}
                               onChange={() => handleCivilityChange('M.')}
@@ -362,20 +372,24 @@ const Contact: React.FC = () => {
                           <label className="flex items-center">
                             <input
                               type="radio"
+                              name="civility"
                               value="Mme"
                               checked={formData.civility === 'Mme'}
                               onChange={() => handleCivilityChange('Mme')}
                               className="w-4 h-4 text-[#007FFF] border-gray-300 focus:ring-[#007FFF]"
+                              required
                             />
                             <span className="ml-2 text-gray-700">Mme</span>
                           </label>
                           <label className="flex items-center">
                             <input
                               type="radio"
+                              name="civility"
                               value="Non précisé"
                               checked={formData.civility === 'Non précisé'}
                               onChange={() => handleCivilityChange('Non précisé')}
                               className="w-4 h-4 text-[#007FFF] border-gray-300 focus:ring-[#007FFF]"
+                              required
                             />
                             <span className="ml-2 text-gray-700">Non précisé</span>
                           </label>

@@ -40,7 +40,7 @@ const Footer: React.FC = () => {
               />
             </div>
             <div className="mt-4">
-              <h3 className="font-bold text-lg mb-4">Suivez-nous</h3>
+              <h3 className="font-bold text-lg mb-4">Suivez-nous sur :</h3>
               <div className="flex space-x-4">
                 <Link href="https://facebook.com" className="text-gray-600 hover:text-blue-600">
                   <FaFacebookF size={20} />
@@ -65,7 +65,7 @@ const Footer: React.FC = () => {
               <p className="font-semibold">Magasin Drancy</p>
               <p>151 rue Diderot 93700 Drancy</p>
               <p className="font-semibold">Numéro Téléphone</p>
-              <p><a href="">01 48 30 45 70</a></p>
+              <p><a href="">01 71 68 72 12 </a></p>
             </div>
           </div>
           
@@ -73,11 +73,7 @@ const Footer: React.FC = () => {
           <div className="text-[#001e3c] md:text-white md:pl-14">
             <h3 className="font-bold text-xl mb-4">Nos Catégories</h3>
             <ul className="space-y-2">
-              <li>
-                <Link href="/catalogue" className="hover:text-blue-200">
-                  Notre catalogue produits
-                </Link>
-              </li>
+            
               <li>
                 <Link href="/gamme/platerie" className="hover:text-blue-200">
                   Platerie
@@ -149,11 +145,6 @@ const Footer: React.FC = () => {
               <li>
                 <Link href="/cgu" className="hover:text-blue-200">
                   Conditions générales d'utilisation du site
-                </Link>
-              </li>
-              <li>
-                <Link href="/sav" className="hover:text-blue-200">
-                  SAV
                 </Link>
               </li>
               <li>

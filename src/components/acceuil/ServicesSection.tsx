@@ -3,6 +3,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { FaMapMarkerAlt, FaUserPlus, FaTools, FaFileAlt } from 'react-icons/fa';
+import { useCompteProModal } from '@/hooks/useCompteProModal';
+import CompteProModal from '@/components/compte-pro/CompteProModal';
 
 // Définition des services avec leurs icônes
 const services = [
@@ -15,8 +17,9 @@ const services = [
         <FaMapMarkerAlt className="w-8 h-8 text-[#007FFF]" />
       </div>
     ),
-    link: '/agences'
+    link: '/qui-sommes-nous#nos-magasins'
   },
+  
   {
     id: 'compte',
     title: 'Ouverture de compte',
@@ -26,7 +29,7 @@ const services = [
         <FaUserPlus className="w-8 h-8 text-[#007FFF]" />
       </div>
     ),
-    link: '/compte'
+    link: '/compte-pro'
   },
   {
     id: 'sav',
@@ -37,7 +40,7 @@ const services = [
         <FaTools className="w-8 h-8 text-[#007FFF]" />
       </div>
     ),
-    link: '/sav'
+    link: '/contact'
   },
   {
     id: 'devis',
@@ -48,7 +51,7 @@ const services = [
         <FaFileAlt className="w-8 h-8 text-[#007FFF]" />
       </div>
     ),
-    link: '/devis'
+    link: '/contact'
   }
 ];
 
@@ -67,49 +70,62 @@ const cardVariants = {
 };
 
 const ServicesSection = () => {
+  const { isOpen, open, close } = useCompteProModal();
+
+  const handleServiceClick = (link: string) => {
+    if (link === '/compte-pro') {
+      open();
+    } else {
+      window.location.href = link;
+    }
+  };
+
   return (
-    <section className="py-20 bg-gradient-to-br via-white to-blue-100">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">
-            <span className="bg-gradient-to-r from-[#007FFF] to-blue-400 bg-clip-text text-transparent">Distritherm Services</span>
-          </h2>
-          <div className="w-28 h-1 bg-gradient-to-r from-[#007FFF] to-blue-400 mx-auto mb-6 rounded-full"></div>
-          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Distritherm, votre <span className="text-[#007FFF] font-semibold">partenaire</span> indépendant spécialisé dans la distribution de matériel pour la <span className="text-[#007FFF] font-semibold">rénovation énergétique</span> de l'habitat.
-          </p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((service, i) => (
-            <motion.div
-              key={service.id}
-              className="relative group bg-white rounded-3xl shadow-xl p-8 flex flex-col items-center text-center transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl border border-blue-100"
-              custom={i}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={cardVariants}
-            >
+    <>
+      <section className="py-20 bg-gradient-to-br via-white to-blue-100">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">
+              <span className="bg-gradient-to-r from-[#007FFF] to-blue-400 bg-clip-text text-transparent">Distritherm Services</span>
+            </h2>
+            <div className="w-28 h-1 bg-gradient-to-r from-[#007FFF] to-blue-400 mx-auto mb-6 rounded-full"></div>
+            <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              Distritherm, votre <span className="text-[#007FFF] font-semibold">partenaire</span> indépendant spécialisé dans la distribution de matériel pour la <span className="text-[#007FFF] font-semibold">rénovation énergétique</span> de l'habitat.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {services.map((service, i) => (
               <motion.div
-                className="w-20 h-20 bg-gradient-to-tr from-blue-100 to-blue-200 rounded-full flex items-center justify-center mb-6 shadow-md group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300"
-                whileHover={{ rotate: 12, scale: 1.15 }}
-                transition={{ type: 'spring', stiffness: 200 }}
+                key={service.id}
+                className="relative group bg-white rounded-3xl shadow-xl p-8 flex flex-col items-center text-center transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl border border-blue-100"
+                custom={i}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={cardVariants}
               >
-                {service.icon}
+                <motion.div
+                  className="w-20 h-20 bg-gradient-to-tr from-blue-100 to-blue-200 rounded-full flex items-center justify-center mb-6 shadow-md group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300"
+                  whileHover={{ rotate: 12, scale: 1.15 }}
+                  transition={{ type: 'spring', stiffness: 200 }}
+                >
+                  {service.icon}
+                </motion.div>
+                <h3 className="text-2xl font-bold text-gray-800 mb-3 tracking-tight group-hover:text-[#007FFF] transition-colors duration-300">{service.title}</h3>
+                <p className="text-gray-500 mb-6 text-base min-h-[56px]">{service.description}</p>
+                <button 
+                  onClick={() => handleServiceClick(service.link)}
+                  className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-[#007FFF] to-blue-400 text-white text-2xl shadow-lg hover:scale-110 hover:shadow-blue-200 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+                >
+                  <span className="font-bold text-3xl leading-none">+</span>
+                </button>
               </motion.div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-3 tracking-tight group-hover:text-[#007FFF] transition-colors duration-300">{service.title}</h3>
-              <p className="text-gray-500 mb-6 text-base min-h-[56px]">{service.description}</p>
-              <Link 
-                href={service.link}
-                className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-[#007FFF] to-blue-400 text-white text-2xl shadow-lg hover:scale-110 hover:shadow-blue-200 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
-              >
-                <span className="font-bold text-3xl leading-none">+</span>
-              </Link>
-            </motion.div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+      <CompteProModal isOpen={isOpen} onClose={close} />
+    </>
   );
 };
 

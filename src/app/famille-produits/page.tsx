@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Breadcrumb from '@/components/navigation/Breadcrumb';
 import Footer from '@/components/layout/Footer';
 import { motion, useAnimation, useInView } from 'framer-motion';
+import { FaBoxOpen, FaClock, FaLayerGroup, FaSmile } from 'react-icons/fa';
 
 // Définition des catégories de produits
 const categories = [
@@ -14,6 +15,7 @@ const categories = [
     nom: 'Chauffage',
     description: 'Solutions complètes pour le chauffage résidentiel et professionnel. Radiateurs, chaudières, pompes à chaleur et accessoires de qualité supérieure.',
     image: '/chauffage.jpeg',
+    link: 'gamme/chauffage',
     produits: [
       'Radiateurs électriques',
       'Chaudières gaz condensation',
@@ -24,13 +26,14 @@ const categories = [
     bgColor: 'from-red-50 to-orange-50',
     textColor: 'text-red-700',
     borderColor: 'border-red-200',
-    hoverColor: 'group-hover:bg-red-600'
+    hoverColor: 'group-hover:bg-red-600',
   },
   {
     id: 'plomberie',
     nom: 'Plomberie',
     description: 'Articles de plomberie professionnels pour tous vos projets d\'installation et de rénovation. Tuyauterie, raccords et outils spécialisés.',
     image: '/plomberie.jpeg',
+    link: 'gamme/plomberie',
     produits: [
       'Tubes multicouches',
       'Raccords laiton',
@@ -48,6 +51,7 @@ const categories = [
     nom: 'Climatisation',
     description: 'Équipements de climatisation pour un confort optimal en toutes saisons. Solutions écoénergétiques pour particuliers et professionnels.',
     image: '/climatisation.jpeg',
+    link: 'gamme/climatisation',
     produits: [
       'Climatiseurs split',
       'Climatiseurs multi-split',
@@ -65,6 +69,7 @@ const categories = [
     nom: 'Isolation',
     description: 'Matériaux isolants haute performance pour l\'efficacité énergétique de votre habitation. Solutions thermiques et acoustiques.',
     image: '/isolation.jpeg',
+    link: 'gamme/isolation',
     produits: [
       'Laine de verre',
       'Laine de roche',
@@ -82,6 +87,7 @@ const categories = [
     nom: 'Électricité',
     description: 'Produits électriques pour installations résidentielles et industrielles. Câblage, tableaux électriques et équipements de protection.',
     image: '/electricite.jpeg',
+    link: 'gamme/electricite',
     produits: [
       'Câbles électriques',
       'Tableaux et disjoncteurs',
@@ -99,6 +105,7 @@ const categories = [
     nom: 'Sanitaire',
     description: 'Équipements sanitaires modernes alliant fonctionnalité et esthétique. Lavabos, robinetterie, douches et accessoires de salle de bain.',
     image: '/sanitaire.jpeg',
+    link: 'gamme/sanitaire',
     produits: [
       'Robinetterie',
       'Lavabos et éviers',
@@ -116,6 +123,7 @@ const categories = [
     nom: 'Plâtrerie',
     description: 'Solutions complètes pour la construction sèche et l\'aménagement intérieur. Plaques de plâtre, enduits et accessoires.',
     image: '/platerie.jpeg',
+    link: 'gamme/platerie',
     produits: [
       'Plaques de plâtre',
       'Rails et montants',
@@ -133,6 +141,7 @@ const categories = [
     nom: 'Outillage',
     description: 'Outils professionnels pour tous les corps de métier du bâtiment. Outillage électroportatif, manuel et accessoires de qualité.',
     image: '/outillage.jpeg',
+    link: 'gamme/outillage',
     produits: [
       'Outillage électroportatif',
       'Outillage à main',
@@ -191,61 +200,60 @@ const UniversProduitPage = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#EEF7FF]">
-      {/* Breadcrumb */}
-      <div className="relative z-10 bg-[#EEF7FF] shadow-sm">
-        <Breadcrumb />
-      </div>
+      {/* Hero compact */}
+      <section className="relative h-56 md:h-64 w-full overflow-hidden shadow-sm">
+        {/* Image de fond */}
+        <div className="absolute inset-0">
+          <Image
+            src="/image-univers-produits.jpg"
+            alt="Univers produits Distritherm"
+            fill
+            priority
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-white/30 backdrop-blur-sm" />
+        </div>
+        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">Univers Produits</h1>
+          <Breadcrumb />
+        </div>
+        <div className="absolute bottom-0 left-1/2 w-full max-w-none -translate-x-1/2">
+          <svg viewBox="0 0 1600 100" className="w-full h-6 md:h-8" preserveAspectRatio="none">
+            <path d="M0,0 C600,100 1000,100 1600,0 L1600,100 L0,100 Z" fill="#EEF7FF" />
+          </svg>
+        </div>
+      </section>
 
       <main className="flex-grow relative z-10">
-        {/* En-tête */}
-        <section className="relative py-24 overflow-hidden bg-[#EEF7FF]">
-          <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-5"></div>
-          <div className="container mx-auto px-4 relative z-10">
-            <motion.h1 
-              className="text-5xl md:text-6xl font-extrabold text-center mb-6 text-gray-900"
-              initial={{ opacity: 0, y: -30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
+        {/* Statistiques clés */}
+        <section className="py-12 bg-[#EEF7FF]">
+          <div className="container mx-auto px-4">
+            <motion.div
+              className="grid grid-cols-2 md:grid-cols-4 gap-6"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0, transition: { staggerChildren: 0.1, duration: 0.6 } }}
             >
-              <span className="bg-gradient-to-r from-[#007FFF] to-blue-700 bg-clip-text text-transparent">
-                Découvrez tous nos univers produits
-              </span>
-            </motion.h1>
-            <div className="w-32 h-1.5 bg-gradient-to-r from-[#159b8a] to-[#007FFF] mx-auto mb-8 rounded-full"></div>
-            <motion.p 
-              className="text-xl text-gray-700 max-w-3xl mx-auto text-center mb-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-            >
-              Plus de 10 000 références, des marques reconnues, un accompagnement sur-mesure et une logistique ultra-réactive pour tous vos projets de construction et rénovation.
-            </motion.p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
-              <button className="px-7 py-3 bg-[#159b8a] hover:bg-[#0d7a6c] text-white font-semibold rounded-lg transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#159b8a] focus:ring-opacity-50">
-                Demander un devis
-              </button>
-              <button className="px-7 py-3 border-2 border-[#159b8a] text-[#159b8a] font-semibold rounded-lg hover:bg-[#159b8a] hover:text-white transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#159b8a] focus:ring-opacity-50">
-                Nos agences
-              </button>
-            </div>
-            <div className="flex flex-wrap justify-center gap-8 mt-8">
-              <div className="bg-white/80 rounded-2xl shadow-md px-8 py-6 flex flex-col items-center min-w-[180px]">
-                <span className="text-3xl font-bold text-[#159b8a]">10 000+</span>
-                <span className="text-gray-600 text-sm mt-1">Références produits</span>
-              </div>
-              <div className="bg-white/80 rounded-2xl shadow-md px-8 py-6 flex flex-col items-center min-w-[180px]">
-                <span className="text-3xl font-bold text-[#007FFF]">48h</span>
-                <span className="text-gray-600 text-sm mt-1">Livraison rapide</span>
-              </div>
-              <div className="bg-white/80 rounded-2xl shadow-md px-8 py-6 flex flex-col items-center min-w-[180px]">
-                <span className="text-3xl font-bold text-[#159b8a]">8</span>
-                <span className="text-gray-600 text-sm mt-1">Univers produits</span>
-              </div>
-              <div className="bg-white/80 rounded-2xl shadow-md px-8 py-6 flex flex-col items-center min-w-[180px]">
-                <span className="text-3xl font-bold text-[#007FFF]">100%</span>
-                <span className="text-gray-600 text-sm mt-1">Clients satisfaits</span>
-              </div>
-            </div>
+              {[
+                { value: '10 000+', label: 'Références produits', icon: <FaBoxOpen className="w-6 h-6" /> },
+                { value: '48h', label: 'Livraison rapide', icon: <FaClock className="w-6 h-6" /> },
+                { value: '8', label: 'Univers produits', icon: <FaLayerGroup className="w-6 h-6" /> },
+                { value: '100%', label: 'Clients satisfaits', icon: <FaSmile className="w-6 h-6" /> },
+              ].map((stat, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0, transition: { duration: 0.6 } }}
+                  whileHover={{ scale: 1.05, boxShadow: '0 8px 24px rgba(0,0,0,0.15)' }}
+                  className="backdrop-blur-lg bg-white/40 border border-white/30 rounded-2xl p-6 text-center cursor-default select-none transition-transform duration-200"
+                >
+                  <div className="flex items-center justify-center w-12 h-12 mx-auto mb-3 rounded-full bg-gradient-to-br from-[#159b8a]/20 to-[#007FFF]/20 text-[#159b8a]">
+                    {stat.icon}
+                  </div>
+                  <span className="block text-3xl font-extrabold text-gray-900 mb-1">{stat.value}</span>
+                  <span className="block text-sm text-gray-700">{stat.label}</span>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
         </section>
 
@@ -265,14 +273,7 @@ const UniversProduitPage = () => {
                     <li>✔️ Marques leaders et produits éco-responsables</li>
                     <li>✔️ Service location de matériel professionnel</li>
                   </ul>
-                  <div className="flex gap-4">
-                    <button className="px-6 py-3 bg-[#159b8a] hover:bg-[#0d7a6c] text-white font-semibold rounded-lg transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#159b8a] focus:ring-opacity-50">
-                      Demander un devis
-                    </button>
-                    <button className="px-6 py-3 border-2 border-[#159b8a] text-[#159b8a] font-semibold rounded-lg hover:bg-[#159b8a] hover:text-white transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#159b8a] focus:ring-opacity-50">
-                      Nos agences
-                    </button>
-                  </div>
+                
                 </div>
               </FadeInWhenVisible>
               <div className="flex-1 flex justify-end w-full">
@@ -317,15 +318,16 @@ const UniversProduitPage = () => {
               {categories.map((categorie, index) => (
                 <motion.div
                   key={categorie.id}
-                  variants={{ hidden: { opacity: 0, y: 40 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } }}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0, transition: { duration: 0.6 } }}
                   whileHover={{ scale: 1.04 }}
                   className="relative"
                 >
-                  <Link href={`/famille-produits/${categorie.id}`} className="block">
+                  <Link href={`/${categorie.link}`} className="block">
                     <div className={`bg-gradient-to-br from-[#eaf6ff] to-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 border ${categorie.borderColor} h-full group relative`}>
                       <div className="relative h-52 overflow-hidden">
                         <Image 
-                          src="/chauffage.jpeg" 
+                          src={categorie.image} 
                           alt={categorie.nom} 
                           fill 
                           className="object-cover transform group-hover:scale-105 transition-transform duration-500" 
@@ -334,12 +336,7 @@ const UniversProduitPage = () => {
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
                           <h3 className="text-white font-bold text-xl p-4">{categorie.nom}</h3>
                         </div>
-                        {index === 0 && (
-                          <span className="absolute top-3 left-3 bg-[#159b8a] text-white text-xs font-bold px-3 py-1 rounded-full shadow">Nouveauté</span>
-                        )}
-                        {index === 1 && (
-                          <span className="absolute top-3 left-3 bg-[#007FFF] text-white text-xs font-bold px-3 py-1 rounded-full shadow">Best-seller</span>
-                        )}
+                        
                       </div>
                       <div className="p-5">
                         <p className="text-gray-600 text-sm mb-4 min-h-[48px]">{categorie.description}</p>
@@ -357,12 +354,14 @@ const UniversProduitPage = () => {
                           </ul>
                         </div>
                         <div className="mt-5 flex justify-end">
-                          <span className={`inline-flex items-center text-sm font-medium ${categorie.textColor} group-hover:underline`}>
-                            Découvrir la gamme
-                            <svg className="ml-1 w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                              <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path>
-                            </svg>
-                          </span>
+                          <Link href={`/${categorie.link}`}>
+                            <span className={`inline-flex items-center text-sm font-medium ${categorie.textColor} group-hover:underline`}>
+                              Découvrir la gamme
+                              <svg className="ml-1 w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path>
+                              </svg>
+                            </span>
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -415,6 +414,11 @@ const UniversProduitPage = () => {
                   transition={{ repeat: Infinity, duration: 18, ease: 'linear' }}
                 >
                   {[
+                    '/fournisseurs/DEVILLE_noir_sans_signature.jpg',
+                    '/fournisseurs/LOGO EDMA_fond-BLEU.jpg',
+                    '/fournisseurs/LOGO_INVICTA_sans-signature.png',
+                    '/fournisseurs/Logo-SPP-H-rvb.jpg',
+                    '/fournisseurs/LOGO-TALIAplast-HD.jpg',
                     '/fournisseurs/fhe_logo.webp',
                     '/fournisseurs/dewalt_logo.jpg',
                     '/fournisseurs/clivet_logo19.png',
@@ -425,7 +429,7 @@ const UniversProduitPage = () => {
                     '/fournisseurs/logo_stanley_utilisation_digitale.jpg',
                     '/fournisseurs/watts_logo_dernier.jpg',
                     '/fournisseurs/rockwool_logo_primary_colour_rgb.png',
-                    '/fournisseurs/r.png',
+                    '/fournisseurs/knauf-logo.png',
                   ].map((logo, index) => (
                     <div key={index} className="w-32 h-16 md:w-40 md:h-20 relative transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#159b8a]/20 flex-shrink-0">
                       <Image 
@@ -439,6 +443,11 @@ const UniversProduitPage = () => {
                   ))}
                   {/* On duplique la liste pour un effet de boucle continue */}
                   {[
+                    '/fournisseurs/DEVILLE_noir_sans_signature.jpg',
+                    '/fournisseurs/LOGO EDMA_fond-BLEU.jpg',
+                    '/fournisseurs/LOGO_INVICTA_sans-signature.png',
+                    '/fournisseurs/Logo-SPP-H-rvb.jpg',
+                    '/fournisseurs/LOGO-TALIAplast-HD.jpg',
                     '/fournisseurs/fhe_logo.webp',
                     '/fournisseurs/dewalt_logo.jpg',
                     '/fournisseurs/clivet_logo19.png',
@@ -449,7 +458,7 @@ const UniversProduitPage = () => {
                     '/fournisseurs/logo_stanley_utilisation_digitale.jpg',
                     '/fournisseurs/watts_logo_dernier.jpg',
                     '/fournisseurs/rockwool_logo_primary_colour_rgb.png',
-                    '/fournisseurs/r.png',
+                    '/fournisseurs/knauf-logo.png',
                   ].map((logo, index) => (
                     <div key={index+100} className="w-32 h-16 md:w-40 md:h-20 relative transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#159b8a]/20 flex-shrink-0">
                       <Image 
@@ -541,12 +550,16 @@ const UniversProduitPage = () => {
                       adaptés à votre projet et vous conseiller sur les meilleures solutions.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4">
-                      <button className="px-6 py-3 bg-white text-[#159b8a] font-semibold rounded-lg hover:bg-gray-100 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50">
-                        Contacter un expert
-                      </button>
-                      <button className="px-6 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50">
-                        Demander un devis
-                      </button>
+                      <Link href="/contact">
+                        <button className="px-6 py-3 bg-white text-[#159b8a] font-semibold rounded-lg hover:bg-gray-100 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50">
+                          Demander un devis
+                        </button>
+                      </Link>
+                      <Link href="/recrutement">
+                        <button className="px-6 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50">
+                          Nous rejoindre ?
+                        </button>
+                      </Link>
                     </div>
                   </FadeInWhenVisible>
                 </div>
