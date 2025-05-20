@@ -1,50 +1,34 @@
-import axiosInstance from './axios';
+import axiosInstance from './axiosConfig';
 
-/**
- * Interface pour la requête de rappel
- */
 interface RemindMeRequest {
   fullName: string;
   phoneNumber: string;
 }
 
-/**
- * Service pour gérer les demandes de rappel téléphonique
- */
 export const rappelService = {
-  /**
-   * Envoie une demande de rappel téléphonique
-   * @param data Informations de la personne demandant un rappel
-   */
   requestCallback: async (data: RemindMeRequest) => {
     try {
-      // Formatage des données selon l'API
+      // S'assurer que les données sont dans le bon format
       const formattedData = {
-        fullName: data.fullName.trim(),
+        fullName: data.fullName,
         phoneNumber: data.phoneNumber.replace(/\s/g, '') // Enlever tous les espaces
       };
 
-      const response = await axiosInstance.post('/users/remind-me', formattedData);
+      const response = await axiosInstance.post('/users/remind-me', formattedData, {
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Platform': 'web'
+        }
+      });
       
-      return {
-        success: true,
-        message: response.data.message || 'Votre demande de rappel a bien été prise en compte'
-      };
+      return response.data;
     } catch (error: any) {
-      // Gestion des erreurs
+      // Améliorer la gestion des erreurs
       if (error.response) {
         // Le serveur a répondu avec un statut d'erreur
-        return {
-          success: false,
-          message: error.response.data.message || 'Les données fournies sont invalides'
-        };
+        throw new Error(error.response.data.message || 'Erreur lors de la demande de rappel');
       }
-      
-      // Erreur réseau ou autre
-      return {
-        success: false,
-        message: 'Vous n\'êtes pas autorisé à accéder à cette ressource'
-      };
+      throw error;
     }
   }
 }; 

@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import Footer from '@/components/layout/Footer';
+import Breadcrumb from '@/components/navigation/Breadcrumb';
 
 // Définition des catégories avec leurs images et descriptions
 const categories = [
@@ -88,34 +89,42 @@ const GammePage = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <main className="flex-grow">
-        {/* Hero Section */}
-        <section className="relative py-20 bg-gradient-to-b from-blue-50 to-white">
-          <div className="container mx-auto px-4">
-            <motion.div 
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              className="text-center mb-16"
-            >
-              <h1 className="text-5xl md:text-6xl font-bold mb-6 text-gray-900">
-                Notre <span className="bg-gradient-to-r from-[#7CB9E8] to-[#007FFF] bg-clip-text text-transparent">Gamme Complète</span>
-              </h1>
-              <div className="w-32 h-1.5 bg-gradient-to-r from-[#7CB9E8] to-[#007FFF] mx-auto mb-8 rounded-full"></div>
-              <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-                Découvrez notre sélection complète de matériaux et équipements professionnels pour tous vos projets de construction et rénovation.
-              </p>
-            </motion.div>
-          </div>
+    <div className="min-h-screen bg-[#EEF7FF]">
+      {/* Hero compact */}
+      <section className="relative h-56 md:h-64 w-full overflow-hidden shadow-sm">
+        {/* Image de fond */}
+        <div className="absolute inset-0">
+          <Image
+            src="/image-univers-produits.jpg"
+            alt="Notre gamme de produits"
+            fill
+            priority
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-white/30 backdrop-blur-sm" />
+        </div>
+        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">Gamme Produits</h1>
+          <Breadcrumb />
+        </div>
+        <div className="absolute bottom-0 left-1/2 w-full max-w-none -translate-x-1/2">
+          <svg viewBox="0 0 1600 100" className="w-full h-6 md:h-8" preserveAspectRatio="none">
+            <path d="M0,0 C600,100 1000,100 1600,0 L1600,100 L0,100 Z" fill="#EEF7FF" />
+          </svg>
+        </div>
+      </section>
+      <main className="flex-grow relative z-10">
           
-          {/* Formes décoratives */}
-          <div className="absolute w-96 h-96 -top-48 -left-48 bg-[#7CB9E8] rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob"></div>
-          <div className="absolute w-96 h-96 -bottom-48 -right-48 bg-[#007FFF] rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob-delay-2000"></div>
-        </section>
-
         {/* Section Catégories */}
         <section className="py-16 relative">
+               <div className="text-center mb-16">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6 inline-block relative">
+                  <span className="bg-gradient-to-r from-[#7CB9E8] to-[#007FFF] bg-clip-text text-transparent">
+                    Nos différents Catégories Produits
+                  </span>
+                  <span className="block absolute -bottom-2 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-[#7CB9E8] to-[#007FFF] rounded-full" />
+                </h2>
+              </div>
           <div className="container mx-auto px-4">
             <motion.div 
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"

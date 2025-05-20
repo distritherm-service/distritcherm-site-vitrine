@@ -7,9 +7,9 @@ const ExpertSection = () => {
     <div className="w-full bg-[#DCDCDC] h-[200px] relative overflow-visible mt-20">
       <div className="max-w-7xl mx-auto h-full">
         <div className="flex items-center h-full px-4 relative">
-          <div className="text-left absolute left-32 z-10 mt-8 ml-20">
+          <div className="text-left absolute left-16 z-10 mt-8 ml-8">
             <h2 className="text-[24px] leading-tight font-bold text-gray-800 mb-6">
-              "Besoin d&apos;un conseil sur votre<br />
+              "Besoin d&apos;un conseil sur votre
               commande ou votre projet ?"
             </h2>
             <div className="text-center">
@@ -21,10 +21,10 @@ const ExpertSection = () => {
               </Link>
             </div>
           </div>
-          <div className="absolute right-32 bottom-0 h-[400px]" style={{ transform: 'translateY(-30px)' }}>
-            <div className="relative h-full min-w-[550px] w-auto">
+          <div className="absolute right-32 bottom-0 h-[320px]" style={{ transform: 'translateY(-30px)' }}>
+            <div className="relative h-full min-w-[450px] w-auto">
               <Image
-                src="/image-section-expert.png"
+                src="/image-conseiller2.png"
                 alt="Expert conseil"
                 fill
                 className="object-contain"

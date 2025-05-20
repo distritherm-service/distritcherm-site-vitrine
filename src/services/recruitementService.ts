@@ -1,4 +1,4 @@
-import axiosInstance from './axios';
+import axiosInstance from './axiosConfig';
 
 /**
  * Interface pour les données du formulaire de recrutement
