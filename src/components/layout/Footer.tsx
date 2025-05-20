@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
           <div className="flex flex-col items-start">
             <div className="mb-6">
               <Image 
-                src="/logo-Transparent.png" 
+                src="/logods.png" 
                 alt="Distritherm Services" 
                 width={200} 
                 height={80} 
