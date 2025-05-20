@@ -68,7 +68,7 @@ const Navbar: React.FC = () => {
           <div className="flex-shrink-0 flex items-center" style={{ minWidth: '140px', maxWidth: '200px' }}>
             <Link href="/" className="hover:opacity-90 transition-opacity">
               <Image 
-                src="/logo-transparent.png" 
+                src="/logods.png" 
                 alt="Distritherm" 
                 width={200} 
                 height={70} 
