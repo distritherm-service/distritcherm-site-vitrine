@@ -6,55 +6,55 @@ import { FaArrowRight, FaTruck, FaTools, FaPhoneAlt } from 'react-icons/fa';
 const produits = [
   {
     nom: 'Plâtrerie',
-    image: '/platerie.jpeg',
+    image: '/platerie-image.png',
     description: "Plaques de plâtre, rails, montants, enduits, bandes à joint et accessoires.",
     lien: '/gamme/platerie',
   },
   {
     nom: 'Isolation',
-    image: '/isolation.jpeg',
+    image: '/isolation-image.png',
     description: "Laine de verre, laine de roche, polystyrène, panneaux isolants toitures/façades.",
     lien: '/gamme/isolation',
   },
   {
     nom: 'Chauffage',
-    image: '/chauffage.jpeg',
+    image: '/chauffage-image.png',
     description: "Pompes à chaleur, chaudières, géothermie, poêles, équipements de chauffage.",
     lien: '/gamme/chauffage',
   },
   {
     nom: 'Climatisation',
-    image: '/climatisation.jpeg',
+    image: '/climatisation-image.png',
     description: "Systèmes de climatisation, modèles mobiles et installations centralisées.",
     lien: '/gamme/climatisation',
   },
   {
     nom: 'Plomberie',
-    image: '/plomberie.jpeg',
+    image: '/plomberie-image.png',
     description: "Tuyaux, raccords, robinets, éviers, lavabos, douches, WC, meubles sur mesure...",
     lien: '/gamme/plomberie',
   },
   {
     nom: 'Sanitaire',
-    image: '/sanitaire.jpeg',
+    image: '/sanitaire-image2.png',
     description: "Tout pour des installations sanitaires complètes, durables et esthétiques.",
     lien: '/gamme/sanitaire',
   },
   {
     nom: 'Électricité',
-    image: '/electricite.jpeg',
+    image: '/electricite-image.png',
     description: "Câbles, interrupteurs, disjoncteurs, prises, accessoires électriques.",
     lien: '/gamme/electricite',
   },
   {
     nom: 'Outillage',
-    image: '/outillage.jpeg',
+    image: '/outillage-image.png',
     description: "Perceuses, visseuses, scies, niveaux laser, échafaudages, outillage spécialisé.",
     lien: '/gamme/outillage',
   },
   {
     nom: 'EPI',
-    image: '/epi.jpeg',
+    image: '/epi-image.png',
     description: "Casques, chaussures de sécurité, gants, lunettes, masques, vêtements de travail.",
     lien: '/gamme/epi',
   },
@@ -83,7 +83,7 @@ const OffreCompleteSection = () => {
                 <span className="font-semibold text-blue-700 mb-1 text-base">{prod.nom}</span>
                 <p className="text-xs text-gray-500 mb-2 min-h-[48px]">{prod.description}</p>
                 <Link href={prod.lien} className="text-blue-600 text-xs font-medium flex items-center gap-1 hover:underline hover:text-blue-800 transition">
-                  Click & Collect <FaArrowRight className="inline-block text-xs" />
+                  En savoirs voir plus <FaArrowRight className="inline-block text-xs" />
                 </Link>
               </div>
             ))}
