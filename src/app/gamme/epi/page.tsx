@@ -6,8 +6,8 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { FaLeaf, FaShieldAlt, FaTruck, FaTools, FaRegLightbulb, FaRegClock, FaHardHat } from 'react-icons/fa';
 import { MdSupportAgent, MdSecurity } from 'react-icons/md';
-import { GiGloves, GiSafetyPin } from 'react-icons/gi';
-import { TbEyeglass } from 'react-icons/tb';
+// import { GiGloves, GiSafetyPin } from 'react-icons/gi';
+// import { TbEyeglass } from 'react-icons/tb';
 import Footer from '@/components/layout/Footer';
 
 // Animation variants
@@ -39,7 +39,7 @@ const EPIPage = () => {
           {/* Image d'arrière-plan */}
           <div className="absolute inset-0 z-0">
             <Image
-              src="/epi.jpeg"
+              src="/epi-image.png"
               alt="Équipements de Protection Individuelle"
               fill
               className="object-cover"
@@ -78,22 +78,38 @@ const EPIPage = () => {
         {/* Contenu principal */}
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
-            <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeIn}
-              className="max-w-4xl mx-auto mb-16"
-            >
-              <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-800">
-                Pour assurer le bon déroulement de votre activité
-              </h2>
-              <div className="prose prose-lg max-w-none text-gray-700">
-                <p>
-                  Car la sécurité et la qualité des chantiers sont d'une grande importance, trouvez chez Distritherm Services les produits indispensables pour assurer le bon déroulement de votre activité que vous soyez spécialisé dans la peinture, le chauffage, la plomberie ou l'isolation... tout professionnel du bâtiment est concerné et trouvera au sein de nos magasins le nécessaire pour s'habiller et se protéger en toutes circonstances.
-                </p>
-              </div>
-            </motion.div>
+            <div className="flex flex-col md:flex-row items-stretch gap-12 mb-24">
+              <motion.div 
+                initial="hidden"
+                animate="visible"
+                variants={fadeIn}
+                className="flex-1 flex flex-col justify-center"
+              >
+                <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-800">
+                  Pour assurer le bon déroulement de votre activité
+                </h2>
+                <div className="prose prose-lg max-w-none text-gray-700">
+                  <p>
+                    Car la sécurité et la qualité des chantiers sont d'une grande importance, trouvez chez Distritherm Services les produits indispensables pour assurer le bon déroulement de votre activité que vous soyez spécialisé dans la peinture, le chauffage, la plomberie ou l'isolation... tout professionnel du bâtiment est concerné et trouvera au sein de nos magasins le nécessaire pour s'habiller et se protéger en toutes circonstances.
+                  </p>
+                </div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9, x: 80 }}
+                animate={{ opacity: 1, scale: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                className="flex-1 flex justify-center items-stretch"
+              >
+                <div className="relative w-full h-full min-h-[280px] rounded-3xl overflow-hidden bg-white shadow-xl">
+                  <Image
+                    src="/epi1.png"
+                    alt="Équipement de protection individuelle"
+                    fill
+                    className="object-cover rounded-3xl hover:scale-105 hover:shadow-2xl transition-transform duration-300"
+                  />
+                </div>
+              </motion.div>
+            </div>
 
             {/* Gamme complète */}
             <motion.div 
@@ -124,25 +140,41 @@ const EPIPage = () => {
             </motion.div>
 
             {/* L'expertise DISTRITHERM */}
-            <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeIn}
-              className="max-w-4xl mx-auto mb-16"
-            >
-              <h2 className="text-3xl font-bold mb-8 text-gray-800">
-                Les E.P.I sont obligatoires, ils sont là pour protéger des risques
-              </h2>
-              <div className="prose prose-lg max-w-none text-gray-700">
-                <p>
-                  Protection du crâne, protection du corps, protection visuelle, protection du visage, protection respiratoire aucune partie du corps n'est à négliger et le choix des équipements ne se fait pas à la légère.
-                </p>
-                <p>
-                  Nous prenons le temps de comprendre vos besoins spécifiques pour vous orienter vers les solutions les plus pertinentes en termes de confort, de praticité et bien sûr de sécurité.
-                </p>
-              </div>
-            </motion.div>
+            <div className="flex flex-col md:flex-row-reverse items-stretch gap-12 mb-24">
+              <motion.div 
+                initial="hidden"
+                animate="visible"
+                variants={fadeIn}
+                className="flex-1 flex flex-col justify-center"
+              >
+                <h2 className="text-3xl font-bold mb-8 text-gray-800">
+                  Les E.P.I sont obligatoires, ils sont là pour protéger des risques
+                </h2>
+                <div className="prose prose-lg max-w-none text-gray-700">
+                  <p>
+                    Protection du crâne, protection du corps, protection visuelle, protection du visage, protection respiratoire aucune partie du corps n'est à négliger et le choix des équipements ne se fait pas à la légère.
+                  </p>
+                  <p>
+                    Nous prenons le temps de comprendre vos besoins spécifiques pour vous orienter vers les solutions les plus pertinentes en termes de confort, de praticité et bien sûr de sécurité.
+                  </p>
+                </div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9, x: -80 }}
+                animate={{ opacity: 1, scale: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                className="flex-1 flex justify-center items-stretch"
+              >
+                <div className="relative w-full h-full min-h-[280px] rounded-3xl overflow-hidden bg-white shadow-xl">
+                  <Image
+                    src="/epi2.png"
+                    alt="Équipement de protection individuelle 2"
+                    fill
+                    className="object-cover rounded-3xl hover:scale-105 hover:shadow-2xl transition-transform duration-300"
+                  />
+                </div>
+              </motion.div>
+            </div>
 
             {/* Stock complet */}
             <motion.div 

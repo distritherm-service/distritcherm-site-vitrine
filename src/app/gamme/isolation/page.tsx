@@ -40,7 +40,7 @@ const IsolationPage = () => {
           {/* Image d'arrière-plan */}
           <div className="absolute inset-0 z-0">
             <Image
-              src="/isolation.jpeg"
+              src="/isolation-image.png"
               alt="Solutions d'isolation thermique et acoustique"
               fill
               className="object-cover"

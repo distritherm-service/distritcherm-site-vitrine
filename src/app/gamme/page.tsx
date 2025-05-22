@@ -12,55 +12,55 @@ const categories = [
   { 
     id: 'platerie', 
     name: 'Plâtrerie', 
-    image: '/platerie.jpeg',
+    image: '/platerie-image.png',
     description: 'Solutions complètes pour cloisons et plafonds, adaptées à tous vos projets de construction et rénovation.'
   },
   { 
     id: 'isolation', 
     name: 'Isolation', 
-    image: '/isolation.jpeg',
+    image: '/isolation-image.png',
     description: 'Matériaux isolants performants pour une efficacité thermique et acoustique optimale de vos bâtiments.'
   },
   { 
     id: 'chauffage', 
     name: 'Chauffage', 
-    image: '/chauffage.jpeg',
+    image: '/chauffage-image2.png',
     description: 'Systèmes de chauffage efficaces et économiques pour tous types de bâtiments résidentiels et tertiaires.'
   },
   { 
     id: 'climatisation', 
     name: 'Climatisation', 
-    image: '/climatisation.jpeg',
+    image: '/climatisation-image.png',
     description: 'Solutions de confort thermique pour maintenir une température idéale en toutes saisons.'
   },
   { 
     id: 'sanitaire', 
     name: 'Sanitaire', 
-    image: '/sanitaire.jpeg',
+    image: '/sanitaire-image2.png',
     description: 'Équipements de qualité pour salles de bain et installations sanitaires professionnelles.'
   },
   { 
     id: 'plomberie', 
     name: 'Plomberie', 
-    image: '/plomberie.jpeg',
+    image: '/plomberie-image.png',
     description: 'Tuyauterie, raccords et accessoires professionnels pour des installations durables et fiables.'
   },
   { 
     id: 'electricite', 
     name: 'Électricité', 
-    image: '/electricite.jpeg',
+    image: '/electricite-image.png',
     description: 'Matériel électrique de qualité pour des installations sécurisées et aux normes.'
   },
   { 
     id: 'outillage', 
     name: 'Outillage', 
-    image: '/outillage.jpeg',
+    image: '/outillage-image.png',
     description: 'Outils professionnels et équipements spécialisés pour tous vos travaux de construction.'
   },
   { 
     id: 'epi', 
     name: 'EPI', 
-    image: '/epi.jpeg',
+    image: '/epi-image.png',
     description: 'Équipements de protection individuelle conformes aux normes de sécurité pour vos équipes.'
   },
 ];

@@ -40,11 +40,13 @@ const ChauffagePage = () => {
           {/* Image d'arrière-plan */}
           <div className="absolute inset-0 z-0">
             <Image
-              src="/chauffage.jpeg"
+              src="/chauffage-image2.png"
               alt="Pompes à chaleur et solutions de chauffage"
               fill
               className="object-cover"
               priority
+              sizes="100vw"
+              quality={100}
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40 z-10"></div>
           </div>
@@ -102,17 +104,16 @@ const ChauffagePage = () => {
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, scale: 0.9, x: 80 }}
-                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                animate={{ opacity: 1, scale: 1, x: 0 }}
                 transition={{ duration: 0.7 }}
-                viewport={{ once: true }}
                 className="flex-1 flex justify-center items-stretch"
               >
                 <div className="relative w-full h-full min-h-[280px] rounded-3xl overflow-hidden bg-white shadow-xl">
                   <Image
                     src="/chauffage1.jpg"
-                    alt="Chantier chauffage"
+                    alt="Plâtrerie chantier"
                     fill
-                    className="object-cover rounded-3xl hover:scale-105 hover:shadow-2xl transition-transform duration-300 max-w-[400px] max-h-[300px] mx-auto my-auto"
+                    className="object-cover rounded-3xl hover:scale-105 hover:shadow-2xl transition-transform duration-300"
                   />
                 </div>
               </motion.div>

@@ -41,7 +41,7 @@ const PlateriePage = () => {
           {/* Image d'arrière-plan */}
           <div className="absolute inset-0 z-0">
             <Image
-              src="/platerie.jpeg"
+              src="/platerie-image.png"
               alt="Matériaux de plâtrerie"
               fill
               className="object-cover"
@@ -84,8 +84,7 @@ const PlateriePage = () => {
             <div className="flex flex-col md:flex-row items-stretch gap-12 mb-24">
               <motion.div 
                 initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
+                animate="visible"
                 variants={fadeIn}
                 className="flex-1 flex flex-col justify-center"
               >
@@ -106,14 +105,13 @@ const PlateriePage = () => {
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, scale: 0.9, x: 80 }}
-                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                animate={{ opacity: 1, scale: 1, x: 0 }}
                 transition={{ duration: 0.7 }}
-                viewport={{ once: true }}
                 className="flex-1 flex justify-center items-stretch"
               >
                 <div className="relative w-full h-full min-h-[280px] rounded-3xl overflow-hidden bg-white shadow-xl">
                   <Image
-                    src="/platerie1.jpeg"
+                    src="/platerie-image.png"
                     alt="Plâtrerie chantier"
                     fill
                     className="object-cover rounded-3xl hover:scale-105 hover:shadow-2xl transition-transform duration-300"
@@ -133,8 +131,7 @@ const PlateriePage = () => {
             <div className="flex flex-col md:flex-row-reverse items-stretch gap-12 mb-24">
               <motion.div
                 initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
+                animate="visible"
                 variants={fadeIn}
                 className="flex-1 flex flex-col justify-center"
               >
@@ -184,9 +181,8 @@ const PlateriePage = () => {
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, scale: 0.9, x: -80 }}
-                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                animate={{ opacity: 1, scale: 1, x: 0 }}
                 transition={{ duration: 0.7 }}
-                viewport={{ once: true }}
                 className="flex-1 flex justify-center items-stretch"
               >
                 <div className="relative w-full h-full min-h-[280px] rounded-3xl overflow-hidden bg-white shadow-xl">
@@ -211,8 +207,7 @@ const PlateriePage = () => {
             <div className="flex flex-col md:flex-row items-stretch gap-12 mb-24">
               <motion.div 
                 initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
+                animate="visible"
                 variants={fadeIn}
                 className="flex-1 flex flex-col justify-center"
               >
@@ -239,9 +234,8 @@ const PlateriePage = () => {
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, scale: 0.9, x: 80 }}
-                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                animate={{ opacity: 1, scale: 1, x: 0 }}
                 transition={{ duration: 0.7 }}
-                viewport={{ once: true }}
                 className="flex-1 flex justify-center items-stretch"
               >
                 <div className="relative w-full h-full min-h-[280px] rounded-3xl overflow-hidden bg-white shadow-xl">
@@ -258,8 +252,7 @@ const PlateriePage = () => {
             {/* Gamme complète */}
             <motion.div 
               initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
+              animate="visible"
               variants={fadeIn}
               className="bg-gray-50 rounded-3xl p-8 mb-16 shadow-sm border border-gray-100"
             >
@@ -313,8 +306,7 @@ const PlateriePage = () => {
             {/* Plafonds */}
             <motion.div 
               initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
+              animate="visible"
               variants={fadeIn}
               className="max-w-4xl mx-auto mb-16"
             >
@@ -343,8 +335,7 @@ const PlateriePage = () => {
             {/* Accessoires */}
             <motion.div 
               initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
+              animate="visible"
               variants={fadeIn}
               className="bg-gradient-to-r from-blue-50 to-blue-100 rounded-3xl p-8 mb-16 shadow-sm border border-blue-200"
             >
@@ -387,8 +378,7 @@ const PlateriePage = () => {
             {/* Disponibilité */}
             <motion.div 
               initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
+              animate="visible"
               variants={staggerContainer}
               className="max-w-4xl mx-auto mb-16"
             >
@@ -397,13 +387,13 @@ const PlateriePage = () => {
               </h2>
               <div className="prose prose-lg max-w-none text-gray-700">
                 <p>
-                  Chez DISTRITHERM Services, nous savons que les délais sont souvent serrés sur les chantiers. C'est pourquoi nous maintenons en permanence un stock important de plaques standard dans nos entrepôts de Taverny et Drancy. Vous pouvez commander vos plaques et choisir la livraison express sous 48 heures ou le retrait en magasin. Quel que soit votre choix, vous êtes assuré d'obtenir rapidement les matériaux dont vous avez besoin.
+                  Chez Distritherm Services, nous savons que les délais sont souvent serrés sur les chantiers. C'est pourquoi nous maintenons en permanence un stock important de plaques standard dans nos entrepôts de Taverny et Drancy. Vous pouvez commander vos plaques et choisir la livraison express sous 48 heures ou le retrait en magasin. Quel que soit votre choix, vous êtes assuré d'obtenir rapidement les matériaux dont vous avez besoin.
                 </p>
                 <p>
                   Avec notre stock permanent, notre équipe commerciale, nos services de livraison et retrait express, nous sommes le partenaire idéal pour tous vos projets dans le bâtiment. Professionnels de Taverny, de Drancy et leurs environs, n'hésitez pas à nous contacter.
                 </p>
               </div>
-              <div className="mt-8 text-center">
+              {/* <div className="mt-8 text-center">
                 <Link 
                   href="/contact" 
                   className="inline-flex items-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-xl shadow-md hover:bg-blue-700 transition-colors duration-300"
@@ -413,14 +403,13 @@ const PlateriePage = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </Link>
-              </div>
+              </div> */}
             </motion.div>
 
             {/* Avantages */}
             <motion.div 
               initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
+              animate="visible"
               variants={staggerContainer}
               className="max-w-4xl mx-auto mb-16"
             >
@@ -489,8 +478,7 @@ const PlateriePage = () => {
             {/* Call to Action */}
             <motion.div 
               initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
+              animate="visible"
               variants={fadeIn}
               className="bg-gradient-to-r from-[#7CB9E8] to-[#007FFF] rounded-3xl p-10 mb-16 shadow-lg text-center"
             >

@@ -14,7 +14,7 @@ const categories = [
     id: 'chauffage',
     nom: 'Chauffage',
     description: 'Solutions complètes pour le chauffage résidentiel et professionnel. Radiateurs, chaudières, pompes à chaleur et accessoires de qualité supérieure.',
-    image: '/chauffage.jpeg',
+    image: '/chauffage-image.png',
     link: 'gamme/chauffage',
     produits: [
       'Radiateurs électriques',
@@ -32,7 +32,7 @@ const categories = [
     id: 'plomberie',
     nom: 'Plomberie',
     description: 'Articles de plomberie professionnels pour tous vos projets d\'installation et de rénovation. Tuyauterie, raccords et outils spécialisés.',
-    image: '/plomberie.jpeg',
+    image: '/plomberie-image.png',
     link: 'gamme/plomberie',
     produits: [
       'Tubes multicouches',
@@ -50,7 +50,7 @@ const categories = [
     id: 'climatisation',
     nom: 'Climatisation',
     description: 'Équipements de climatisation pour un confort optimal en toutes saisons. Solutions écoénergétiques pour particuliers et professionnels.',
-    image: '/climatisation.jpeg',
+    image: '/climatisation-image.png',
     link: 'gamme/climatisation',
     produits: [
       'Climatiseurs split',
@@ -68,7 +68,7 @@ const categories = [
     id: 'isolation',
     nom: 'Isolation',
     description: 'Matériaux isolants haute performance pour l\'efficacité énergétique de votre habitation. Solutions thermiques et acoustiques.',
-    image: '/isolation.jpeg',
+    image: '/isolation-image.png',
     link: 'gamme/isolation',
     produits: [
       'Laine de verre',
@@ -86,7 +86,7 @@ const categories = [
     id: 'electricite',
     nom: 'Électricité',
     description: 'Produits électriques pour installations résidentielles et industrielles. Câblage, tableaux électriques et équipements de protection.',
-    image: '/electricite.jpeg',
+    image: '/electricite-image.png',
     link: 'gamme/electricite',
     produits: [
       'Câbles électriques',
@@ -104,7 +104,7 @@ const categories = [
     id: 'sanitaire',
     nom: 'Sanitaire',
     description: 'Équipements sanitaires modernes alliant fonctionnalité et esthétique. Lavabos, robinetterie, douches et accessoires de salle de bain.',
-    image: '/sanitaire.jpeg',
+    image: '/sanitaire-image.png',
     link: 'gamme/sanitaire',
     produits: [
       'Robinetterie',
@@ -122,7 +122,7 @@ const categories = [
     id: 'platerie',
     nom: 'Plâtrerie',
     description: 'Solutions complètes pour la construction sèche et l\'aménagement intérieur. Plaques de plâtre, enduits et accessoires.',
-    image: '/platerie.jpeg',
+    image: '/platerie-image.png',
     link: 'gamme/platerie',
     produits: [
       'Plaques de plâtre',
@@ -140,7 +140,7 @@ const categories = [
     id: 'outillage',
     nom: 'Outillage',
     description: 'Outils professionnels pour tous les corps de métier du bâtiment. Outillage électroportatif, manuel et accessoires de qualité.',
-    image: '/outillage.jpeg',
+    image: '/outillage-image.png',
     link: 'gamme/outillage',
     produits: [
       'Outillage électroportatif',
@@ -279,7 +279,7 @@ const UniversProduitPage = () => {
               <div className="flex-1 flex justify-end w-full">
                 <div className="relative max-w-full w-[350px] md:w-[500px] lg:w-[700px] aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl">
                   <Image 
-                    src="/chauffage.jpeg" 
+                    src="/platerie-image.png" 
                     alt="Illustration univers produits" 
                     fill 
                     className="object-cover" 
@@ -414,11 +414,11 @@ const UniversProduitPage = () => {
                   transition={{ repeat: Infinity, duration: 18, ease: 'linear' }}
                 >
                   {[
-                    '/fournisseurs/DEVILLE_noir_sans_signature.jpg',
-                    '/fournisseurs/LOGO EDMA_fond-BLEU.jpg',
-                    '/fournisseurs/LOGO_INVICTA_sans-signature.png',
-                    '/fournisseurs/Logo-SPP-H-rvb.jpg',
-                    '/fournisseurs/LOGO-TALIAplast-HD.jpg',
+                    '/fournisseurs/deville-logo.jpg',
+                    '/fournisseurs/edma-logo.jpg',
+                    '/fournisseurs/invicta-logo.png',
+                    '/fournisseurs/spp-h-logo.jpg',
+                    '/fournisseurs/talia-logo.jpg',
                     '/fournisseurs/fhe_logo.webp',
                     '/fournisseurs/dewalt_logo.jpg',
                     '/fournisseurs/clivet_logo19.png',
@@ -443,11 +443,11 @@ const UniversProduitPage = () => {
                   ))}
                   {/* On duplique la liste pour un effet de boucle continue */}
                   {[
-                    '/fournisseurs/DEVILLE_noir_sans_signature.jpg',
-                    '/fournisseurs/LOGO EDMA_fond-BLEU.jpg',
-                    '/fournisseurs/LOGO_INVICTA_sans-signature.png',
-                    '/fournisseurs/Logo-SPP-H-rvb.jpg',
-                    '/fournisseurs/LOGO-TALIAplast-HD.jpg',
+                    '/fournisseurs/deville-logo.jpg',
+                    '/fournisseurs/edma-logo.jpg',
+                    '/fournisseurs/invicta-logo.png',
+                    '/fournisseurs/spp-h-logo.jpg',
+                    '/fournisseurs/talia-logo.jpg',
                     '/fournisseurs/fhe_logo.webp',
                     '/fournisseurs/dewalt_logo.jpg',
                     '/fournisseurs/clivet_logo19.png',
@@ -566,7 +566,7 @@ const UniversProduitPage = () => {
                 <div className="md:w-1/2 relative">
                   <div className="h-64 md:h-full min-h-[320px] relative">
                     <Image 
-                      src="/chauffage.jpeg" 
+                      src="/devis-gratuit.png" 
                       alt="Assistance projet" 
                       fill 
                       className="object-cover"

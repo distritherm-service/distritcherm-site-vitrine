@@ -41,7 +41,7 @@ const PlomberiePage = () => {
           {/* Image d'arrière-plan */}
           <div className="absolute inset-0 z-0">
             <Image
-              src="/plomberie.jpeg"
+              src="/plomberie-image.png"
               alt="Matériel de plomberie"
               fill
               className="object-cover"

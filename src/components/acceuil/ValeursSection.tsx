@@ -1,19 +1,20 @@
-import { HiOutlineMap, HiOutlineUsers, HiOutlineThumbUp } from "react-icons/hi";
+// import { HiOutlineUsers} from "react-icons/hi";
+import { FaHandHoldingHeart, FaHandsHelping, FaUserTie } from "react-icons/fa";
 
 const valeurs = [
   {
-    icon: <HiOutlineUsers className="w-7 h-7 text-blue-600" />,
+    icon: <FaUserTie className="w-7 h-7 text-blue-600" />,
     title: "Notre Expertise",
-    description: "Spécialistes en climatisation, chauffage, électricité, et installations sanitaires."
+    description: "Spécialistes en énergies renouvelables, climatisation,chauffage, et installations plâterie."
   },
   {
-    icon: <HiOutlineThumbUp className="w-7 h-7 text-blue-600" />,
+    icon: <FaHandsHelping className="w-7 h-7 text-blue-600" />,
     title: "Notre Engagement",
-    description: "Solutions de haute qualité adaptées aux besoins spécifiques de nos clients."
+    description: "Apporter des solutions de haute qualité adaptées aux besoins spécifiques de nos clients."
   },
   {
-    icon: <HiOutlineMap className="w-7 h-7 text-blue-600" />,
-    title: "Notre Valeur",
+    icon: <FaHandHoldingHeart className="w-7 h-7 text-blue-600" />,
+    title: "Nos Valeurs",
     description: "Nous plaçons l'intégrité, la confiance et la satisfaction client au cœur de notre engagement."
   }
 ];

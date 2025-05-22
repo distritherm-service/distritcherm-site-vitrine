@@ -8,55 +8,55 @@ const categories = [
   { 
     id: 'platerie', 
     name: 'Plâtrerie', 
-    image: '/platerie.jpeg',
+    image: '/platerie-image.png',
     description: 'Solutions pour cloisons et plafonds'
   },
   { 
     id: 'isolation', 
     name: 'Isolation', 
-    image: '/isolation.jpeg',
+    image: '/isolation-image.png',
     description: 'Matériaux isolants performants'
   },
   { 
     id: 'chauffage', 
     name: 'Chauffage', 
-    image: '/chauffage.jpeg',
+    image: '/chauffage-image2.png',
     description: 'Systèmes de chauffage efficaces'
   },
   { 
     id: 'climatisation', 
     name: 'Climatisation', 
-    image: '/climatisation.jpeg',
+    image: '/climatisation-image.png',
     description: 'Solutions de confort thermique'
   },
   { 
     id: 'sanitaire', 
     name: 'Sanitaire', 
-    image: '/sanitaire.jpeg',
+    image: '/sanitaire-image2.png',
     description: 'Équipements pour salles de bain'
   },
   { 
     id: 'plomberie', 
     name: 'Plomberie', 
-    image: '/plomberie.jpeg',
+    image: '/plomberie-image.png',
     description: 'Tuyauterie et raccords professionnels'
   },
   { 
     id: 'electricite', 
     name: 'Électricité', 
-    image: '/electricite.jpeg',
+    image: '/electricite-image.png',
     description: 'Matériel électrique de qualité'
   },
   { 
     id: 'outillage', 
     name: 'Outillage', 
-    image: '/outillage.jpeg',
+    image: '/outillage-image.png',
     description: 'Outils pour tous vos travaux'
   },
   { 
     id: 'epi', 
     name: 'EPI', 
-    image: '/epi.jpeg',
+    image: '/epi-image.png',
     description: 'Équipements de protection individuelle'
   },
 ];
@@ -101,7 +101,7 @@ const GammeSection = () => {
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="bg-gradient-to-r from-[#7CB9E8] to-[#007FFF] bg-clip-text text-transparent">
-              Découvrez notre gamme
+            Explorer nos univers produits
             </span>
           </h2>
           <div className="w-32 h-1.5 bg-gradient-to-r from-[#7CB9E8] to-[#007FFF] mx-auto mb-8 rounded-full"></div>
