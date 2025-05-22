@@ -294,7 +294,7 @@ const Contact: React.FC = () => {
                   <div className="space-y-4 mt-8 border-t pt-6">
                     <div className="flex items-center space-x-4">
                       <FaEnvelope className="w-5 h-5 text-[#007FFF]" />
-                      <span className="text-gray-600">info@distritherm.fr</span>
+                      <span className="text-gray-600">info@distritherm-services.fr</span>
                     </div>
                     <div className="flex items-center space-x-4">
                       <FaClock className="w-5 h-5 text-[#007FFF]" />

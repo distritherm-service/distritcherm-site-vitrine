@@ -41,7 +41,7 @@ const ElectricitePage = () => {
           {/* Image d'arrière-plan */}
           <div className="absolute inset-0 z-0">
             <Image
-              src="/electricite.jpeg"
+              src="/electricite-image.png"
               alt="Matériel électrique et équipements"
               fill
               className="object-cover"

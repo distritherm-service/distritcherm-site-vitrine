@@ -165,7 +165,7 @@ const QuiSommesNous: React.FC = () => {
                 </div>
                 <div className="relative rounded-2xl overflow-hidden shadow-xl h-80 md:h-[450px]">
                   <Image 
-                    src="/slider1.png" 
+                    src="/image-ds.png" 
                     alt="L'histoire de Distritherm"
                     fill
                     className="object-cover hover:scale-110 transition-transform duration-500"
@@ -311,80 +311,65 @@ const QuiSommesNous: React.FC = () => {
                     <h2 className="text-3xl font-bold text-gray-800">Notre Vision</h2>
                   </div>
                   <p className="text-gray-600 mb-6">
-                    Distritherm Service aspire à devenir le distributeur de référence en matériaux et solutions pour les professionnels du bâtiment en Île-de-France.
+                    Distritherm Service aspire à devenir le distributeur de référence en matériaux et solutions destinés aux professionnels du bâtiment en Île-de-France.
                   </p>
                   <p className="text-gray-600">
-                    Nous nous engageons à accompagner la transition énergétique en proposant des solutions innovantes et écologiques, tout en maintenant notre engagement envers l'excellence du service client et la qualité des produits.
+                  Nous sommes déterminés à soutenir la transition énergétique en offrant des solutions avant-gardistes et respectueuses de l'environnement, tout en préservant notre dévouement pour l'excellence du service à la clientèle et à la qualité de nos produits.
                   </p>
                 </div>
                 <div className="md:col-span-2">
                   <div className="bg-white/80 backdrop-blur-lg rounded-2xl shadow-xl p-8">
-                    <h3 className="text-xl font-bold text-gray-800 mb-4">Nos Engagements</h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div className="flex items-start space-x-3">
-                        <div className="flex-shrink-0 w-8 h-8 bg-[#007FFF]/20 rounded-full flex items-center justify-center">
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#1E90FF]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                          </svg>
+                    <h3 className="text-3xl font-extrabold text-gray-800 mb-2">Nos Valeurs</h3>
+                    <p className="text-gray-600 mb-8">Nous sommes guidés par des valeurs fondamentales qui définissent qui nous sommes en tant qu'entreprise :</p>
+                    <div className="relative flex flex-col gap-12">
+                      {/* Timeline verticale parfaitement reliée */}
+                      <div className="absolute left-3 top-0 h-[calc(100%-60px)] w-0.5 bg-[#00CFFF] z-0"></div>
+                      {/* Qualité */}
+                      <div className="flex items-start relative z-10">
+                        <div className="flex flex-col items-center mr-8">
+                          <div className="w-6 h-6 flex items-center justify-center">
+                            <div className="w-6 h-6 rounded-full bg-[#00CFFF]"></div>
+                          </div>
                         </div>
                         <div>
-                          <h4 className="font-medium text-gray-900">Qualité garantie</h4>
-                          <p className="text-gray-600 text-sm">Nous sélectionnons avec soin les meilleurs produits du marché</p>
+                          <h4 className="font-bold text-lg text-gray-900 mb-1">Qualité</h4>
+                          <p className="text-gray-700 text-base">Nous nous engageons à fournir des produits et des services de la plus haute qualité à nos clients.</p>
                         </div>
                       </div>
-                      <div className="flex items-start space-x-3">
-                        <div className="flex-shrink-0 w-8 h-8 bg-[#007FFF]/20 rounded-full flex items-center justify-center">
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#1E90FF]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                          </svg>
+                      {/* Intégrité */}
+                      <div className="flex items-start relative z-10">
+                        <div className="flex flex-col items-center mr-8">
+                          <div className="w-6 h-6 flex items-center justify-center">
+                            <div className="w-6 h-6 rounded-full bg-[#00CFFF]"></div>
+                          </div>
                         </div>
                         <div>
-                          <h4 className="font-medium text-gray-900">Conseils d'experts</h4>
-                          <p className="text-gray-600 text-sm">Notre équipe de professionnels vous guide dans vos choix</p>
+                          <h4 className="font-bold text-lg text-gray-900 mb-1">Intégrité</h4>
+                          <p className="text-gray-700 text-base">Nous agissons toujours avec intégrité, honnêteté et transparence dans toutes nos interactions.</p>
                         </div>
                       </div>
-                      <div className="flex items-start space-x-3">
-                        <div className="flex-shrink-0 w-8 h-8 bg-[#007FFF]/20 rounded-full flex items-center justify-center">
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#1E90FF]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                          </svg>
+                      {/* Innovation */}
+                      <div className="flex items-start relative z-10">
+                        <div className="flex flex-col items-center mr-8">
+                          <div className="w-6 h-6 flex items-center justify-center">
+                            <div className="w-6 h-6 rounded-full bg-[#00CFFF]"></div>
+                          </div>
                         </div>
                         <div>
-                          <h4 className="font-medium text-gray-900">Livraison rapide</h4>
-                          <p className="text-gray-600 text-sm">Nous assurons une livraison efficace sur tous vos chantiers</p>
+                          <h4 className="font-bold text-lg text-gray-900 mb-1">Innovation</h4>
+                          <p className="text-gray-700 text-base">Nous cherchons continuellement à innover et à trouver de nouvelles solutions pour répondre aux besoins changeants de nos clients.</p>
                         </div>
                       </div>
-                      <div className="flex items-start space-x-3">
-                        <div className="flex-shrink-0 w-8 h-8 bg-[#007FFF]/20 rounded-full flex items-center justify-center">
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#1E90FF]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                          </svg>
+                      {/* Responsabilité */}
+                      <div className="flex items-start relative z-10">
+                        <div className="flex flex-col items-center mr-8">
+                          <div className="w-6 h-6 flex items-center justify-center">
+                            <div className="w-6 h-6 rounded-full bg-[#00CFFF]"></div>
+                          </div>
                         </div>
                         <div>
-                          <h4 className="font-medium text-gray-900">Prix compétitifs</h4>
-                          <p className="text-gray-600 text-sm">Nous négocions les meilleurs tarifs pour nos clients</p>
-                        </div>
-                      </div>
-                      <div className="flex items-start space-x-3">
-                        <div className="flex-shrink-0 w-8 h-8 bg-[#007FFF]/20 rounded-full flex items-center justify-center">
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#1E90FF]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                          </svg>
-                        </div>
-                        <div>
-                          <h4 className="font-medium text-gray-900">Solutions durables</h4>
-                          <p className="text-gray-600 text-sm">Nous favorisons les produits respectueux de l'environnement</p>
-                        </div>
-                      </div>
-                      <div className="flex items-start space-x-3">
-                        <div className="flex-shrink-0 w-8 h-8 bg-[#007FFF]/20 rounded-full flex items-center justify-center">
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#1E90FF]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                          </svg>
-                        </div>
-                        <div>
-                          <h4 className="font-medium text-gray-900">Service après-vente</h4>
-                          <p className="text-gray-600 text-sm">Notre support client reste à votre écoute après l'achat</p>
+                          <h4 className="font-bold text-lg text-gray-900 mb-1">Responsabilité</h4>
+                          <p className="text-gray-700 text-base">Nous sommes responsables de nos actions et de leur impact sur notre communauté et notre environnement.</p>
                         </div>
                       </div>
                     </div>
@@ -437,11 +422,11 @@ const QuiSommesNous: React.FC = () => {
                   transition={{ repeat: Infinity, duration: 18, ease: 'linear' }}
                 >
                   {[
-                    '/fournisseurs/DEVILLE_noir_sans_signature.jpg',
-                    '/fournisseurs/LOGO EDMA_fond-BLEU.jpg',
-                    '/fournisseurs/LOGO_INVICTA_sans-signature.png',
-                    '/fournisseurs/Logo-SPP-H-rvb.jpg',
-                    '/fournisseurs/LOGO-TALIAplast-HD.jpg',
+                    '/fournisseurs/deville-logo.jpg',
+                    '/fournisseurs/edma-logo.jpg',
+                    '/fournisseurs/invicta-logo.png',
+                    '/fournisseurs/spp-h-logo.jpg',
+                    '/fournisseurs/talia-logo.jpg',
                     '/fournisseurs/fhe_logo.webp',
                     '/fournisseurs/dewalt_logo.jpg',
                     '/fournisseurs/clivet_logo19.png',
@@ -465,11 +450,11 @@ const QuiSommesNous: React.FC = () => {
                     </div>
                   ))}
                   {[
-                    '/fournisseurs/DEVILLE_noir_sans_signature.jpg',
-                    '/fournisseurs/LOGO EDMA_fond-BLEU.jpg',
-                    '/fournisseurs/LOGO_INVICTA_sans-signature.png',
-                    '/fournisseurs/Logo-SPP-H-rvb.jpg',
-                    '/fournisseurs/LOGO-TALIAplast-HD.jpg',
+                   '/fournisseurs/deville-logo.jpg',
+                    '/fournisseurs/edma-logo.jpg',
+                    '/fournisseurs/invicta-logo.png',
+                    '/fournisseurs/spp-h-logo.jpg',
+                    '/fournisseurs/talia-logo.jpg',
                     '/fournisseurs/fhe_logo.webp',
                     '/fournisseurs/dewalt_logo.jpg',
                     '/fournisseurs/clivet_logo19.png',

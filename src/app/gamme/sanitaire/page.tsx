@@ -40,7 +40,7 @@ const SanitairePage = () => {
           {/* Image d'arrière-plan */}
           <div className="absolute inset-0 z-0">
             <Image
-              src="/sanitaire.jpeg"
+              src="/sanitaire-image2.png"
               alt="Équipement sanitaire professionnel"
               fill
               className="object-cover"

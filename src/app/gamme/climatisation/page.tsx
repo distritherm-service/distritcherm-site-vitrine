@@ -40,7 +40,7 @@ const ClimatisationPage = () => {
           {/* Image d'arrière-plan */}
           <div className="absolute inset-0 z-0">
             <Image
-              src="/climatisation.jpeg"
+              src="/clim-image.png"
               alt="Solutions de climatisation"
               fill
               className="object-cover"

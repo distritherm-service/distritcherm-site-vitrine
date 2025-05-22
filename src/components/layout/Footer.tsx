@@ -56,7 +56,7 @@ const Footer: React.FC = () => {
           </div>
           
           {/* Nous contacter */}
-          <div className="text-[#001e3c] md:text-white md:pl-12">
+          <div className="text-[#001e3c] md:text-white md:pl-20 pl-10">
             <h3 className="font-bold text-xl mb-4">Nous Contacter</h3>
             <div className="space-y-2">
               <p className="font-semibold">Siège social & Magasin Taverny</p>
