@@ -34,16 +34,16 @@ const QuiSommesNous: React.FC = () => {
       name: 'Taverny', 
       address: '16 rue Condorcet, 95150 Taverny',
       tel: '01 23 45 67 89',
-      email: 'taverny@distritherm.fr',
+      email: 'taverny@distritherm-services.fr',
       image: '/slider4.png',
       mapUrl: "https://www.google.com/maps/place/Distritherm+Services/@49.028085,2.1898189,17z/data=!3m1!4b1!4m6!3m5!1s0x47e65f83bd01199d:0x6c3662d8abbc2b5b!8m2!3d49.028085!4d2.1898189!16s%2Fg%2F11k4qzz8tm?entry=ttu"
     },
     { 
       id: 'drancy', 
       name: 'Drancy', 
-      address: '23 rue des Bois, 93700 Drancy',
+      address: '151 rue Diderot, 93700 Drancy, 93700 Drancy',
       tel: '01 23 45 67 90',
-      email: 'drancy@distritherm.fr',
+      email: 'drancy@distritherm-services.fr',
       image: '/slider2.png',
       mapUrl: "https://www.google.com/maps?q=151+Rue+Diderot,+93700+Drancy&ftid=0x47e66c92695024a9:0xa36405cf30ef2e2f"
     },
@@ -438,6 +438,11 @@ const QuiSommesNous: React.FC = () => {
                     '/fournisseurs/watts_logo_dernier.jpg',
                     '/fournisseurs/rockwool_logo_primary_colour_rgb.png',
                     '/fournisseurs/knauf-logo.png',
+                    '/fournisseurs/airsolar-logo.png',
+                    '/fournisseurs/airwell-logo.png',
+                    '/fournisseurs/logo-adrien.png',
+                    '/fournisseurs/logo-izar.jpg',
+                    '/fournisseurs/wavin-logo.png',
                   ].map((logo, index) => (
                     <div key={index} className="w-32 h-16 md:w-40 md:h-20 relative transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#159b8a]/20 flex-shrink-0">
                       <Image 
@@ -466,6 +471,11 @@ const QuiSommesNous: React.FC = () => {
                     '/fournisseurs/watts_logo_dernier.jpg',
                     '/fournisseurs/rockwool_logo_primary_colour_rgb.png',
                     '/fournisseurs/knauf-logo.png',
+                    '/fournisseurs/airsolar-logo.png',
+                    '/fournisseurs/airwell-logo.png',
+                    '/fournisseurs/logo-adrien.png',
+                    '/fournisseurs/logo-izar.jpg',
+                    '/fournisseurs/wavin-logo.png',
                   ].map((logo, index) => (
                     <div key={index+100} className="w-32 h-16 md:w-40 md:h-20 relative transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#159b8a]/20 flex-shrink-0">
                       <Image 

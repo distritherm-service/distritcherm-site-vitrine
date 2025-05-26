@@ -31,7 +31,7 @@ const DevisSection = () => {
           </h2>
           
           <p className="text-lg md:text-xl mb-10 text-white/90">
-            Obtenez rapidement un devis personnalisé pour tous vos besoins en matériaux de construction
+          Recevez rapidement une estimation sur mesure pour tous vos besoins en matériel pour vos chantiers.
           </p>
           
           <motion.a

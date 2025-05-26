@@ -54,7 +54,7 @@ const categories = [
   { 
     id: 'outillage', 
     name: 'Outillage', 
-    image: '/outillage-image.png',
+    image: '/outillage.png',
     description: 'Outils professionnels et équipements spécialisés pour tous vos travaux de construction.'
   },
   { 

@@ -41,7 +41,7 @@ const OutillagePage = () => {
           {/* Image d'arrière-plan */}
           <div className="absolute inset-0 z-0">
             <Image
-              src="/outillage-image.png"
+              src="/outillage.png"
               alt="Outillage professionnel et équipements"
               fill
               className="object-cover"

@@ -6,23 +6,11 @@ import { FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
 const Footer: React.FC = () => {
   return (
     <footer className="relative text-gray-700 py-12 overflow-hidden">
-      {/* Fond diagonal */}
-      <div className="absolute inset-0 w-full h-full">
-        <div className="absolute inset-0 bg-gray-100"></div>
-        <div 
-          className="absolute top-0 right-0 w-[75%] h-full bg-[#0099cc]" 
-          style={{ 
-            clipPath: 'polygon(100px 0, 100% 0, 100% 100%, 0 100%)',
-            transform: 'translateX(50px)'
-          }}
-        ></div>
-        <div 
-          className="absolute top-0 right-0 w-[70%] h-full bg-[#001e3c]" 
-          style={{ 
-            clipPath: 'polygon(200px 0, 100% 0, 100% 100%, 100px 100%)',
-            transform: 'translateX(50px)'
-          }}
-        ></div>
+      {/* Fond avec image */}
+      <div 
+        className="absolute inset-0 w-full h-full bg-cover bg-center" 
+        style={{ backgroundImage: 'url(/footer.png)' }}
+      >
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -56,21 +44,21 @@ const Footer: React.FC = () => {
           </div>
           
           {/* Nous contacter */}
-          <div className="text-[#001e3c] md:text-white md:pl-20 pl-10">
+          <div className="text-white md:pl-20 ">
             <h3 className="font-bold text-xl mb-4">Nous Contacter</h3>
             <div className="space-y-2">
               <p className="font-semibold">Siège social & Magasin Taverny</p>
-              <p>16 Rue du condrocel 95000 Taverny</p>
+              <p>16 Rue du Condorcet 95150 Taverny</p>
              
               <p className="font-semibold">Magasin Drancy</p>
-              <p>151 rue Diderot 93700 Drancy</p>
+              <p>151 rue Diderot, 93700 Drancy</p>
               <p className="font-semibold">Numéro Téléphone</p>
               <p><a href="">01 71 68 72 12 </a></p>
             </div>
           </div>
           
           {/* Catégories de produits */}
-          <div className="text-[#001e3c] md:text-white md:pl-14">
+          <div className="text-white md:pl-14">
             <h3 className="font-bold text-xl mb-4">Nos Catégories</h3>
             <ul className="space-y-2">
             
@@ -124,7 +112,7 @@ const Footer: React.FC = () => {
           </div>
           
           {/* Informations */}
-          <div className="text-[#001e3c] md:text-white md:pl-10">
+          <div className="text-white md:pl-10">
             <h3 className="font-bold text-xl mb-4">Informations</h3>
             <ul className="space-y-2">
               <li>
@@ -156,7 +144,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
         
-        <div className=" mt-8 pt-6 text-center text-[#001e3c] md:text-white">
+        <div className=" mt-8 pt-6 text-center text-white">
           <p>&copy; {new Date().getFullYear()} Distritherm Services</p>
         </div>
       </div>
