@@ -50,7 +50,7 @@ const categories = [
   { 
     id: 'outillage', 
     name: 'Outillage', 
-    image: '/outillage-image.png',
+    image: '/outillage.png',
     description: 'Outils pour tous vos travaux'
   },
   { 

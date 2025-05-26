@@ -50,11 +50,15 @@ const EspaceRecrutement = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [postes, setPostes] = useState([
     "Commercial(e) B2B",
-    "Technicien(ne) SAV",
     "Responsable logistique",
     "Assistant(e) commercial(e)",
-    "Chargé(e) de clientèle",
-    "Technicien(ne) de maintenance"
+    "Technicien(ne) de maintenance",
+    "Magasiner",
+    "Chargé(e) de communication",
+    "Community manager",
+    "Chauffeur/livreur",
+    "Responsable d’agence",
+    "Responsable d’agence"
   ]);
 
   // Effet pour faire disparaître les messages d'alerte après 3 secondes

@@ -430,6 +430,11 @@ const UniversProduitPage = () => {
                     '/fournisseurs/watts_logo_dernier.jpg',
                     '/fournisseurs/rockwool_logo_primary_colour_rgb.png',
                     '/fournisseurs/knauf-logo.png',
+                    '/fournisseurs/airsolar-logo.png',
+                    '/fournisseurs/airwell-logo.png',
+                    '/fournisseurs/logo-adrien.png',
+                    '/fournisseurs/logo-izar.jpg',
+                    '/fournisseurs/wavin-logo.png',
                   ].map((logo, index) => (
                     <div key={index} className="w-32 h-16 md:w-40 md:h-20 relative transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#159b8a]/20 flex-shrink-0">
                       <Image 
@@ -459,6 +464,11 @@ const UniversProduitPage = () => {
                     '/fournisseurs/watts_logo_dernier.jpg',
                     '/fournisseurs/rockwool_logo_primary_colour_rgb.png',
                     '/fournisseurs/knauf-logo.png',
+                    '/fournisseurs/airsolar-logo.png',
+                    '/fournisseurs/airwell-logo.png',
+                    '/fournisseurs/logo-adrien.png',
+                    '/fournisseurs/logo-izar.jpg',
+                    '/fournisseurs/wavin-logo.png',
                   ].map((logo, index) => (
                     <div key={index+100} className="w-32 h-16 md:w-40 md:h-20 relative transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#159b8a]/20 flex-shrink-0">
                       <Image 
