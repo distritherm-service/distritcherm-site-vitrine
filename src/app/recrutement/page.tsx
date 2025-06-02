@@ -57,8 +57,8 @@ const EspaceRecrutement = () => {
     "Chargé(e) de communication",
     "Community manager",
     "Chauffeur/livreur",
-    "Responsable d’agence",
-    "Responsable d’agence"
+    "Responsable d'agence",
+    "Responsable d'agence"
   ]);
 
   // Effet pour faire disparaître les messages d'alerte après 3 secondes
@@ -91,22 +91,22 @@ const EspaceRecrutement = () => {
 
   const avantages = [
     {
-      icon: <FaUsers className="w-8 h-8 text-[#007FFF]" />,
+      icon: <FaUsers className="w-8 h-8 text-[#007FFF]" />, // Bleu
       title: "Équipe dynamique",
       description: "Rejoignez une équipe passionnée et collaborative"
     },
     {
-      icon: <FaGraduationCap className="w-8 h-8 text-[#007FFF]" />,
+      icon: <FaGraduationCap className="w-8 h-8 text-[#22C55E]" />, // Vert
       title: "Formation continue",
       description: "Développez vos compétences avec nos programmes de formation"
     },
     {
-      icon: <FaHandshake className="w-8 h-8 text-[#007FFF]" />,
+      icon: <FaHandshake className="w-8 h-8 text-[#F59E0B]" />, // Orange
       title: "Environnement stimulant",
       description: "Travaillez dans un cadre moderne et innovant"
     },
     {
-      icon: <FaChartLine className="w-8 h-8 text-[#007FFF]" />,
+      icon: <FaChartLine className="w-8 h-8 text-[#EF4444]" />, // Rouge
       title: "Évolution de carrière",
       description: "Des opportunités d'évolution au sein de l'entreprise"
     }
@@ -364,7 +364,7 @@ const EspaceRecrutement = () => {
       
       <main className="flex-grow relative z-10">
         {/* Hero compact */}
-        <section className="relative h-56 md:h-64 w-full overflow-hidden shadow-sm">
+        <section className="relative h-64 md:h-80 lg:h-[420px] w-full overflow-hidden shadow-md">
           {/* Image d'arrière-plan */}
           <div className="absolute inset-0">
             <Image
@@ -374,13 +374,14 @@ const EspaceRecrutement = () => {
               priority
               className="object-cover object-center"
             />
-            {/* Voile bleu pour lisibilité */}
-            <div className="absolute inset-0 bg-white/30 backdrop-blur-sm" />
+            {/* Voile sombre en dégradé pour une meilleure lisibilité */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-transparent backdrop-blur-sm" />
           </div>
 
           {/* Contenu : Titre + Breadcrumb */}
           <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">Carrière</h1>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white drop-shadow-lg mb-4 tracking-tight">Carrière</h1>
+            <br />
             <Breadcrumb />
           </div>
 
@@ -401,7 +402,7 @@ const EspaceRecrutement = () => {
                 </span>
                 <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-[#7CB9E8] to-[#007FFF] rounded-full"></div>
               </h1>
-              <p className="text-gray-600 max-w-2xl mx-auto mt-8">
+              <p className="text-gray-600 max-w-4xl mx-auto mt-8">
                 Découvrez les opportunités de carrière chez Distritherm Services et participez à notre développement
               </p>
             </div>

@@ -56,13 +56,13 @@ const ElectricitePage = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="max-w-3xl"
+              className="max-w-6xl"
             >
               <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
-                L'électricité est tout un art
+                L'énergie solaire, une solution d'avenir
               </h1>
-              <p className="text-xl text-gray-100 mb-8 max-w-2xl">
-                Pour l'excellence de vos chantiers, DISTRITHERM Services est là pour vous.
+              <p className="text-xl text-gray-100 mb-8 max-w-3xl">
+                Pour des installations solaires performantes, DISTRITHERM Services vous accompagne.
               </p>
               <Link 
                 href="#contact" 
@@ -90,17 +90,17 @@ const ElectricitePage = () => {
                 className="flex-1 flex flex-col justify-center"
               >
                 <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-800">
-                  Artisan spécialiste de l'électricité, à la recherche de produits de qualité pour vos chantiers ?
+                  Professionnel de l'énergie solaire, à la recherche de solutions durables pour vos projets ?
                 </h2>
                 <div className="prose prose-lg max-w-none text-gray-700">
-                  <p>
-                    Distritherm Services comprend l'importance de disposer des bons produits à tout moment. C'est pourquoi nous vous proposons une large gamme de matériel électrique stockée en permanence pour parfaire vos chantiers.
+                  <p className="text-justify leading-relaxed">
+                    Distritherm Services comprend l'importance de disposer des bons produits à tout moment. C'est pourquoi nous vous proposons une large gamme de solutions solaires stockée en permanence pour parfaire vos installations.
                   </p>
-                  <p>
-                    Installation, rénovation, maintenance des réseaux électriques... De la préparation des tableaux électriques, des raccordements et des installations en neuf ou en rénovation, vous recherchez des solutions performantes tout en respectant la réglementation. Notre équipe Distritherm Services vous propose de nombreuses références produits pour réussir vos projets.
+                  <p className="text-justify leading-relaxed">
+                    Installation, rénovation, maintenance des systèmes photovoltaïques... De la préparation des panneaux solaires, des onduleurs et des installations en neuf ou en rénovation, vous recherchez des solutions performantes tout en respectant la réglementation. Notre équipe Distritherm Services vous propose de nombreuses références produits pour réussir vos projets.
                   </p>
-                  <p>
-                    Pour compléter votre approvisionnement en matériel électrique, vous trouverez des câbles, des disjoncteurs, des prises et les accessoires appropriés comme les outils de câblage, les testeurs, les pinces... pour travailler dans les meilleures conditions.
+                  <p className="text-justify leading-relaxed">
+                    Pour compléter votre approvisionnement en matériel solaire, vous trouverez des panneaux photovoltaïques, des batteries de stockage, des onduleurs et les accessoires appropriés comme les connecteurs, les câbles solaires, les fixations... pour travailler dans les meilleures conditions.
                   </p>
                 </div>
               </motion.div>
@@ -113,10 +113,10 @@ const ElectricitePage = () => {
               >
                 <div className="relative w-full h-full min-h-[280px] rounded-3xl overflow-hidden bg-white shadow-xl">
                   <Image
-                    src="/electricite2.png"
+                    src="/image-solaire.png"
                     alt="Électricité chantier"
                     fill
-                    className="object-cover rounded-3xl hover:scale-105 hover:shadow-2xl transition-transform duration-300 max-w-[500px] max-h-[400px] mx-auto my-auto"
+                    className="object-cover rounded-3xl hover:scale-105 hover:shadow-2xl transition-transform duration-300 max-w-[720px] max-h-[420px] mx-auto my-auto"
                   />
                 </div>
               </motion.div>
@@ -139,40 +139,27 @@ const ElectricitePage = () => {
                 className="flex-1 flex flex-col justify-center"
               >
                 <h2 className="text-3xl font-bold mb-6 text-gray-800">
-                  Une gamme complète et des solutions adaptées à chaque configuration
+                  Une gamme complète de solutions solaires pour tous vos projets
                 </h2>
                 <div className="prose prose-lg max-w-none text-gray-700">
-                  <p>
-                    Matériau incontournable sur les chantiers, l'électricité moderne offre de nombreux avantages. Facile à installer et à maintenir, elle permet une mise en œuvre rapide des réseaux électriques. Sa fiabilité et sa sécurité en font un choix idéal pour les installations domestiques et industrielles. Elle présente d'excellentes propriétés de performance et de durabilité, contribuant ainsi à la qualité et à la sécurité des installations.
+                  <p className="text-justify leading-relaxed">
+                    L'énergie solaire est aujourd'hui une solution incontournable pour les projets de construction et de rénovation. Facile à intégrer et à maintenir, elle permet une production d'énergie propre et durable. Sa fiabilité et son efficacité en font un choix idéal pour les installations résidentielles et commerciales. Elle présente d'excellentes performances énergétiques et une longue durée de vie, contribuant ainsi à la transition énergétique.
                   </p>
-                  <p>
-                    Pour répondre à la diversité des besoins de nos clients artisans, électriciens et autres professionnels, nous proposons chez DISTRITHERM Services une large sélection de produits :
+                  <p className="text-justify leading-relaxed">
+                    Pour répondre à la diversité des besoins de nos clients installateurs, électriciens et autres professionnels, nous proposons chez DISTRITHERM Services une large sélection de produits solaires :
                   </p>
-                  <ul>
-                    <li>Des câbles et fils électriques pour les installations traditionnelles</li>
-                    <li>Des tableaux électriques pour une distribution optimale</li>
-                    <li>Des disjoncteurs et interrupteurs différentiels pour la sécurité</li>
-                    <li>Des prises et interrupteurs pour le confort</li>
-                    <li>Une gamme complète d'accessoires et d'outillage</li>
+                  <ul className="space-y-2">
+                    <li>Des panneaux photovoltaïques haute performance</li>
+                    <li>Des onduleurs pour la conversion de l'énergie</li>
+                    <li>Des batteries de stockage pour l'autonomie</li>
+                    <li>Des systèmes de fixation et d'intégration</li>
+                    <li>Une gamme complète d'accessoires et de connectiques</li>
                   </ul>
-                  <p>
-                    Car chaque chantier est différent et nous le savons, nous sommes en mesure de vous fournir des solutions spécifiques pour répondre à vos besoins particuliers, que ce soit pour des installations domestiques, industrielles ou de traitement d'énergie.
+                  <p className="text-justify leading-relaxed">
+                    Car chaque projet solaire est unique, nous sommes en mesure de vous fournir des solutions sur mesure pour répondre à vos besoins spécifiques, que ce soit pour des installations résidentielles, commerciales ou industrielles.
                   </p>
                 </div>
-                <div className="mt-8 flex flex-wrap gap-4">
-                  <Link 
-                    href="/contact" 
-                    className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl shadow-md hover:bg-blue-700 transition-colors duration-300"
-                  >
-                    Voir tous nos produits
-                  </Link>
-                  <Link 
-                    href="/contact" 
-                    className="inline-flex items-center px-6 py-3 bg-gray-200 text-gray-800 font-semibold rounded-xl shadow-md hover:bg-gray-300 transition-colors duration-300"
-                  >
-                    Demander un devis
-                  </Link>
-                </div>
+            
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, scale: 0.9, x: -80 }}
@@ -186,7 +173,7 @@ const ElectricitePage = () => {
                     src="/electricite3.png"
                     alt="Matériel électrique"
                     fill
-                    className="object-cover rounded-3xl hover:scale-105 hover:shadow-2xl transition-transform duration-300 max-w-[500px] max-h-[500px] mx-auto my-auto"
+                    className="object-cover rounded-3xl hover:scale-105 hover:shadow-2xl transition-transform duration-300 max-w-[700px] max-h-[500px] mx-auto my-auto"
                   />
                 </div>
               </motion.div>
@@ -209,23 +196,23 @@ const ElectricitePage = () => {
                 className="flex-1 flex flex-col justify-center"
               >
                 <h2 className="text-3xl font-bold mb-8 text-gray-800">
-                  Solutions pour installations électriques
+                  Solutions pour installations solaires
                 </h2>
                 <div className="prose prose-lg max-w-none text-gray-700">
-                  <p>
-                    Vous envisagez la conception ou la rénovation d'une installation électrique? Avec notre sélection de matériel électrique, rien de plus simple.
+                  <p className="text-justify leading-relaxed">
+                    Vous souhaitez passer à l'énergie solaire ? Avec notre gamme complète de solutions photovoltaïques, la transition énergétique devient accessible.
                   </p>
-                  <p>
-                    Vous trouverez des solutions adaptées pour tous vos besoins, des installations résidentielles aux projets industriels.
+                  <p className="text-justify leading-relaxed">
+                    Nous proposons des solutions adaptées à tous les types de projets, du résidentiel aux installations industrielles de grande envergure.
                   </p>
-                  <p>
-                    Des systèmes de distribution d'énergie équipés de disjoncteurs de protection permettent un contrôle optimal de la puissance. Ceci est particulièrement utile dans les grands bâtiments ou les installations complexes nécessitant une gestion précise de l'énergie.
+                  <p className="text-justify leading-relaxed">
+                    Nos systèmes solaires intégrés, équipés d'onduleurs haute performance et de systèmes de stockage, permettent une gestion optimale de l'énergie produite. Cette solution est idéale pour maximiser l'autonomie énergétique tout en réduisant votre empreinte carbone.
                   </p>
-                  <p>
-                    Une gamme standard stockée vous offre la possibilité de répondre et traiter vos demandes les plus habituelles avec des diamètres courants, ou dans des dimensions spécifiques selon vos besoins.
+                  <p className="text-justify leading-relaxed">
+                    Notre stock permanent vous garantit une disponibilité immédiate des équipements standards, tout en offrant la possibilité de solutions sur mesure pour des besoins spécifiques.
                   </p>
-                  <p>
-                    À la demande, vous découvrirez une solution personnalisée Distritherm Services pour une installation répondant aux critères les plus stricts de vos clients.
+                  <p className="text-justify leading-relaxed">
+                    Notre équipe d'experts vous accompagne dans la conception de votre projet solaire, avec des solutions personnalisées répondant aux normes les plus exigeantes du marché.
                   </p>
                 </div>
               </motion.div>
@@ -238,10 +225,10 @@ const ElectricitePage = () => {
               >
                 <div className="relative w-full h-full min-h-[280px] rounded-3xl overflow-hidden bg-white shadow-xl">
                   <Image
-                    src="/electricite1.png"
+                    src="/image-solaire2.png"
                     alt="Installations électriques"
                     fill
-                    className="object-cover rounded-3xl hover:scale-105 hover:shadow-2xl transition-transform duration-300 max-w-[450px] max-h-[350px] mx-auto my-auto"
+                    className="object-cover rounded-3xl hover:scale-105 hover:shadow-2xl transition-transform duration-300 max-w-[720px] max-h-[350px] mx-auto my-auto"
                   />
                 </div>
               </motion.div>

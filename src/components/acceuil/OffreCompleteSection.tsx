@@ -65,11 +65,14 @@ const OffreCompleteSection = () => {
     <section className="relative py-24 bg-gradient-to-br from-whiteimage.png ">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-4 text-blue-900 leading-tight">
+        <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <span className="bg-gradient-to-r from-[#7CB9E8] to-[#007FFF] bg-clip-text text-transparent">
             Innovation & <span className="text-blue-600">Expertise</span>
+            </span>
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-            Découvrez comment nous révolutionnons le secteur du bâtiment avec des solutions innovantes
+          <div className="w-32 h-1.5 bg-gradient-to-r from-[#7CB9E8] to-[#007FFF] mx-auto mb-8 rounded-full"></div>
+          <p className="text-xl text-gray-700 max-w-4xl mx-auto">
+          Découvrez comment nous révolutionnons le secteur du bâtiment avec des solutions innovantes
           </p>
         </div>
 

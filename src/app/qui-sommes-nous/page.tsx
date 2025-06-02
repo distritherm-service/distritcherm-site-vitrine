@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useRef } from 'react';
-import { FaMapMarkerAlt, FaUsers, FaHistory, FaTruck, FaEye, FaAward, FaShieldAlt } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaUsers, FaHistory, FaTruck, FaEye, FaAward, FaShieldAlt, FaThumbsUp } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import BackButton from '@/components/BackButton';
 import Link from 'next/link';
@@ -10,6 +10,7 @@ import Footer from '@/components/layout/Footer';
 import Breadcrumb from '@/components/navigation/Breadcrumb';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import PartnersCarousel from '@/components/acceuil/PartnersCarousel';
 
 const QuiSommesNous: React.FC = () => {
   const logosContainerRef = useRef<HTMLDivElement>(null);
@@ -33,18 +34,18 @@ const QuiSommesNous: React.FC = () => {
       id: 'taverny', 
       name: 'Taverny', 
       address: '16 rue Condorcet, 95150 Taverny',
-      tel: '01 23 45 67 89',
-      email: 'taverny@distritherm-services.fr',
-      image: '/slider4.png',
+      tel: '01 71 68 72 12',
+      email: 'info@distritherm-services.fr',
+      image: '/image-propos.jpg',
       mapUrl: "https://www.google.com/maps/place/Distritherm+Services/@49.028085,2.1898189,17z/data=!3m1!4b1!4m6!3m5!1s0x47e65f83bd01199d:0x6c3662d8abbc2b5b!8m2!3d49.028085!4d2.1898189!16s%2Fg%2F11k4qzz8tm?entry=ttu"
     },
     { 
       id: 'drancy', 
       name: 'Drancy', 
-      address: '151 rue Diderot, 93700 Drancy, 93700 Drancy',
-      tel: '01 23 45 67 90',
-      email: 'drancy@distritherm-services.fr',
-      image: '/slider2.png',
+      address: '151 rue Diderot, 93700 Drancy',
+      tel: '01 71 68 72 12',
+      email: 'info@distritherm-services.fr',
+      image: '/image-ds.png',
       mapUrl: "https://www.google.com/maps?q=151+Rue+Diderot,+93700+Drancy&ftid=0x47e66c92695024a9:0xa36405cf30ef2e2f"
     },
   ];
@@ -61,7 +62,7 @@ const QuiSommesNous: React.FC = () => {
       description: "Notre équipe d'experts qualifiés vous garantit des conseils professionnels et pertinents." 
     },
     { 
-      icon: <FaShieldAlt />, 
+      icon: <FaThumbsUp />, 
       title: "Qualité", 
       description: "Nous sélectionnons rigoureusement nos produits pour vous offrir le meilleur rapport qualité-prix." 
     },
@@ -104,7 +105,7 @@ const QuiSommesNous: React.FC = () => {
     <>
       <main className="relative min-h-screen bg-[#EEF7FF]">
         {/* Hero compact */}
-        <section className="relative h-56 md:h-64 w-full overflow-hidden shadow-sm">
+        <section className="relative h-64 md:h-80 lg:h-[420px] w-full overflow-hidden shadow-md">
           {/* Image de fond */}
           <div className="absolute inset-0">
             <Image
@@ -114,10 +115,12 @@ const QuiSommesNous: React.FC = () => {
               priority
               className="object-cover object-center"
             />
-            <div className="absolute inset-0 bg-white/30 backdrop-blur-sm" />
+            {/* Voile sombre en dégradé pour accentuer la lisibilité */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-transparent backdrop-blur-sm" />
           </div>
           <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">À propos</h1>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white drop-shadow-lg mb-4 tracking-tight">Qui Sommes Nous</h1>
+            <br />
             <Breadcrumb />
           </div>
           <div className="absolute bottom-0 left-1/2 w-full max-w-none -translate-x-1/2">
@@ -148,7 +151,7 @@ const QuiSommesNous: React.FC = () => {
           <section className="relative">
             <div className="container mx-auto px-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div className="bg-white/80 backdrop-blur-lg rounded-2xl shadow-xl p-8 transform hover:scale-105 transition-transform duration-300">
+                <div className="bg-white/80 backdrop-blur-lg rounded-2xl shadow-xl p-8  transition-transform duration-300">
                   <div className="flex items-center mb-6">
                     <FaHistory className="text-3xl text-[#007FFF] mr-4" />
                     <h2 className="text-3xl font-bold text-gray-800">Notre Histoire</h2>
@@ -180,6 +183,8 @@ const QuiSommesNous: React.FC = () => {
               </div>
             </div>
           </section>
+          <br />
+          <br />
 
           <section className="relative py-16 bg-gradient-to-r from-[#0000FF]/5 to-[#007FFF]/5">
             <div className="container mx-auto px-4">
@@ -199,13 +204,47 @@ const QuiSommesNous: React.FC = () => {
                 {valeurs.map((valeur, index) => (
                   <div 
                     key={index} 
-                    className="bg-white/80 backdrop-blur-lg rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition-shadow duration-300"
+                    className={`${
+                      valeur.title === 'Proximité client'
+                        ? 'bg-gradient-to-r from-[#FFE5B4] via-[#FFD3A5] to-[#FFBC8B] text-gray-800 shadow-lg relative overflow-hidden'
+                        : valeur.title === 'Expertise'
+                        ? 'bg-gradient-to-r from-[#D1F7C4] via-[#B6F3E6] to-[#C0F2F1] text-gray-800 shadow-lg relative overflow-hidden'
+                        : valeur.title === 'Qualité'
+                        ? 'bg-gradient-to-r from-[#8EC5FC] via-[#c2d9fe] to-[#E0C3FC] text-gray-800 shadow-lg relative overflow-hidden'
+                        : valeur.title === 'Réactivité'
+                        ? 'bg-gradient-to-r from-[#FFD6E0] via-[#FDC5D0] to-[#F6B4C2] text-gray-800 shadow-lg relative overflow-hidden'
+                        : 'bg-white text-gray-800 shadow-md'
+                    } rounded-xl p-6 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 min-h-[300px] flex flex-col`}
                   >
-                    <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center text-2xl text-white bg-gradient-to-r from-[#7CB9E8] to-[#007FFF] rounded-lg transform -rotate-6">
+                    {valeur.title === 'Proximité client' && (
+                      <div className="absolute inset-0 flex items-center justify-center opacity-10">
+                        <FaUsers className="text-8xl text-gray-500/20" />
+                      </div>
+                    )}
+                    {valeur.title === 'Expertise' && (
+                      <div className="absolute inset-0 flex items-center justify-center opacity-10">
+                        <FaAward className="text-8xl text-gray-500/20" />
+                      </div>
+                    )}
+                    {valeur.title === 'Qualité' && (
+                      <div className="absolute inset-0 flex items-center justify-center opacity-10">
+                        <FaThumbsUp className="text-8xl text-gray-500/20" />
+                      </div>
+                    )}
+                    {valeur.title === 'Réactivité' && (
+                      <div className="absolute inset-0 flex items-center justify-center opacity-10">
+                        <FaTruck className="text-8xl text-gray-500/20" />
+                      </div>
+                    )}
+                    <div className="w-20 h-20 mx-auto mb-6 flex items-center justify-center text-3xl rounded-full bg-white/40 backdrop-blur-sm border-2 border-white/50 text-[#159b8a] relative z-10">
                       {valeur.icon}
                     </div>
-                    <h3 className="text-xl font-bold text-gray-800 mb-3">{valeur.title}</h3>
-                    <p className="text-gray-600">{valeur.description}</p>
+                    <h3 className="text-xl font-bold mb-4 relative z-10 text-gray-800">
+                      {valeur.title}
+                    </h3>
+                    <p className="relative z-10 text-gray-700">
+                      {valeur.description}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -289,7 +328,7 @@ const QuiSommesNous: React.FC = () => {
               <div id="map-section" className="mt-12 bg-white/80 backdrop-blur-lg rounded-2xl shadow-xl p-4 overflow-hidden">
                 <div className="rounded-xl overflow-hidden aspect-video">
                   <iframe 
-                    src="https://www.google.com/maps/d/u/0/embed?mid=1tpn6GOXi0kycdEFSlFyv95Jy_X-lUgY&ehbc=2E312F" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2616.080024053888!2d2.1898189!3d49.028085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e65f83bd01199d%3A0x6c3662d8abbc2b5b!2sDistritherm%20Services!5e0!3m2!1sfr!2sfr!4v1748857463351!5m2!1sfr!2sfr" 
                     width="100%" 
                     height="100%" 
                     style={{ border: 0, minHeight: '400px' }} 
@@ -311,7 +350,7 @@ const QuiSommesNous: React.FC = () => {
                     <h2 className="text-3xl font-bold text-gray-800">Notre Vision</h2>
                   </div>
                   <p className="text-gray-600 mb-6">
-                    Distritherm Service aspire à devenir le distributeur de référence en matériaux et solutions destinés aux professionnels du bâtiment en Île-de-France.
+                    Distritherm Services aspire à devenir le distributeur de référence en matériaux et solutions destinés aux professionnels du bâtiment en Île-de-France.
                   </p>
                   <p className="text-gray-600">
                   Nous sommes déterminés à soutenir la transition énergétique en offrant des solutions avant-gardistes et respectueuses de l'environnement, tout en préservant notre dévouement pour l'excellence du service à la clientèle et à la qualité de nos produits.
@@ -379,127 +418,16 @@ const QuiSommesNous: React.FC = () => {
             </div>
           </section>
 
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-                <h2 className="text-3xl font-bold text-gray-800 mb-4">
-                  <span className="relative inline-block">
-                    Nos Marque Partenaire
-                    <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-[#7CB9E8] to-[#007FFF] rounded-full"></div>
-                  </span>
-                </h2>
-                <p className="text-gray-600 max-w-2xl mx-auto">
-                  Retrouvez-nous dans nos points de vente en Île-de-France
-                </p>
-              </div>
-            <div className="relative">
-              <button
-                aria-label="Défiler vers la gauche"
-                onClick={() => scrollLogos('left')}
-                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-[#159b8a] hover:text-white text-[#159b8a] rounded-full shadow-lg w-10 h-10 flex items-center justify-center transition-all border border-[#159b8a]"
-                style={{ boxShadow: '0 2px 8px #159b8a22' }}
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
-              </button>
-              <button
-                aria-label="Défiler vers la droite"
-                onClick={() => scrollLogos('right')}
-                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-[#159b8a] hover:text-white text-[#159b8a] rounded-full shadow-lg w-10 h-10 flex items-center justify-center transition-all border border-[#159b8a]"
-                style={{ boxShadow: '0 2px 8px #159b8a22' }}
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
-              </button>
-              <motion.div
-                className="overflow-x-auto scrollbar-hide w-full"
-                ref={logosContainerRef}
-                initial={{}}
-                animate={{}}
-                style={{ WebkitOverflowScrolling: 'touch' }}
-              >
-                <motion.div
-                  className="flex gap-10 items-center w-full"
-                  animate={{ x: [0, -600] }}
-                  transition={{ repeat: Infinity, duration: 18, ease: 'linear' }}
-                >
-                  {[
-                    '/fournisseurs/deville-logo.jpg',
-                    '/fournisseurs/edma-logo.jpg',
-                    '/fournisseurs/invicta-logo.png',
-                    '/fournisseurs/spp-h-logo.jpg',
-                    '/fournisseurs/talia-logo.jpg',
-                    '/fournisseurs/fhe_logo.webp',
-                    '/fournisseurs/dewalt_logo.jpg',
-                    '/fournisseurs/clivet_logo19.png',
-                    '/fournisseurs/logo_multitubo.jpg',
-                    '/fournisseurs/logo_ursa_hd.jpg',
-                    '/fournisseurs/logo_teddington_1934_cmjn_vecto_bd.jpg',
-                    '/fournisseurs/makita_logo.png',
-                    '/fournisseurs/logo_stanley_utilisation_digitale.jpg',
-                    '/fournisseurs/watts_logo_dernier.jpg',
-                    '/fournisseurs/rockwool_logo_primary_colour_rgb.png',
-                    '/fournisseurs/knauf-logo.png',
-                    '/fournisseurs/airsolar-logo.png',
-                    '/fournisseurs/airwell-logo.png',
-                    '/fournisseurs/logo-adrien.png',
-                    '/fournisseurs/logo-izar.jpg',
-                    '/fournisseurs/wavin-logo.png',
-                  ].map((logo, index) => (
-                    <div key={index} className="w-32 h-16 md:w-40 md:h-20 relative transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#159b8a]/20 flex-shrink-0">
-                      <Image 
-                        src={logo} 
-                        alt="Marque partenaire" 
-                        fill 
-                        className="object-contain"
-                        sizes="(max-width: 768px) 128px, 160px"
-                      />
-                    </div>
-                  ))}
-                  {[
-                   '/fournisseurs/deville-logo.jpg',
-                    '/fournisseurs/edma-logo.jpg',
-                    '/fournisseurs/invicta-logo.png',
-                    '/fournisseurs/spp-h-logo.jpg',
-                    '/fournisseurs/talia-logo.jpg',
-                    '/fournisseurs/fhe_logo.webp',
-                    '/fournisseurs/dewalt_logo.jpg',
-                    '/fournisseurs/clivet_logo19.png',
-                    '/fournisseurs/logo_multitubo.jpg',
-                    '/fournisseurs/logo_ursa_hd.jpg',
-                    '/fournisseurs/logo_teddington_1934_cmjn_vecto_bd.jpg',
-                    '/fournisseurs/makita_logo.png',
-                    '/fournisseurs/logo_stanley_utilisation_digitale.jpg',
-                    '/fournisseurs/watts_logo_dernier.jpg',
-                    '/fournisseurs/rockwool_logo_primary_colour_rgb.png',
-                    '/fournisseurs/knauf-logo.png',
-                    '/fournisseurs/airsolar-logo.png',
-                    '/fournisseurs/airwell-logo.png',
-                    '/fournisseurs/logo-adrien.png',
-                    '/fournisseurs/logo-izar.jpg',
-                    '/fournisseurs/wavin-logo.png',
-                  ].map((logo, index) => (
-                    <div key={index+100} className="w-32 h-16 md:w-40 md:h-20 relative transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#159b8a]/20 flex-shrink-0">
-                      <Image 
-                        src={logo} 
-                        alt="Marque partenaire" 
-                        fill 
-                        className="object-contain"
-                        sizes="(max-width: 768px) 128px, 160px"
-                      />
-                    </div>
-                  ))}
-                </motion.div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-
-          <section className="relative py-16">
+                {/* nos partenaire */}
+                <PartnersCarousel />
+                
+                {/* section service de livraison  */}
+          <section id="service-livraison" className="relative py-16">
             <div className="container mx-auto px-4">
               <div className="text-center mb-12">
                 <h2 className="text-3xl font-bold text-gray-800 mb-4">
                   <span className="relative inline-block">
-                    Notre Service de Livraison
+                    Notre service de <span className="font-bold text-[#1E90FF]">livraison</span>
                     <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-[#7CB9E8] to-[#007FFF] rounded-full"></div>
                   </span>
                 </h2>
@@ -548,6 +476,17 @@ const QuiSommesNous: React.FC = () => {
                       <div>
                         <h4 className="font-medium text-gray-900">Sécurité garantie</h4>
                         <p className="text-gray-600 text-sm">Emballage soigné</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="flex-shrink-0 w-12 h-12 bg-[#7CB9E8]/20 rounded-full flex items-center justify-center mr-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#1E90FF]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3a1 1 0 012 0v4m0 0V7a1 1 0 011 1v4.586l2.707 2.707a1 1 0 01-1.414 1.414L9 13.414V8a1 1 0 011-1zM3 21h18M5 21V9a1 1 0 011-1h12a1 1 0 011 1v12M9 21v-8a1 1 0 011-1h4a1 1 0 011 1v8" />
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 className="font-medium text-gray-900">Samedi sur RDV</h4>
+                        <p className="text-gray-600 text-sm">Service sur demande</p>
                       </div>
                     </div>
                   </div>

@@ -10,6 +10,7 @@ import DevisSection from '@/components/acceuil/DevisSection';
 import OffreCompleteSection from '@/components/acceuil/OffreCompleteSection';
 import ExpertSection from '@/components/acceuil/ExpertSection';
 import ValuePropositionSection from '@/components/acceuil/ValuePropositionSection';
+import PartnersCarousel from '@/components/acceuil/PartnersCarousel';
 
 const HomePage = () => {
   return (
@@ -18,7 +19,9 @@ const HomePage = () => {
       <main className="flex-grow">
         {/* Section Distritherm Services */}
         <ServicesSection />
-        
+        <br />
+        <br />
+        <br />
         {/* Section À Propos de Distritherm Services */}
         <AProposSection />
         
@@ -31,6 +34,8 @@ const HomePage = () => {
         <OffreCompleteSection />
         {/* Section Expert */}
         <ExpertSection />
+        {/* nos partenaire */}
+        <PartnersCarousel />
         {/* Section Valeur Ajoutée */}
         <ValuePropositionSection />
       </main>

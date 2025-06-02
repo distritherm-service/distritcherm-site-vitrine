@@ -94,10 +94,10 @@ const ChauffagePage = () => {
                   Vous êtes professionnel du bâtiment à la recherche de solutions de chauffage de qualité ?
                 </h2>
                 <div className="prose prose-lg max-w-none text-gray-700">
-                  <p>
+                  <p className="text-justify leading-relaxed mb-6">
                     Dans un contexte où les solutions de chauffage évoluent rapidement et où les normes environnementales se renforcent, trouver les équipements de chauffage adaptés devient un véritable défi pour les professionnels du bâtiment. Or, la réussite de vos chantiers dépend de la qualité des matériaux et de la fiabilité de vos fournisseurs.
                   </p>
-                  <p>
+                  <p className="text-justify leading-relaxed">
                     Que vous soyez plombier, électricien ou entreprise tous corps d'état, votre expertise mérite d'être soutenue par un partenaire de confiance. DISTRITHERM Services, présent à Taverny et Drancy, s'engage à vos côtés pour tous vos projets d'installation de systèmes de chauffage en Île-de-France, de Franconville à Bobigny, en passant par Argenteuil et Le Blanc-Mesnil, ainsi que dans toute la France.
                   </p>
                 </div>
@@ -113,7 +113,7 @@ const ChauffagePage = () => {
                     src="/chauffage1.jpg"
                     alt="Plâtrerie chantier"
                     fill
-                    className="object-cover rounded-3xl hover:scale-105 hover:shadow-2xl transition-transform duration-300"
+                    className="object-cover rounded-3xl hover:scale-105 hover:shadow-2xl transition-transform duration-300 max-w-[650px] max-h-[300px] mx-auto my-auto"
                   />
                 </div>
               </motion.div>
@@ -139,16 +139,16 @@ const ChauffagePage = () => {
                   Une gamme complète d'équipements chauffage en stock
                 </h2>
                 <div className="prose prose-lg max-w-none text-gray-700">
-                  <p>
+                  <p className="text-justify leading-relaxed mb-6">
                     Nous pouvons répondre à tous vos besoins en matière de chauffage.
                   </p>
-                  <p>
+                  <p className="text-justify leading-relaxed mb-6">
                     De la pompe à chaleur air-eau et eau-eau aux chaudières à gaz et à granulés, en passant par les poêles à bois et à granulés, nous proposons des solutions adaptées à chaque configuration.
                   </p>
-                  <p>
+                  <p className="text-justify leading-relaxed mb-6">
                     Nous avons sélectionné des radiateurs modèles à eau, des radiateurs électriques ainsi que des sèche-serviettes personnalisables et d'une esthétique remarquable. Complétée par des systèmes de plancher chauffant dernière génération. La vente de pompe à chaleur représente une part importante de notre activité, témoignant de notre attachement à proposer à nos clients des solutions toujours plus économiques et écologiques.
                   </p>
-                  <p>
+                  <p className="text-justify leading-relaxed">
                     Nos partenariats avec AIRWELL, CLIVET, fabricants français et européen de produits innovants toujours à la pointe de la dernière technologie, on peut ainsi proposer des solutions modernes et high tech en matière de maîtrise de sa consommation énergétique.
                   </p>
                 </div>
@@ -199,10 +199,10 @@ const ChauffagePage = () => {
                   L'expertise DISTRITHERM pour vous servir
                 </h2>
                 <div className="prose prose-lg max-w-none text-gray-700">
-                  <p>
+                  <p className="text-justify leading-relaxed">
                     Professionnels du bâtiment de formation, chez DISTRITHERM Services, nous ne laissons aucune place au hasard. Notre équipe technique maîtrise toutes les spécificités de chaque solution de chauffage proposée en magasin.
                   </p>
-                  <p>
+                  <p className="text-justify leading-relaxed">
                     Ensemble trouvons votre équipement de chauffage, nous vous guidons dans le dimensionnement des installations, le choix des accessoires et l'optimisation des performances. De l'étude thermique préliminaire à la sélection des composants, nous vous accompagnons à chaque étape. Nous analysons avec vous les contraintes spécifiques du bâtiment : superficie, isolation, orientation, pour vous recommander la solution idéale.
                   </p>
                 </div>
@@ -243,21 +243,21 @@ const ChauffagePage = () => {
                   Un stock complet d'accessoires et de composants essentiels
                 </h2>
                 <div className="prose prose-lg max-w-none text-gray-700">
-                  <p>
+                  <p className="text-justify leading-relaxed">
                     Une installation réussie nécessite bien plus que l'équipement principal. C'est pourquoi nous stockons des accessoires adaptés dans nos entrepôts à Taverny et à Drancy.
                   </p>
-                  <p>
+                  <p className="text-justify leading-relaxed">
                     Notre gamme chauffage comprend tous les composants indispensables :
                   </p>
-                  <ul>
-                    <li>des kits ballons tampons et ballons d'eau chaude sanitaire (ECS)</li>
-                    <li>des circulateurs et disconnecteurs</li>
-                    <li>des filtres et pots à boue pour la protection des circuits</li>
-                    <li>des thermostats intelligents et régulations</li>
-                    <li>des vases d'expansion et potences équipées</li>
-                    <li>des accessoires de fumisterie complets</li>
+                  <ul className="space-y-2">
+                    <li className="text-justify">des kits ballons tampons et ballons d'eau chaude sanitaire (ECS)</li>
+                    <li className="text-justify">des circulateurs et disconnecteurs</li>
+                    <li className="text-justify">des filtres et pots à boue pour la protection des circuits</li>
+                    <li className="text-justify">des thermostats intelligents et régulations</li>
+                    <li className="text-justify">des vases d'expansion et potences équipées</li>
+                    <li className="text-justify">des accessoires de fumisterie complets</li>
                   </ul>
-                  <p>
+                  <p className="text-justify leading-relaxed">
                     Tout cela avec du matériel trié sur le volet pour ses caractéristiques techniques et ses performances afin de répondre aux normes les plus strictes pour garantir la sécurité de vos installations.
                   </p>
                 </div>
