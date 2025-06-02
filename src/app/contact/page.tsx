@@ -211,35 +211,52 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#EEF7FF]">
-      {/* Hero compact */}
-      <section className="relative h-56 md:h-64 w-full overflow-hidden shadow-sm">
-        {/* Image d'arrière-plan */}
-        <div className="absolute inset-0">
-          <Image
-            src="/image-contact.png"
-            alt="Contact Distritherm Services"
-            fill
-            priority
-            className="object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-white/30 backdrop-blur-sm" />
-        </div>
-        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
-          <h1 className="text-4xl md:text-4xl font-bold text-gray-800 mb-2">Contact</h1>
-          <Breadcrumb />
-        </div>
-
-        <div className="absolute bottom-0 left-1/2 w-full max-w-none -translate-x-1/2">
-          <svg viewBox="0 0 1600 100" className="w-full h-6 md:h-8" preserveAspectRatio="none">
-            <path d="M0,0 C600,100 1000,100 1600,0 L1600,100 L0,100 Z" fill="#EEF7FF" />
-          </svg>
-        </div>
-      </section>
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-blue-50 via-white to-[#7CB9E8]/30">
+      
 
       <main className="flex-grow relative z-10">
-        <section className="relative py-20 overflow-hidden bg-[#EEF7FF]">
+        {/* Hero compact */}
+      <section className="relative h-64 md:h-80 lg:h-[420px] w-full overflow-hidden shadow-md">
+          {/* Image d'arrière-plan */}
+          <div className="absolute inset-0">
+            <Image
+              src="/image-contact.png"
+              alt="Recrutement Distritherm Services"
+              fill
+              priority
+              className="object-cover object-center"
+            />
+            {/* Voile sombre en dégradé pour une meilleure lisibilité */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-transparent backdrop-blur-sm" />
+          </div>
+
+          {/* Contenu : Titre + Breadcrumb */}
+          <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white drop-shadow-lg mb-4 tracking-tight">Contact</h1>
+            <br />
+            <Breadcrumb />
+          </div>
+
+          {/* Ombre courbée en bas */}
+          <div className="absolute bottom-0 left-1/2 w-full max-w-none -translate-x-1/2">
+            <svg viewBox="0 0 1600 100" className="w-full h-6 md:h-8" preserveAspectRatio="none">
+              <path d="M0,0 C600,100 1000,100 1600,0 L1600,100 L0,100 Z" fill="#f8f9ff"/>
+            </svg>
+          </div>
+        </section>
+        <section className="relative py-20 overflow-hidden">
           <div className="container relative mx-auto px-4">
+          <div className="text-center mb-16">
+              <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4 relative inline-block">
+                <span className="bg-gradient-to-r from-[#7CB9E8] to-[#007FFF] bg-clip-text text-transparent">
+                  Contactez-nous
+                </span>
+                <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-[#7CB9E8] to-[#007FFF] rounded-full"></div>
+              </h1>
+              <p className="text-gray-600 max-w-4xl mx-auto mt-8">
+                Nous sommes à votre écoute pour répondre à toutes vos questions et vous accompagner dans vos projets
+              </p>
+            </div>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
               {/* Informations de contact */}
               <div className="lg:col-span-1">

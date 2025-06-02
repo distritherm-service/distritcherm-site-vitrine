@@ -1,12 +1,46 @@
 'use client';
 
-import React, { useEffect, useRef, ReactNode } from 'react';
+import React, { useEffect, useRef, ReactNode, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Breadcrumb from '@/components/navigation/Breadcrumb';
 import Footer from '@/components/layout/Footer';
 import { motion, useAnimation, useInView } from 'framer-motion';
 import { FaBoxOpen, FaClock, FaLayerGroup, FaSmile } from 'react-icons/fa';
+import PartnersCarousel from '@/components/acceuil/PartnersCarousel';
+
+// Composant AnimatedCounter pour l'animation des chiffres
+const AnimatedCounter = ({ value, duration = 2000 }: { value: string, duration?: number }) => {
+  const [displayValue, setDisplayValue] = useState(0);
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true });
+  const numericValue = parseInt(value.replace(/[^0-9]/g, '')) || 0;
+  const suffix = value.replace(/[0-9]/g, '');
+
+  useEffect(() => {
+    if (inView) {
+      let start = 0;
+      const increment = numericValue / (duration / 16); // 60fps
+      const timer = setInterval(() => {
+        start += increment;
+        if (start >= numericValue) {
+          setDisplayValue(numericValue);
+          clearInterval(timer);
+        } else {
+          setDisplayValue(Math.floor(start));
+        }
+      }, 16);
+
+      return () => clearInterval(timer);
+    }
+  }, [inView, numericValue, duration]);
+
+  return (
+    <span ref={ref} className="tabular-nums">
+      {displayValue.toLocaleString('fr-FR')}{suffix}
+    </span>
+  );
+};
 
 // Définition des catégories de produits
 const categories = [
@@ -84,7 +118,7 @@ const categories = [
   },
   {
     id: 'electricite',
-    nom: 'Électricité',
+    nom: 'Energie solaire',
     description: 'Produits électriques pour installations résidentielles et industrielles. Câblage, tableaux électriques et équipements de protection.',
     image: '/electricite-image.png',
     link: 'gamme/electricite',
@@ -185,72 +219,78 @@ const FadeInWhenVisible = ({ children, delay = 0 }: { children: ReactNode, delay
 };
 
 const UniversProduitPage = () => {
-  // Ajout pour le carrousel manuel
-  const logosContainerRef = useRef<HTMLDivElement>(null);
-  const scrollLogos = (direction: 'left' | 'right') => {
-    const container = logosContainerRef.current;
-    if (!container) return;
-    const scrollAmount = 300;
-    if (direction === 'left') {
-      container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-    } else {
-      container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    }
-  };
-
   return (
     <div className="min-h-screen flex flex-col bg-[#EEF7FF]">
       {/* Hero compact */}
-      <section className="relative h-56 md:h-64 w-full overflow-hidden shadow-sm">
-        {/* Image de fond */}
-        <div className="absolute inset-0">
-          <Image
-            src="/image-univers-produits.jpg"
-            alt="Univers produits Distritherm"
-            fill
-            priority
-            className="object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-white/30 backdrop-blur-sm" />
-        </div>
-        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">Univers Produits</h1>
-          <Breadcrumb />
-        </div>
-        <div className="absolute bottom-0 left-1/2 w-full max-w-none -translate-x-1/2">
-          <svg viewBox="0 0 1600 100" className="w-full h-6 md:h-8" preserveAspectRatio="none">
-            <path d="M0,0 C600,100 1000,100 1600,0 L1600,100 L0,100 Z" fill="#EEF7FF" />
-          </svg>
-        </div>
-      </section>
+      <section className="relative h-64 md:h-80 lg:h-[420px] w-full overflow-hidden shadow-md">
+          {/* Image d'arrière-plan */}
+          <div className="absolute inset-0">
+            <Image
+              src="/image-univers-produits.jpg"
+              alt="Recrutement Distritherm Services"
+              fill
+              priority
+              className="object-cover object-center"
+            />
+            {/* Voile sombre en dégradé pour une meilleure lisibilité */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-transparent backdrop-blur-sm" />
+          </div>
+
+          {/* Contenu : Titre + Breadcrumb */}
+          <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white drop-shadow-lg mb-4 tracking-tight">Univers Produits</h1>
+            <br />
+            <Breadcrumb />
+          </div>
+
+          {/* Ombre courbée en bas */}
+          <div className="absolute bottom-0 left-1/2 w-full max-w-none -translate-x-1/2">
+            <svg viewBox="0 0 1600 100" className="w-full h-6 md:h-8" preserveAspectRatio="none">
+              <path d="M0,0 C600,100 1000,100 1600,0 L1600,100 L0,100 Z" fill="#f8f9ff"/>
+            </svg>
+          </div>
+        </section>
 
       <main className="flex-grow relative z-10">
         {/* Statistiques clés */}
-        <section className="py-12 bg-[#EEF7FF]">
-          <div className="container mx-auto px-4">
+        <section className="py-16 bg-gradient-to-br from-[#EEF7FF] via-white to-[#E6F4FF] relative overflow-hidden">
+          {/* Éléments décoratifs */}
+          <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-[#159b8a]/10 to-[#007FFF]/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-tr from-[#007FFF]/10 to-[#159b8a]/10 rounded-full blur-3xl"></div>
+          
+          <div className="container mx-auto px-4 relative z-10">
             <motion.div
-              className="grid grid-cols-2 md:grid-cols-4 gap-6"
+              className="grid grid-cols-2 md:grid-cols-4 gap-8"
               initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0, transition: { staggerChildren: 0.1, duration: 0.6 } }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ staggerChildren: 0.15, duration: 0.8 }}
             >
               {[
-                { value: '10 000+', label: 'Références produits', icon: <FaBoxOpen className="w-6 h-6" /> },
-                { value: '48h', label: 'Livraison rapide', icon: <FaClock className="w-6 h-6" /> },
-                { value: '8', label: 'Univers produits', icon: <FaLayerGroup className="w-6 h-6" /> },
-                { value: '100%', label: 'Clients satisfaits', icon: <FaSmile className="w-6 h-6" /> },
+                { value: '8000+', label: 'Références produits', icon: <FaBoxOpen className="w-7 h-7" />, color: 'from-[#159b8a] to-[#0F7B6C]' },
+                { value: '24h', label: 'Livraison rapide', icon: <FaClock className="w-7 h-7" />, color: 'from-[#007FFF] to-[#0056b3]' },
+                { value: '9', label: 'Univers produits', icon: <FaLayerGroup className="w-7 h-7" />, color: 'from-[#6366F1] to-[#4F46E5]' },
+                { value: '99%', label: 'Clients satisfaits', icon: <FaSmile className="w-7 h-7" />, color: 'from-[#F59E0B] to-[#D97706]' },
               ].map((stat, idx) => (
                 <motion.div
                   key={idx}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0, transition: { duration: 0.6 } }}
-                  whileHover={{ scale: 1.05, boxShadow: '0 8px 24px rgba(0,0,0,0.15)' }}
-                  className="backdrop-blur-lg bg-white/40 border border-white/30 rounded-2xl p-6 text-center cursor-default select-none transition-transform duration-200"
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: idx * 0.1 }}
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  className="relative group"
                 >
-                  <div className="flex items-center justify-center w-12 h-12 mx-auto mb-3 rounded-full bg-gradient-to-br from-[#159b8a]/20 to-[#007FFF]/20 text-[#159b8a]">
-                    {stat.icon}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/50 to-white/30 backdrop-blur-xl rounded-3xl border border-white/50 shadow-xl shadow-black/5 group-hover:shadow-2xl group-hover:shadow-black/10 transition-all duration-300"></div>
+                  <div className="relative z-10 p-8 text-center">
+                    <div className={`flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br ${stat.color} text-white shadow-lg transform group-hover:rotate-6 transition-transform duration-300`}>
+                      {stat.icon}
+                    </div>
+                    <div className="text-4xl font-black bg-gradient-to-br from-gray-800 to-gray-600 bg-clip-text text-transparent mb-2 tracking-tight">
+                      <AnimatedCounter value={stat.value} duration={2500} />
+                    </div>
+                    <div className="text-sm font-medium text-gray-600 uppercase tracking-wider">{stat.label}</div>
                   </div>
-                  <span className="block text-3xl font-extrabold text-gray-900 mb-1">{stat.value}</span>
-                  <span className="block text-sm text-gray-700">{stat.label}</span>
+                  {/* Effet de lumière au survol */}
+                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-white/0 via-white/20 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                 </motion.div>
               ))}
             </motion.div>
@@ -269,7 +309,7 @@ const UniversProduitPage = () => {
                   <ul className="text-gray-600 mb-6 space-y-3 text-lg">
                     <li>✔️ Stock permanent sur l'ensemble des familles</li>
                     <li>✔️ Livraison rapide sur chantier ou retrait en agence</li>
-                    <li>✔️ Conseils personnalisés par des experts métier</li>
+                    <li>✔️ Conseils personnalisés par des experts métiers</li>
                     <li>✔️ Marques leaders et produits éco-responsables</li>
                     <li>✔️ Service location de matériel professionnel</li>
                   </ul>
@@ -295,14 +335,17 @@ const UniversProduitPage = () => {
         {/* Catégories de produits */}
         <section className="py-16 bg-gradient-to-br from-[#EEF7FF] to-white">
           <div className="container mx-auto px-4">
-            <FadeInWhenVisible>
-              <h2 className="text-3xl font-bold text-center text-gray-800 mb-4">
-                Nos familles de produits
-              </h2>
-              <p className="text-center text-gray-600 max-w-3xl mx-auto mb-16">
-                Explorez notre gamme organisée par univers pour trouver rapidement la solution adaptée à votre chantier.
-              </p>
-            </FadeInWhenVisible>
+          <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold text-gray-800 mb-4">
+                  <span className="relative inline-block">
+                  Nos familles <span className="font-bold text-[#1E90FF]">produits</span>
+                    <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-[#7CB9E8] to-[#007FFF] rounded-full"></div>
+                  </span>
+                </h2>
+                <p className="text-gray-600 max-w-3xl mx-auto py-4">
+                Explorez notre gamme organisée par univers pour trouver rapidement la solution adaptée à votre chantier
+                </p>
+              </div>
             <motion.div 
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10"
               initial="hidden"
@@ -323,8 +366,8 @@ const UniversProduitPage = () => {
                   whileHover={{ scale: 1.04 }}
                   className="relative"
                 >
-                  <Link href={`/${categorie.link}`} className="block">
-                    <div className={`bg-gradient-to-br from-[#eaf6ff] to-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 border ${categorie.borderColor} h-full group relative`}>
+                  <Link href={`/${categorie.link}`} className="block h-full">
+                    <div className={`bg-gradient-to-br from-[#eaf6ff] to-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 border ${categorie.borderColor} h-full flex flex-col group relative`}>
                       <div className="relative h-52 overflow-hidden">
                         <Image 
                           src={categorie.image} 
@@ -338,7 +381,7 @@ const UniversProduitPage = () => {
                         </div>
                         
                       </div>
-                      <div className="p-5">
+                      <div className="p-5 flex flex-col flex-1">
                         <p className="text-gray-600 text-sm mb-4 min-h-[48px]">{categorie.description}</p>
                         <div className="space-y-2">
                           <h4 className={`${categorie.textColor} font-semibold mb-2 text-sm`}>Produits phares :</h4>
@@ -353,7 +396,7 @@ const UniversProduitPage = () => {
                             ))}
                           </ul>
                         </div>
-                        <div className="mt-5 flex justify-end">
+                        <div className="mt-auto flex justify-end">
                           <Link href={`/${categorie.link}`}>
                             <span className={`inline-flex items-center text-sm font-medium ${categorie.textColor} group-hover:underline`}>
                               Découvrir la gamme
@@ -373,159 +416,54 @@ const UniversProduitPage = () => {
         </section>
 
         {/* Section marques partenaires */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <FadeInWhenVisible>
-              <h2 className="text-3xl font-bold text-center mb-4 bg-gradient-to-r from-[#159b8a] to-[#007FFF] bg-clip-text text-transparent">
-                Nos marques partenaires
-              </h2>
-              <p className="text-center text-gray-600 max-w-3xl mx-auto mb-12">
-                Nous travaillons avec les meilleures marques du marché pour vous garantir des produits de qualité, durables et performants.
-              </p>
-            </FadeInWhenVisible>
-            <div className="relative">
-              {/* Boutons de scroll manuel */}
-              <button
-                aria-label="Défiler vers la gauche"
-                onClick={() => scrollLogos('left')}
-                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-[#159b8a] hover:text-white text-[#159b8a] rounded-full shadow-lg w-10 h-10 flex items-center justify-center transition-all border border-[#159b8a]"
-                style={{ boxShadow: '0 2px 8px #159b8a22' }}
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
-              </button>
-              <button
-                aria-label="Défiler vers la droite"
-                onClick={() => scrollLogos('right')}
-                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-[#159b8a] hover:text-white text-[#159b8a] rounded-full shadow-lg w-10 h-10 flex items-center justify-center transition-all border border-[#159b8a]"
-                style={{ boxShadow: '0 2px 8px #159b8a22' }}
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
-              </button>
-              <motion.div
-                className="overflow-x-auto scrollbar-hide w-full"
-                ref={logosContainerRef}
-                initial={{}}
-                animate={{}}
-                style={{ WebkitOverflowScrolling: 'touch' }}
-              >
-                <motion.div
-                  className="flex gap-10 items-center w-full"
-                  animate={{ x: [0, -600] }}
-                  transition={{ repeat: Infinity, duration: 18, ease: 'linear' }}
-                >
-                  {[
-                    '/fournisseurs/deville-logo.jpg',
-                    '/fournisseurs/edma-logo.jpg',
-                    '/fournisseurs/invicta-logo.png',
-                    '/fournisseurs/spp-h-logo.jpg',
-                    '/fournisseurs/talia-logo.jpg',
-                    '/fournisseurs/fhe_logo.webp',
-                    '/fournisseurs/dewalt_logo.jpg',
-                    '/fournisseurs/clivet_logo19.png',
-                    '/fournisseurs/logo_multitubo.jpg',
-                    '/fournisseurs/logo_ursa_hd.jpg',
-                    '/fournisseurs/logo_teddington_1934_cmjn_vecto_bd.jpg',
-                    '/fournisseurs/makita_logo.png',
-                    '/fournisseurs/logo_stanley_utilisation_digitale.jpg',
-                    '/fournisseurs/watts_logo_dernier.jpg',
-                    '/fournisseurs/rockwool_logo_primary_colour_rgb.png',
-                    '/fournisseurs/knauf-logo.png',
-                    '/fournisseurs/airsolar-logo.png',
-                    '/fournisseurs/airwell-logo.png',
-                    '/fournisseurs/logo-adrien.png',
-                    '/fournisseurs/logo-izar.jpg',
-                    '/fournisseurs/wavin-logo.png',
-                  ].map((logo, index) => (
-                    <div key={index} className="w-32 h-16 md:w-40 md:h-20 relative transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#159b8a]/20 flex-shrink-0">
-                      <Image 
-                        src={logo} 
-                        alt="Marque partenaire" 
-                        fill 
-                        className="object-contain"
-                        sizes="(max-width: 768px) 128px, 160px"
-                      />
-                    </div>
-                  ))}
-                  {/* On duplique la liste pour un effet de boucle continue */}
-                  {[
-                    '/fournisseurs/deville-logo.jpg',
-                    '/fournisseurs/edma-logo.jpg',
-                    '/fournisseurs/invicta-logo.png',
-                    '/fournisseurs/spp-h-logo.jpg',
-                    '/fournisseurs/talia-logo.jpg',
-                    '/fournisseurs/fhe_logo.webp',
-                    '/fournisseurs/dewalt_logo.jpg',
-                    '/fournisseurs/clivet_logo19.png',
-                    '/fournisseurs/logo_multitubo.jpg',
-                    '/fournisseurs/logo_ursa_hd.jpg',
-                    '/fournisseurs/logo_teddington_1934_cmjn_vecto_bd.jpg',
-                    '/fournisseurs/makita_logo.png',
-                    '/fournisseurs/logo_stanley_utilisation_digitale.jpg',
-                    '/fournisseurs/watts_logo_dernier.jpg',
-                    '/fournisseurs/rockwool_logo_primary_colour_rgb.png',
-                    '/fournisseurs/knauf-logo.png',
-                    '/fournisseurs/airsolar-logo.png',
-                    '/fournisseurs/airwell-logo.png',
-                    '/fournisseurs/logo-adrien.png',
-                    '/fournisseurs/logo-izar.jpg',
-                    '/fournisseurs/wavin-logo.png',
-                  ].map((logo, index) => (
-                    <div key={index+100} className="w-32 h-16 md:w-40 md:h-20 relative transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#159b8a]/20 flex-shrink-0">
-                      <Image 
-                        src={logo} 
-                        alt="Marque partenaire" 
-                        fill 
-                        className="object-contain"
-                        sizes="(max-width: 768px) 128px, 160px"
-                      />
-                    </div>
-                  ))}
-                </motion.div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
+        <PartnersCarousel />
 
         {/* Section avantages */}
-        <section className="py-16 bg-gradient-to-br from-[#159b8a]/5 to-blue-500/5">
+        <section className="py-16 bg-gradient-to-br from-[#1E90FF]/5 to-blue-500/5">
           <div className="container mx-auto px-4">
-            <FadeInWhenVisible>
-              <h2 className="text-3xl font-bold text-center text-gray-800 mb-16">
-                Pourquoi choisir Distritherm Services ?
-              </h2>
-            </FadeInWhenVisible>
+          <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold text-gray-800 mb-4">
+                  <span className="relative inline-block">
+                    Pourquoi choisir  <span className="font-bold text-[#1E90FF]">Distritherm Services</span> 
+                    <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-[#7CB9E8] to-[#007FFF] rounded-full"></div>
+                  </span>
+                </h2>
+                <p className="text-gray-600 max-w-2xl mx-auto py-4">
+                  Découvrez les avantages qui font de nous votre partenaire privilégié
+                </p>
+              </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
                 {
                   icon: (
-                    <svg className="w-10 h-10 text-[#159b8a]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                   ),
-                  title: 'Qualité garantie',
-                  description: 'Tous nos produits sont sélectionnés pour leur qualité et leur durabilité, et sont garantis par nos fournisseurs.'
+                  title: 'Produits de Qualité',
+                  description: 'Nous mettons un point d\'honneur à choisir des produits certifiés et brevetés pour vous garantir performance et fiabilité.'
                 },
                 {
                   icon: (
-                    <svg className="w-10 h-10 text-[#159b8a]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                   ),
-                  title: 'Livraison rapide',
-                  description: 'Service de livraison rapide sur l\'ensemble de l\'Île-de-France et au-delà pour vous permettre d\'avancer sur vos chantiers.'
+                  title: 'Disponibilité Immédiate',
+                  description: 'Plus de 3 000 références en stock pour un usage immédiat. A retirer en magasin ou en livraison sous 48/72h.'
                 },
                 {
                   icon: (
-                    <svg className="w-10 h-10 text-[#159b8a]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                   ),
-                  title: 'Conseil expert',
-                  description: 'Notre équipe de conseillers techniques vous guide dans le choix des produits les plus adaptés à vos projets.'
+                  title: 'Expertise Technique',
+                  description: 'Notre force est notre expertise, nous nous formons tous les jours aux nouveautés des matériaux et systèmes mis sur le marché.'
                 },
                 {
                   icon: (
-                    <svg className="w-10 h-10 text-[#159b8a]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                   ),
@@ -534,12 +472,102 @@ const UniversProduitPage = () => {
                 }
               ].map((avantage, index) => (
                 <FadeInWhenVisible key={index} delay={index * 0.1}>
-                  <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100 hover:shadow-lg transition-shadow duration-300 group h-full flex flex-col">
-                    <div className="rounded-full bg-[#159b8a]/10 w-16 h-16 flex items-center justify-center mb-4 group-hover:bg-[#159b8a]/20 transition-colors duration-300">
+                  <div
+                    className={`${
+                      avantage.title === 'Produits de Qualité'
+                        ? 'bg-gradient-to-r from-[#8EC5FC] via-[#c2d9fe] to-[#E0C3FC] text-gray-800 shadow-lg relative overflow-hidden'
+                        : avantage.title === 'Disponibilité Immédiate'
+                        ? 'bg-gradient-to-r from-[#FFE5B4] via-[#FFD3A5] to-[#FFBC8B] text-gray-800 shadow-lg relative overflow-hidden'
+                        : avantage.title === 'Expertise Technique'
+                        ? 'bg-gradient-to-r from-[#D1F7C4] via-[#B6F3E6] to-[#C0F2F1] text-gray-800 shadow-lg relative overflow-hidden'
+                        : avantage.title === 'Prix compétitifs'
+                        ? 'bg-gradient-to-r from-[#FFD6E0] via-[#FDC5D0] to-[#F6B4C2] text-gray-800 shadow-lg relative overflow-hidden'
+                        : 'bg-white text-gray-800 shadow-md'
+                    } rounded-xl p-6 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 min-h-[300px] flex flex-col`}
+                  >
+                    {/* Icône de fond (grande, décorative) */}
+                    {avantage.title === 'Produits de Qualité' && (
+                      <div className="absolute inset-0 flex items-center justify-center opacity-10">
+                        <svg
+                          className="w-32 h-32 text-gray-500/20"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                          ></path>
+                        </svg>
+                      </div>
+                    )}
+                    {avantage.title === 'Disponibilité Immédiate' && (
+                      <div className="absolute inset-0 flex items-center justify-center opacity-10">
+                        <svg
+                          className="w-32 h-32 text-gray-500/20"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                          ></path>
+                        </svg>
+                      </div>
+                    )}
+                    {avantage.title === 'Expertise Technique' && (
+                      <div className="absolute inset-0 flex items-center justify-center opacity-10">
+                        <svg
+                          className="w-32 h-32 text-gray-500/20"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                          ></path>
+                        </svg>
+                      </div>
+                    )}
+                    {avantage.title === 'Prix compétitifs' && (
+                      <div className="absolute inset-0 flex items-center justify-center opacity-10">
+                        <svg
+                          className="w-32 h-32 text-gray-500/20"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                          ></path>
+                        </svg>
+                      </div>
+                    )}
+
+                    {/* Petite icône principale */}
+                    <div className="w-20 h-20 mx-auto mb-6 flex items-center justify-center text-3xl rounded-full bg-white/40 backdrop-blur-sm border-2 border-white/50 text-[#159b8a] relative z-10">
                       {avantage.icon}
                     </div>
-                    <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-[#159b8a] transition-colors duration-300">{avantage.title}</h3>
-                    <p className="text-gray-600 flex-grow">{avantage.description}</p>
+                    <h3 className="text-xl font-bold mb-3 relative z-10 text-gray-800">{avantage.title}</h3>
+                    <p className="flex-grow relative z-10 text-gray-700">{avantage.description}</p>
                   </div>
                 </FadeInWhenVisible>
               ))}
@@ -549,17 +577,17 @@ const UniversProduitPage = () => {
 
         {/* Section CTA */}
         <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="bg-gradient-to-r from-[#159b8a] to-blue-600 rounded-2xl overflow-hidden shadow-xl">
+          <div className="container mx-auto px-4 text-center">
+            <div className="bg-gradient-to-r from-[#159b8a] to-blue-500 rounded-2xl overflow-hidden shadow-xl">
               <div className="flex flex-col md:flex-row items-center">
-                <div className="md:w-1/2 p-8 md:p-12">
+                <div className="w-full p-8 md:p-12 flex flex-col items-center justify-center text-center">
                   <FadeInWhenVisible>
                     <h2 className="text-3xl font-bold text-white mb-4">Besoin d'assistance pour votre projet ?</h2>
-                    <p className="text-white/90 mb-8">
+                    <p className="text-white/90 mb-8 max-w-6xl mx-auto">
                       Nos experts sont à votre disposition pour vous accompagner dans le choix des produits 
                       adaptés à votre projet et vous conseiller sur les meilleures solutions.
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-4">
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
                       <Link href="/contact">
                         <button className="px-6 py-3 bg-white text-[#159b8a] font-semibold rounded-lg hover:bg-gray-100 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50">
                           Demander un devis
@@ -572,18 +600,6 @@ const UniversProduitPage = () => {
                       </Link>
                     </div>
                   </FadeInWhenVisible>
-                </div>
-                <div className="md:w-1/2 relative">
-                  <div className="h-64 md:h-full min-h-[320px] relative">
-                    <Image 
-                      src="/devis-gratuit.png" 
-                      alt="Assistance projet" 
-                      fill 
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#159b8a]/80 to-transparent md:from-transparent"></div>
-                  </div>
                 </div>
               </div>
             </div>

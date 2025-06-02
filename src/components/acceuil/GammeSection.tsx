@@ -43,7 +43,7 @@ const categories = [
   },
   { 
     id: 'electricite', 
-    name: 'Électricité', 
+    name: 'Energie solaire', 
     image: '/electricite-image.png',
     description: 'Matériel électrique de qualité'
   },

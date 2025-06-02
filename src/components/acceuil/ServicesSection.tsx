@@ -29,7 +29,7 @@ const services = [
         <FaUserPlus className="w-8 h-8 text-[#007FFF]" />
       </div>
     ),
-    link: '/compte-pro'
+    link: '/contact'
   },
   {
     id: 'livraison',
@@ -40,7 +40,7 @@ const services = [
         <FaTruck className="w-8 h-8 text-[#007FFF]" />
       </div>
     ),
-    link: '/contact'
+    link: '/qui-sommes-nous#service-livraison'
   },
   {
     id: 'devis',
@@ -82,14 +82,14 @@ const ServicesSection = () => {
 
   return (
     <>
-      <section className="py-20 bg-gradient-to-br via-white to-blue-100">
+      <section className="py-4 bg-gradient-to-br via-white to-blue-100">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">
               <span className="bg-gradient-to-r from-[#007FFF] to-blue-400 bg-clip-text text-transparent">Distritherm Services</span>
             </h2>
             <div className="w-28 h-1 bg-gradient-to-r from-[#007FFF] to-blue-400 mx-auto mb-6 rounded-full"></div>
-            <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-600 max-w-6xl mx-auto leading-relaxed">
               Distritherm, votre <span className="text-[#007FFF] font-semibold">partenaire</span> indépendant spécialisé dans la distribution de matériel pour la <span className="text-[#007FFF] font-semibold">rénovation énergétique</span> de l'habitat.
             </p>
           </div>

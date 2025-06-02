@@ -33,10 +33,8 @@ const Footer: React.FC = () => {
                 <Link href="https://facebook.com" className="text-gray-600 hover:text-blue-600">
                   <FaFacebookF size={20} />
                 </Link>
-                <Link href="https://twitter.com" className="text-gray-600 hover:text-blue-400">
-                  <FaTwitter size={20} />
-                </Link>
-                <Link href="https://linkedin.com" className="text-gray-600 hover:text-blue-800">
+                
+                <Link href="https://www.linkedin.com/company/ditritherm-services/" className="text-gray-600 hover:text-blue-800">
                   <FaLinkedinIn size={20} />
                 </Link>
               </div>
@@ -52,7 +50,7 @@ const Footer: React.FC = () => {
              
               <p className="font-semibold">Magasin Drancy</p>
               <p>151 rue Diderot, 93700 Drancy</p>
-              <p className="font-semibold">Numéro Téléphone</p>
+              <p className="font-semibold">Téléphone</p>
               <p><a href="">01 71 68 72 12 </a></p>
             </div>
           </div>
@@ -89,7 +87,12 @@ const Footer: React.FC = () => {
               </li>
               <li>
                 <Link href="/gamme/electricite" className="hover:text-blue-200">
-                  Électricité
+                  Energie Solaire
+                </Link>
+              </li>
+              <li>
+                <Link href="/gamme/electricite" className="hover:text-blue-200">
+                  Verre sur mesure
                 </Link>
               </li>
             </ul>
@@ -117,7 +120,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-2">
               <li>
                 <Link href="/a-propos" className="hover:text-blue-200">
-                  À propos de Distritherm Service
+                  À propos de Distritherm Services
                 </Link>
               </li>
               <li>

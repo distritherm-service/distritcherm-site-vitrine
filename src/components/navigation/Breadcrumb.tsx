@@ -36,9 +36,10 @@ const Breadcrumb: React.FC = () => {
   return (
     <nav
       aria-label="Fil d'Ariane"
-      className="relative bg-transparent backdrop-blur-sm"
+      className="relative bg-white/70 backdrop-blur-md shadow-md ring-1 ring-white/40 rounded-xl"
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-[#7CB9E8]/0 via-white/30 to-[#007FFF]/0 pointer-events-none"></div>
+      {/* Voile de soutien pour une meilleure lisibilité */}
+      <div className="absolute inset-0 bg-white/60 backdrop-blur-sm rounded-xl pointer-events-none"></div>
       <div className="container relative mx-auto px-4">
         <ol className="flex items-center py-3 overflow-x-auto scrollbar-hide gap-1" role="list">
           {breadcrumbs.map((item, index) => (

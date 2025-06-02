@@ -109,10 +109,10 @@ const IsolationPage = () => {
               >
                 <div className="relative w-full h-full min-h-[280px] rounded-3xl overflow-hidden bg-white shadow-xl">
                   <Image
-                    src="/isolation1.jpeg"
+                    src="/image-isolation.png"
                     alt="Isolation chantier"
                     fill
-                    className="object-cover rounded-3xl hover:scale-105 hover:shadow-2xl transition-transform duration-300 max-w-[300px] max-h-[350px] mx-auto my-auto"
+                    className="object-cover rounded-3xl hover:scale-105 hover:shadow-2xl transition-transform duration-300 max-w-[600px] max-h-[350px] mx-auto my-auto"
                   />
                 </div>
               </motion.div>
@@ -169,7 +169,7 @@ const IsolationPage = () => {
               >
                 <div className="relative w-full h-full min-h-[280px] rounded-3xl overflow-hidden bg-white shadow-xl">
                   <Image
-                    src="/isolation2.jpeg"
+                    src="/image-isolation.png"
                     alt="Gamme isolation"
                     fill
                     className="object-cover rounded-3xl hover:scale-105 hover:shadow-2xl transition-transform duration-300"
@@ -213,12 +213,12 @@ const IsolationPage = () => {
                 viewport={{ once: true }}
                 className="flex-1 flex justify-center items-stretch"
               >
-                <div className="relative w-full h-full min-h-[280px] rounded-3xl overflow-hidden bg-white shadow-xl">
+                <div className="relative w-full h-full min-h-[80px] rounded-3xl overflow-hidden bg-white shadow-xl">
                   <Image
                     src="/isolation3.jpg"
                     alt="Expertise isolation"
                     fill
-                    className="object-cover rounded-3xl hover:scale-105 hover:shadow-2xl transition-transform duration-300"
+                    className="object-cover rounded-3xl hover:scale-105 hover:shadow-2xl transition-transform duration-300 max-w-[400px] max-h-[250px] mx-auto my-auto"
                   />
                 </div>
               </motion.div>
