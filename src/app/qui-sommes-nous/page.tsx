@@ -52,22 +52,22 @@ const QuiSommesNous: React.FC = () => {
 
   const valeurs = [
     { 
-      icon: <FaUsers />, 
+      icon: <img src="/icone/proximite-client.png" alt="Proximité client" className="w-10 h-10 object-contain" />, 
       title: "Proximité client", 
       description: "Nous plaçons la satisfaction et l'écoute de nos clients au centre de nos préoccupations." 
     },
     { 
-      icon: <FaAward />, 
+      icon: <img src="/icone/expertise.png" alt="Expertise" className="w-10 h-10 object-contain" />, 
       title: "Expertise", 
       description: "Notre équipe d'experts qualifiés vous garantit des conseils professionnels et pertinents." 
     },
     { 
-      icon: <FaThumbsUp />, 
+      icon: <img src="/icone/produit-qualite.png" alt="Qualité" className="w-10 h-10 object-contain" />, 
       title: "Qualité", 
       description: "Nous sélectionnons rigoureusement nos produits pour vous offrir le meilleur rapport qualité-prix." 
     },
     { 
-      icon: <FaTruck />, 
+      icon: <img src="/icone/reactivite.png" alt="Réactivité" className="w-10 h-10 object-contain" />, 
       title: "Réactivité", 
       description: "Notre service de livraison rapide vous permet de disposer de vos produits dans les meilleurs délais." 
     }
@@ -119,7 +119,7 @@ const QuiSommesNous: React.FC = () => {
             <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-transparent backdrop-blur-sm" />
           </div>
           <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white drop-shadow-lg mb-4 tracking-tight">Qui Sommes Nous</h1>
+            <h1 className="text-4xl md:text-6xl lg:text-6xl font-extrabold text-white drop-shadow-lg mb-4 tracking-tight">Qui Sommes Nous ?</h1>
             <br />
             <Breadcrumb />
           </div>
@@ -218,22 +218,22 @@ const QuiSommesNous: React.FC = () => {
                   >
                     {valeur.title === 'Proximité client' && (
                       <div className="absolute inset-0 flex items-center justify-center opacity-10">
-                        <FaUsers className="text-8xl text-gray-500/20" />
+                        <img src="/icone/proximite-client.png" alt="Fond Proximité client" className="w-32 h-32 object-contain" />
                       </div>
                     )}
                     {valeur.title === 'Expertise' && (
                       <div className="absolute inset-0 flex items-center justify-center opacity-10">
-                        <FaAward className="text-8xl text-gray-500/20" />
+                        <img src="/icone/expertise.png" alt="Fond Expertise" className="w-32 h-32 object-contain" />
                       </div>
                     )}
                     {valeur.title === 'Qualité' && (
                       <div className="absolute inset-0 flex items-center justify-center opacity-10">
-                        <FaThumbsUp className="text-8xl text-gray-500/20" />
+                        <img src="/icone/produit-qualite.png" alt="Fond Qualité" className="w-32 h-32 object-contain" />
                       </div>
                     )}
                     {valeur.title === 'Réactivité' && (
                       <div className="absolute inset-0 flex items-center justify-center opacity-10">
-                        <FaTruck className="text-8xl text-gray-500/20" />
+                        <img src="/icone/reactivite.png" alt="Fond Réactivité" className="w-32 h-32 object-contain" />
                       </div>
                     )}
                     <div className="w-20 h-20 mx-auto mb-6 flex items-center justify-center text-3xl rounded-full bg-white/40 backdrop-blur-sm border-2 border-white/50 text-[#159b8a] relative z-10">

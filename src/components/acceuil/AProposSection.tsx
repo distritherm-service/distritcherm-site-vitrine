@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { HiOutlineChartBar, HiOutlineClock, HiOutlineGlobe } from 'react-icons/hi';
@@ -6,21 +6,41 @@ import { HiOutlineChartBar, HiOutlineClock, HiOutlineGlobe } from 'react-icons/h
 
 
 const AProposSection = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      // Tentative de lecture au montage pour garantir l'autoplay
+      const playPromise = video.play();
+      if (playPromise && typeof playPromise.then === 'function') {
+        playPromise.catch((err) => {
+          // Certains navigateurs bloquent encore : on réessaie après une légère attente
+          setTimeout(() => {
+            video.play().catch(() => {});
+          }, 100);
+        });
+      }
+    }
+  }, []);
+
   return (
     <section className="relative py-24 overflow-hidden">
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
         <video
+          ref={videoRef}
           src="/video/video-bienvenue.mp4"
           autoPlay
           loop
           muted
           playsInline
+          preload="auto"
           className="w-full h-full object-cover"
         />
         {/* Overlay pour améliorer la lisibilité */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/60"></div>
-        <div className="absolute inset-0 bg-blue-900/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-black/30 via-black/20 to-black/30"></div>
+        <div className="absolute inset-0"></div>
       </div>
 
       {/* Contenu principal */}

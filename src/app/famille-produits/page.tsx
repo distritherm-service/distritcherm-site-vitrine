@@ -436,36 +436,28 @@ const UniversProduitPage = () => {
               {[
                 {
                   icon: (
-                    <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
+                    <img src="/icone/produit-qualite.png" alt="Produits de Qualité" className="w-10 h-10 object-contain" />
                   ),
                   title: 'Produits de Qualité',
                   description: 'Nous mettons un point d\'honneur à choisir des produits certifiés et brevetés pour vous garantir performance et fiabilité.'
                 },
                 {
                   icon: (
-                    <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
+                    <img src="/icone/disponibilite.png" alt="Disponibilité Immédiate" className="w-10 h-10 object-contain" />
                   ),
                   title: 'Disponibilité Immédiate',
                   description: 'Plus de 3 000 références en stock pour un usage immédiat. A retirer en magasin ou en livraison sous 48/72h.'
                 },
                 {
                   icon: (
-                    <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
+                    <img src="/icone/expertise.png" alt="Expertise Technique" className="w-10 h-10 object-contain" />
                   ),
                   title: 'Expertise Technique',
                   description: 'Notre force est notre expertise, nous nous formons tous les jours aux nouveautés des matériaux et systèmes mis sur le marché.'
                 },
                 {
                   icon: (
-                    <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
+                    <img src="/icone/prix.png" alt="Prix compétitifs" className="w-10 h-10 object-contain" />
                   ),
                   title: 'Prix compétitifs',
                   description: 'Nous négocions directement avec les fabricants pour vous proposer les meilleurs prix du marché.'
@@ -488,77 +480,22 @@ const UniversProduitPage = () => {
                     {/* Icône de fond (grande, décorative) */}
                     {avantage.title === 'Produits de Qualité' && (
                       <div className="absolute inset-0 flex items-center justify-center opacity-10">
-                        <svg
-                          className="w-32 h-32 text-gray-500/20"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          viewBox="0 0 24 24"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                          ></path>
-                        </svg>
+                        <img src="/icone/produit-qualite.png" alt="Fond Produits de Qualité" className="w-32 h-32 object-contain" />
                       </div>
                     )}
                     {avantage.title === 'Disponibilité Immédiate' && (
                       <div className="absolute inset-0 flex items-center justify-center opacity-10">
-                        <svg
-                          className="w-32 h-32 text-gray-500/20"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          viewBox="0 0 24 24"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                          ></path>
-                        </svg>
+                        <img src="/icone/disponibilite.png" alt="Fond Disponibilité Immédiate" className="w-32 h-32 object-contain" />
                       </div>
                     )}
                     {avantage.title === 'Expertise Technique' && (
                       <div className="absolute inset-0 flex items-center justify-center opacity-10">
-                        <svg
-                          className="w-32 h-32 text-gray-500/20"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          viewBox="0 0 24 24"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                          ></path>
-                        </svg>
+                        <img src="/icone/expertise.png" alt="Fond Expertise Technique" className="w-32 h-32 object-contain" />
                       </div>
                     )}
                     {avantage.title === 'Prix compétitifs' && (
                       <div className="absolute inset-0 flex items-center justify-center opacity-10">
-                        <svg
-                          className="w-32 h-32 text-gray-500/20"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          viewBox="0 0 24 24"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                          ></path>
-                        </svg>
+                        <img src="/icone/prix.png" alt="Fond Prix compétitifs" className="w-32 h-32 object-contain" />
                       </div>
                     )}
 
