@@ -36,12 +36,12 @@ const Breadcrumb: React.FC = () => {
   return (
     <nav
       aria-label="Fil d'Ariane"
-      className="relative bg-white/70 backdrop-blur-md shadow-md ring-1 ring-white/40 rounded-xl"
+      className="relative bg-white/40 backdrop-blur-sm rounded-xl"
     >
       {/* Voile de soutien pour une meilleure lisibilité */}
-      <div className="absolute inset-0 bg-white/60 backdrop-blur-sm rounded-xl pointer-events-none"></div>
+      <div className="absolute inset-0 bg-white/30 rounded-xl pointer-events-none"></div>
       <div className="container relative mx-auto px-4">
-        <ol className="flex items-center py-3 overflow-x-auto scrollbar-hide gap-1" role="list">
+        <ol className="flex items-center py-2 overflow-x-auto scrollbar-hide gap-1" role="list">
           {breadcrumbs.map((item, index) => (
             <li key={item.href} className="flex items-center min-w-0" role="listitem">
               {index > 0 && (
@@ -49,19 +49,19 @@ const Breadcrumb: React.FC = () => {
               )}
               {index === breadcrumbs.length - 1 ? (
                 <span
-                  className="text-[#007FFF] font-semibold whitespace-nowrap bg-[#007FFF]/10 px-3 py-1.5 rounded-full inline-flex items-center text-sm shadow-sm cursor-default select-none"
+                  className={`font-semibold whitespace-nowrap bg-[#007FFF]/10 px-3 py-1.5 rounded-full inline-flex items-center text-sm shadow-sm cursor-default select-none ${index === 0 ? 'text-black' : 'text-[#007FFF]'}`}
                   aria-current="page"
                 >
-                  {index === 0 ? <FaHome className="w-4 h-4 mr-1.5 opacity-70" aria-hidden="true" /> : null}
+                  {index === 0 ? <FaHome className="w-4 h-4 mr-1.5 opacity-70 text-black" aria-hidden="true" /> : null}
                   {item.label}
                 </span>
               ) : (
                 <Link
                   href={item.href}
-                  className="text-gray-500 hover:text-[#007FFF] transition-colors duration-200 whitespace-nowrap inline-flex items-center text-sm px-2 py-1 rounded-full hover:bg-[#007FFF]/10 focus:outline-none focus:ring-2 focus:ring-[#007FFF]/30 focus:bg-[#007FFF]/10 group"
+                  className={`hover:text-[#007FFF] transition-colors duration-200 whitespace-nowrap inline-flex items-center text-sm px-2 py-1 rounded-full hover:bg-[#007FFF]/10 focus:outline-none focus:ring-2 focus:ring-[#007FFF]/30 focus:bg-[#007FFF]/10 group ${index === 0 ? 'text-black' : 'text-gray-500'}`}
                   tabIndex={0}
                 >
-                  {index === 0 ? <FaHome className="w-4 h-4 mr-1.5 opacity-70 group-hover:opacity-100 transition-opacity" aria-hidden="true" /> : null}
+                  {index === 0 ? <FaHome className="w-4 h-4 mr-1.5 opacity-70 text-black group-hover:opacity-100 transition-opacity" aria-hidden="true" /> : null}
                   <span className="truncate">{item.label}</span>
                 </Link>
               )}
