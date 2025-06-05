@@ -18,7 +18,7 @@ const categories = [
   { 
     id: 'isolation', 
     name: 'Isolation', 
-    image: '/isolation-image.png',
+    image: '/image-isolation.png',
     description: 'Matériaux isolants performants pour une efficacité thermique et acoustique optimale de vos bâtiments.'
   },
   { 

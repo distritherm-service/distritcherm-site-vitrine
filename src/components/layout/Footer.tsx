@@ -86,6 +86,11 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/gamme/isolation" className="hover:text-blue-200">
+                  Outillage - EPI
+                </Link>
+              </li>
+              <li>
                 <Link href="/gamme/electricite" className="hover:text-blue-200">
                   Energie Solaire
                 </Link>

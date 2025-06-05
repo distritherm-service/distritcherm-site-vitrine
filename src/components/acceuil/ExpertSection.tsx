@@ -21,7 +21,7 @@ const ExpertSection = () => {
               </Link>
             </div>
           </div>
-          <div className="absolute right-32 bottom-0 h-[320px]" style={{ transform: 'translateY(30px)' }}>
+          <div className="absolute right-32 bottom-0 h-[320px]" style={{ transform: 'translateY(-2px)' }}>
             <div className="relative h-full min-w-[450px] w-auto">
               <Image
                 src="/image-conseiller2.png"

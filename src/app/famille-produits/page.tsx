@@ -102,7 +102,7 @@ const categories = [
     id: 'isolation',
     nom: 'Isolation',
     description: 'Matériaux isolants haute performance pour l\'efficacité énergétique de votre habitation. Solutions thermiques et acoustiques.',
-    image: '/isolation-image.png',
+    image: '/image-isolation.png',
     link: 'gamme/isolation',
     produits: [
       'Laine de verre',
@@ -138,7 +138,7 @@ const categories = [
     id: 'sanitaire',
     nom: 'Sanitaire',
     description: 'Équipements sanitaires modernes alliant fonctionnalité et esthétique. Lavabos, robinetterie, douches et accessoires de salle de bain.',
-    image: '/sanitaire-image.png',
+    image: '/sanitaire-image2.png',
     link: 'gamme/sanitaire',
     produits: [
       'Robinetterie',
@@ -174,7 +174,7 @@ const categories = [
     id: 'outillage',
     nom: 'Outillage',
     description: 'Outils professionnels pour tous les corps de métier du bâtiment. Outillage électroportatif, manuel et accessoires de qualité.',
-    image: '/outillage-image.png',
+    image: '/outillage.png',
     link: 'gamme/outillage',
     produits: [
       'Outillage électroportatif',
@@ -238,7 +238,7 @@ const UniversProduitPage = () => {
 
           {/* Contenu : Titre + Breadcrumb */}
           <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white drop-shadow-lg mb-4 tracking-tight">Univers Produits</h1>
+            <h1 className="text-4xl md:text-6xl lg:text-6xl font-extrabold text-white drop-shadow-lg mb-4 tracking-tight">Univers Produits</h1>
             <br />
             <Breadcrumb />
           </div>

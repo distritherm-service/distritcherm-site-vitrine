@@ -40,7 +40,7 @@ const IsolationPage = () => {
           {/* Image d'arrière-plan */}
           <div className="absolute inset-0 z-0">
             <Image
-              src="/isolation-image.png"
+              src="/image-isolation.png"
               alt="Solutions d'isolation thermique et acoustique"
               fill
               className="object-cover"
@@ -109,7 +109,7 @@ const IsolationPage = () => {
               >
                 <div className="relative w-full h-full min-h-[280px] rounded-3xl overflow-hidden bg-white shadow-xl">
                   <Image
-                    src="/image-isolation.png"
+                    src="/isolation1.jpeg"
                     alt="Isolation chantier"
                     fill
                     className="object-cover rounded-3xl hover:scale-105 hover:shadow-2xl transition-transform duration-300 max-w-[600px] max-h-[350px] mx-auto my-auto"
@@ -169,7 +169,7 @@ const IsolationPage = () => {
               >
                 <div className="relative w-full h-full min-h-[280px] rounded-3xl overflow-hidden bg-white shadow-xl">
                   <Image
-                    src="/image-isolation.png"
+                    src="/isolation2.jpeg"
                     alt="Gamme isolation"
                     fill
                     className="object-cover rounded-3xl hover:scale-105 hover:shadow-2xl transition-transform duration-300"

@@ -19,6 +19,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Distritherm Services",
   description: "Magasin de materiaux de construction",
+  icons: {
+    icon: [{ url: '/icone/favicon.ico', type: 'image/x-icon' }],
+    shortcut: { url: '/icone/favicon.ico', type: 'image/x-icon' },
+    apple: [{ url: '/icone/logofaviconds.ico', type: 'image/x-icon' }],
+  },
 };
 
 export default function RootLayout({
@@ -28,6 +33,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Les balises d'icône seront générées par Next.js à partir de l'objet metadata */}
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

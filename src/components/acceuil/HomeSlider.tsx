@@ -24,7 +24,7 @@ const slides = [
   },
   {
     id: 3,
-    image: "/slider3.jpg",
+    image: "/slider3.png",
     alt: "Livraison rapide",
     title: "Livraison Express sur Chantier",
     description: "Un service fiable et rapide pour tous vos besoins professionnels.",
