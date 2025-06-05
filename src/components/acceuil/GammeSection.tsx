@@ -14,7 +14,7 @@ const categories = [
   { 
     id: 'isolation', 
     name: 'Isolation', 
-    image: '/isolation-image.png',
+    image: '/image-isolation.png',
     description: 'Matériaux isolants performants'
   },
   { 
